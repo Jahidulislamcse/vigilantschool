@@ -88,18 +88,22 @@ h4,
 .display-4,
 .display-5,
 .display-6 {
-    font-family: 'Lobster Two', cursive;
+    font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-weight: 700;
+    color: var(--dark);
+    letter-spacing: -0.02em;
 }
 
 h5,
 h6,
 .h5,
 .h6 {
+    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
     font-weight: 600;
 }
 
-.font-secondary {
+.font-secondary,
+.font-cursive {
     font-family: 'Lobster Two', cursive;
 }
 

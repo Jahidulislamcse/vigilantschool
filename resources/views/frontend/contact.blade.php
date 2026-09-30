@@ -38,7 +38,7 @@
             <div class="bg-light rounded">
                 <div class="row g-0">
                     <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                        <div class="h-100 d-flex flex-column justify-content-center p-5">
+                        <div class="h-100 d-flex flex-column justify-content-center p-4 p-md-5">
                             <h3 class="mb-4">Send Us A Direct Message</h3>
 
                             @if(session('success_contact'))
