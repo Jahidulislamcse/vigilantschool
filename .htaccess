@@ -1,0 +1,22 @@
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    # Prevent direct access to sensitive configuration and environment files
+    RewriteRule ^(\.env|\.git|composer\.(json|lock)|package\.json|phpunit\.xml|vite\.config\.js) - [F,L,NC]
+
+    # Block access to core internal code and private storage folders
+    RewriteRule ^(app|bootstrap|config|database|resources|routes|tests)/ - [F,L,NC]
+    RewriteRule ^storage/(framework|logs|app/private)/ - [F,L,NC]
+
+    # If the request already targets the /public folder, do not rewrite
+    RewriteCond %{REQUEST_URI} ^/public/ [NC]
+    RewriteRule ^ - [L]
+
+    # Rewrite all visitor requests to the public directory
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
