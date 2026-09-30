@@ -43,7 +43,7 @@
                 <h1 class="mb-3">Our School Facilities</h1>
                 <p class="text-muted">Equipped with 2 dedicated teachers per junior classroom, science & computer labs, 24/7 CCTV surveillance, and after-class assistance programmes.</p>
             </div>
-            <div class="row g-4">
+            <div class="row g-2 g-md-3 g-lg-4">
                 @php
                     $colors = ['primary', 'success', 'warning', 'info'];
                     $delay = 0.1;
@@ -52,7 +52,7 @@
                 @php
                     $theme = $facility->color_theme ?: $colors[$index % 4];
                 @endphp
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="{{ $delay }}s">
+                <div class="col-6 col-lg-3 wow fadeInUp" data-wow-delay="{{ $delay }}s">
                     <div class="facility-item facility-card-{{ $theme }}">
                         <div class="facility-icon bg-{{ $theme }}">
                             <i class="fa-solid {{ $facility->icon ?? 'fa-school' }} text-{{ $theme }}"></i>

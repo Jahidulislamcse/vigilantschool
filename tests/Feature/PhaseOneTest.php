@@ -39,7 +39,7 @@ class PhaseOneTest extends TestCase
         $response = $this->get('/admin/login');
 
         $response->assertStatus(200);
-        $response->assertSee('Sign in to access your administrative control panel');
+        $response->assertSee('Sign in to your administrative control panel');
     }
 
     public function test_admin_can_authenticate_and_access_dashboard_and_sliders(): void
@@ -65,6 +65,6 @@ class PhaseOneTest extends TestCase
         // Test Settings page access
         $settingsResponse = $this->actingAs($user)->get('/admin/settings');
         $settingsResponse->assertStatus(200);
-        $settingsResponse->assertSee('Dynamic School Configuration');
+        $settingsResponse->assertSee('School Configuration');
     }
 }

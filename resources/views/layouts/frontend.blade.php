@@ -29,9 +29,9 @@
     <link href="{{ asset('kider/css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="{{ asset('kider/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('kider/css/style.css') }}?v={{ time() }}" rel="stylesheet">
     <!-- Brand Theme Stylesheet -->
-    <link href="{{ asset('kider/css/vigilant-theme.css') }}" rel="stylesheet">
+    <link href="{{ asset('kider/css/vigilant-theme.css') }}?v={{ time() }}" rel="stylesheet">
 
     @stack('styles')
 </head>
