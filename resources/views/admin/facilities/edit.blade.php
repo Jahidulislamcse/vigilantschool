@@ -37,10 +37,11 @@
                         <div class="col-md-6">
                             <label class="form-label fw-bold small text-secondary">Card Color Theme *</label>
                             <select name="color_theme" class="form-select" required>
-                                <option value="primary" {{ old('color_theme', $facility->color_theme) == 'primary' ? 'selected' : '' }}>Primary (Orange)</option>
-                                <option value="success" {{ old('color_theme', $facility->color_theme) == 'success' ? 'selected' : '' }}>Success (Green)</option>
-                                <option value="warning" {{ old('color_theme', $facility->color_theme) == 'warning' ? 'selected' : '' }}>Warning (Yellow/Amber)</option>
-                                <option value="info" {{ old('color_theme', $facility->color_theme) == 'info' ? 'selected' : '' }}>Info (Teal/Blue)</option>
+                                <option value="primary" {{ old('color_theme', $facility->color_theme) == 'primary' ? 'selected' : '' }}>Primary (Royal Blue)</option>
+                                <option value="success" {{ old('color_theme', $facility->color_theme) == 'success' ? 'selected' : '' }}>Success (Emerald Green)</option>
+                                <option value="warning" {{ old('color_theme', $facility->color_theme) == 'warning' ? 'selected' : '' }}>Warning (Golden Amber)</option>
+                                <option value="info" {{ old('color_theme', $facility->color_theme) == 'info' ? 'selected' : '' }}>Info (Sky Blue)</option>
+                                <option value="secondary" {{ old('color_theme', $facility->color_theme) == 'secondary' ? 'selected' : '' }}>Secondary (Crimson Red)</option>
                             </select>
                         </div>
 

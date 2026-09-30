@@ -604,68 +604,94 @@ h1, h2, h3, h4, h5, h6,
     color: #0c4598 !important;
 }
 
-/* Facility Theme Specific Colors */
-.facility-card-primary .facility-icon,
-.facility-item:has(.bg-primary) .facility-icon {
-    background: #e8f0fe !important;
-}
-.facility-card-primary .facility-icon i,
-.facility-item:has(.bg-primary) .facility-icon i {
-    color: #0c4598 !important;
-}
-.facility-item:has(.bg-primary)::before {
+/* Facility Theme Specific Colors (Universal Support) */
+.facility-card-primary::before,
+.facility-item.facility-card-primary::before {
     background: #0c4598 !important;
 }
+.facility-card-primary .facility-icon,
+.facility-item.facility-card-primary .facility-icon,
+.facility-icon.bg-primary {
+    background-color: #e8f0fe !important;
+}
+.facility-card-primary .facility-icon i,
+.facility-item.facility-card-primary .facility-icon i,
+.facility-icon.bg-primary i,
+.facility-icon i.text-primary {
+    color: #0c4598 !important;
+}
 
-.facility-card-success .facility-icon,
-.facility-item:has(.bg-success) .facility-icon {
-    background: #e8f5e9 !important;
-}
-.facility-card-success .facility-icon i,
-.facility-item:has(.bg-success) .facility-icon i {
-    color: #0e9f4b !important;
-}
-.facility-item:has(.bg-success)::before {
+.facility-card-success::before,
+.facility-item.facility-card-success::before {
     background: #0e9f4b !important;
 }
+.facility-card-success .facility-icon,
+.facility-item.facility-card-success .facility-icon,
+.facility-icon.bg-success {
+    background-color: #e8f5e9 !important;
+}
+.facility-card-success .facility-icon i,
+.facility-item.facility-card-success .facility-icon i,
+.facility-icon.bg-success i,
+.facility-icon i.text-success {
+    color: #0e9f4b !important;
+}
 
-.facility-card-warning .facility-icon,
-.facility-item:has(.bg-warning) .facility-icon {
-    background: #fef3c7 !important;
-}
-.facility-card-warning .facility-icon i,
-.facility-item:has(.bg-warning) .facility-icon i {
-    color: #d97706 !important;
-}
-.facility-item:has(.bg-warning)::before {
+.facility-card-warning::before,
+.facility-item.facility-card-warning::before {
     background: #f59e0b !important;
 }
+.facility-card-warning .facility-icon,
+.facility-item.facility-card-warning .facility-icon,
+.facility-icon.bg-warning {
+    background-color: #fef3c7 !important;
+}
+.facility-card-warning .facility-icon i,
+.facility-item.facility-card-warning .facility-icon i,
+.facility-icon.bg-warning i,
+.facility-icon i.text-warning {
+    color: #d97706 !important;
+}
 
-.facility-card-info .facility-icon,
-.facility-item:has(.bg-info) .facility-icon {
-    background: #e0f2fe !important;
-}
-.facility-card-info .facility-icon i,
-.facility-item:has(.bg-info) .facility-icon i {
-    color: #0284c7 !important;
-}
-.facility-item:has(.bg-info)::before {
+.facility-card-info::before,
+.facility-item.facility-card-info::before {
     background: #0284c7 !important;
 }
+.facility-card-info .facility-icon,
+.facility-item.facility-card-info .facility-icon,
+.facility-icon.bg-info {
+    background-color: #e0f2fe !important;
+}
+.facility-card-info .facility-icon i,
+.facility-item.facility-card-info .facility-icon i,
+.facility-icon.bg-info i,
+.facility-icon i.text-info {
+    color: #0284c7 !important;
+}
 
+.facility-card-secondary::before,
+.facility-card-danger::before,
+.facility-item.facility-card-secondary::before,
+.facility-item.facility-card-danger::before {
+    background: #e31b23 !important;
+}
 .facility-card-secondary .facility-icon,
-.facility-item:has(.bg-secondary) .facility-icon,
-.facility-item:has(.bg-danger) .facility-icon {
-    background: #fde8e8 !important;
+.facility-card-danger .facility-icon,
+.facility-item.facility-card-secondary .facility-icon,
+.facility-item.facility-card-danger .facility-icon,
+.facility-icon.bg-secondary,
+.facility-icon.bg-danger {
+    background-color: #fde8e8 !important;
 }
 .facility-card-secondary .facility-icon i,
-.facility-item:has(.bg-secondary) .facility-icon i,
-.facility-item:has(.bg-danger) .facility-icon i {
+.facility-card-danger .facility-icon i,
+.facility-item.facility-card-secondary .facility-icon i,
+.facility-item.facility-card-danger .facility-icon i,
+.facility-icon.bg-secondary i,
+.facility-icon.bg-danger i,
+.facility-icon i.text-secondary,
+.facility-icon i.text-danger {
     color: #e31b23 !important;
-}
-.facility-item:has(.bg-secondary)::before,
-.facility-item:has(.bg-danger)::before {
-    background: #e31b23 !important;
 }
 
 /* ==========================================================================

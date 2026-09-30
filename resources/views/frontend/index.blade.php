@@ -55,7 +55,7 @@
                 <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="{{ $delay }}s">
                     <div class="facility-item facility-card-{{ $theme }}">
                         <div class="facility-icon bg-{{ $theme }}">
-                            <i class="fa {{ $facility->icon ?? 'fa-school' }} text-{{ $theme }}"></i>
+                            <i class="fa-solid {{ $facility->icon ?? 'fa-school' }} text-{{ $theme }}"></i>
                         </div>
                         <div class="facility-text">
                             <h3>{{ $facility->title }}</h3>
