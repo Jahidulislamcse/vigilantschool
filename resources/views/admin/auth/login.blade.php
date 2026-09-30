@@ -21,14 +21,16 @@
 
     <style>
         :root {
-            --primary: #FE5D37;
-            --primary-dark: #e04824;
-            --secondary: #103741;
+            --primary: #0c4598;
+            --primary-dark: #093472;
+            --secondary: #e31b23;
+            --secondary-dark: #be1218;
+            --dark-navy: #0a2240;
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #103741 0%, #194e5b 100%);
+            background: linear-gradient(135deg, #0a2240 0%, #103765 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -39,30 +41,31 @@
         .login-card {
             background: #fff;
             border-radius: 16px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
             overflow: hidden;
             width: 100%;
             max-width: 440px;
         }
 
         .login-header {
-            background: #f8fafc;
+            background: #f0f4fa;
             padding: 2.2rem 2rem 1.8rem;
             text-align: center;
-            border-bottom: 1px solid #edf2f7;
+            border-bottom: 1px solid #e2e8f0;
         }
 
-        .login-header .logo-icon {
-            width: 60px;
-            height: 60px;
-            background: rgba(254, 93, 55, 0.1);
-            color: var(--primary);
-            border-radius: 50%;
+        .login-header .logo-box {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
             margin-bottom: 1rem;
+        }
+
+        .login-header .logo-box img {
+            height: 70px;
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.12));
         }
 
         .login-body {
@@ -71,7 +74,7 @@
 
         .form-control:focus {
             border-color: var(--primary);
-            box-shadow: 0 0 0 0.25rem rgba(254, 93, 55, 0.25);
+            box-shadow: 0 0 0 0.25rem rgba(12, 69, 152, 0.2);
         }
 
         .btn-primary {
@@ -91,10 +94,14 @@
 
 <div class="login-card">
     <div class="login-header">
-        <div class="logo-icon">
-            <i class="fa fa-graduation-cap"></i>
+        <div class="logo-box">
+            @if(!empty($settings['site_logo']))
+                <img src="{{ asset($settings['site_logo']) }}" alt="{{ $settings['site_title'] ?? 'Vigilant International School' }}">
+            @else
+                <i class="fa fa-graduation-cap text-primary fs-1"></i>
+            @endif
         </div>
-        <h4 class="fw-bold mb-1 text-dark">{{ $settings['site_title'] ?? 'Vigilant School' }}</h4>
+        <h4 class="fw-bold mb-1 text-dark">{{ $settings['site_title'] ?? 'Vigilant International School' }}</h4>
         <p class="text-muted small mb-0">Sign in to your administrative control panel</p>
     </div>
 

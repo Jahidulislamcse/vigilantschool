@@ -1,0 +1,371 @@
+/**
+ * Vigilant International School - Brand Theme Stylesheet
+ * Palette derived directly from the Official School Logo:
+ * - Primary (Royal / Navy Blue): #0c4598 (Hover: #093472)
+ * - Secondary (Crimson / Scarlet Red): #e31b23 (Hover: #be1218)
+ * - Accent (Emerald Green): #0e9f4b (Hover: #0b803c)
+ * - Accent Lime: #8dc63f
+ * - Neutral Light: #f0f4fa
+ * - Neutral Dark: #0a2240
+ */
+
+:root {
+    --bs-primary: #0c4598;
+    --bs-primary-rgb: 12, 69, 152;
+    --bs-secondary: #e31b23;
+    --bs-secondary-rgb: 227, 27, 35;
+    --bs-success: #0e9f4b;
+    --bs-success-rgb: 14, 159, 75;
+    --bs-dark: #0a2240;
+    --bs-dark-rgb: 10, 34, 64;
+    --bs-light: #f0f4fa;
+    --bs-light-rgb: 240, 244, 250;
+    --vigilant-blue: #0c4598;
+    --vigilant-red: #e31b23;
+    --vigilant-green: #0e9f4b;
+    --vigilant-lime: #8dc63f;
+    --vigilant-gold: #f59e0b;
+    --vigilant-dark: #0a2240;
+}
+
+/* ==========================================================================
+   1. Typography & General Elements
+   ========================================================================== */
+body {
+    color: #4a5568;
+}
+
+a {
+    color: #0c4598;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: #093472;
+}
+
+::selection {
+    background-color: #0c4598;
+    color: #ffffff;
+}
+
+/* ==========================================================================
+   2. Bootstrap Color Utilities Overrides
+   ========================================================================== */
+.text-primary {
+    color: #0c4598 !important;
+}
+
+.text-secondary {
+    color: #e31b23 !important;
+}
+
+.text-success {
+    color: #0e9f4b !important;
+}
+
+.text-dark {
+    color: #0a2240 !important;
+}
+
+.bg-primary {
+    background-color: #0c4598 !important;
+    color: #ffffff;
+}
+
+.bg-secondary {
+    background-color: #e31b23 !important;
+    color: #ffffff;
+}
+
+.bg-success {
+    background-color: #0e9f4b !important;
+    color: #ffffff;
+}
+
+.bg-dark {
+    background-color: #0a2240 !important;
+    color: #ffffff;
+}
+
+.bg-light {
+    background-color: #f0f4fa !important;
+}
+
+.border-primary {
+    border-color: #0c4598 !important;
+}
+
+.border-secondary {
+    border-color: #e31b23 !important;
+}
+
+.border-success {
+    border-color: #0e9f4b !important;
+}
+
+/* Subtle badge / pill backgrounds */
+.bg-primary-subtle {
+    background-color: #e8f0fe !important;
+    color: #0c4598 !important;
+    border: 1px solid #c2d7fc !important;
+}
+
+.bg-secondary-subtle,
+.bg-danger-subtle {
+    background-color: #fde8e8 !important;
+    color: #e31b23 !important;
+    border: 1px solid #f8b4b4 !important;
+}
+
+.bg-success-subtle {
+    background-color: #e8f5e9 !important;
+    color: #0e9f4b !important;
+    border: 1px solid #c8e6c9 !important;
+}
+
+/* ==========================================================================
+   3. Buttons Overrides & Variants
+   ========================================================================== */
+.btn-primary {
+    background-color: #0c4598 !important;
+    border-color: #0c4598 !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(12, 69, 152, 0.25);
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: #093472 !important;
+    border-color: #072757 !important;
+    color: #ffffff !important;
+    box-shadow: 0 6px 16px rgba(12, 69, 152, 0.35);
+}
+
+.btn-secondary {
+    background-color: #e31b23 !important;
+    border-color: #e31b23 !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(227, 27, 35, 0.25);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus,
+.btn-secondary:active {
+    background-color: #be1218 !important;
+    border-color: #9e0e13 !important;
+    color: #ffffff !important;
+    box-shadow: 0 6px 16px rgba(227, 27, 35, 0.35);
+}
+
+.btn-success {
+    background-color: #0e9f4b !important;
+    border-color: #0e9f4b !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(14, 159, 75, 0.25);
+}
+
+.btn-success:hover,
+.btn-success:focus,
+.btn-success:active {
+    background-color: #0b803c !important;
+    border-color: #08612d !important;
+    color: #ffffff !important;
+    box-shadow: 0 6px 16px rgba(14, 159, 75, 0.35);
+}
+
+.btn-outline-primary {
+    color: #0c4598 !important;
+    border-color: #0c4598 !important;
+    background-color: transparent !important;
+}
+
+.btn-outline-primary:hover {
+    background-color: #0c4598 !important;
+    color: #ffffff !important;
+}
+
+.btn-outline-secondary {
+    color: #e31b23 !important;
+    border-color: #e31b23 !important;
+    background-color: transparent !important;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #e31b23 !important;
+    color: #ffffff !important;
+}
+
+/* ==========================================================================
+   4. Header & Navbar Components
+   ========================================================================== */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand img {
+    max-height: 52px;
+    width: auto;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.brand-title-wrap {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+}
+
+.brand-title-main {
+    font-family: 'Lobster Two', cursive;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #0c4598;
+    letter-spacing: 0.5px;
+}
+
+.brand-title-sub {
+    font-family: 'Heebo', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #e31b23;
+}
+
+.navbar .navbar-nav .nav-link {
+    color: #0a2240;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .nav-link.active {
+    color: #0c4598 !important;
+}
+
+.navbar .dropdown-menu {
+    border-radius: 8px;
+    border-top: 3px solid #0c4598 !important;
+}
+
+.navbar .dropdown-item:hover,
+.navbar .dropdown-item.active {
+    background-color: #f0f4fa;
+    color: #0c4598;
+}
+
+/* ==========================================================================
+   5. Facility Items Colors
+   ========================================================================== */
+.facility-item .facility-icon.bg-primary {
+    background-color: #0c4598 !important;
+}
+.facility-item .facility-text.bg-primary {
+    background-color: #0c4598 !important;
+}
+
+.facility-item .facility-icon.bg-success {
+    background-color: #0e9f4b !important;
+}
+.facility-item .facility-text.bg-success {
+    background-color: #0e9f4b !important;
+}
+
+.facility-item .facility-icon.bg-warning {
+    background-color: #f59e0b !important;
+}
+.facility-item .facility-text.bg-warning {
+    background-color: #f59e0b !important;
+}
+
+.facility-item .facility-icon.bg-info {
+    background-color: #0284c7 !important;
+}
+.facility-item .facility-text.bg-info {
+    background-color: #0284c7 !important;
+}
+
+.facility-item .facility-icon.bg-danger,
+.facility-item .facility-icon.bg-secondary {
+    background-color: #e31b23 !important;
+}
+.facility-item .facility-text.bg-danger,
+.facility-item .facility-text.bg-secondary {
+    background-color: #e31b23 !important;
+}
+
+/* ==========================================================================
+   6. Badges & Cards
+   ========================================================================== */
+.badge.bg-primary {
+    background-color: #0c4598 !important;
+}
+
+.badge.bg-secondary {
+    background-color: #e31b23 !important;
+}
+
+.badge.bg-success {
+    background-color: #0e9f4b !important;
+}
+
+.badge.bg-dark {
+    background-color: #0a2240 !important;
+}
+
+/* ==========================================================================
+   7. Carousel Owl Navigation
+   ========================================================================== */
+.header-carousel .owl-nav .owl-prev:hover,
+.header-carousel .owl-nav .owl-next:hover {
+    background: #0c4598 !important;
+    border-color: #0c4598 !important;
+}
+
+.testimonial-carousel .owl-nav .owl-prev,
+.testimonial-carousel .owl-nav .owl-next {
+    background: #0c4598 !important;
+}
+
+.testimonial-carousel .owl-nav .owl-prev:hover,
+.testimonial-carousel .owl-nav .owl-next:hover {
+    background: #0a2240 !important;
+}
+
+/* ==========================================================================
+   8. Footer Styling
+   ========================================================================== */
+.footer {
+    background-color: #0a2240 !important;
+}
+
+.footer .btn.btn-social:hover {
+    border-color: #e31b23 !important;
+    background: #e31b23 !important;
+}
+
+.footer .btn.btn-link:hover {
+    color: #e31b23 !important;
+}
+
+.footer .footer-menu a:hover,
+.footer .copyright a:hover {
+    color: #e31b23 !important;
+}
+
+/* ==========================================================================
+   9. Form Controls & Inputs
+   ========================================================================== */
+.form-control:focus,
+.form-select:focus {
+    border-color: #0c4598;
+    box-shadow: 0 0 0 0.25rem rgba(12, 69, 152, 0.2);
+}
+
+/* Spinner */
+.spinner-border.text-primary {
+    color: #0c4598 !important;
+}

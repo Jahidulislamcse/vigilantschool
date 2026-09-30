@@ -135,7 +135,7 @@
                         <div class="h-100 d-flex flex-column justify-content-center p-5">
                             <h1 class="mb-4">{{ $about->cta_title }}</h1>
                             <p class="mb-4">{{ $about->cta_description }}</p>
-                            <a class="btn btn-primary py-3 px-5 align-self-start" href="{{ $about->cta_button_url ?? '#' }}">{{ $about->cta_button_text ?? 'Visit Our Campus' }}<i class="fa fa-arrow-right ms-2"></i></a>
+                            <a class="btn btn-secondary py-3 px-5 align-self-start rounded-pill" href="{{ $about->cta_button_url ?? '#' }}">{{ $about->cta_button_text ?? 'Visit Our Campus' }}<i class="fa fa-arrow-right ms-2"></i></a>
                         </div>
                     </div>
                 </div>

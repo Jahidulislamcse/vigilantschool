@@ -3,10 +3,16 @@
     <div class="container py-5">
         <div class="row g-5">
             <div class="col-lg-3 col-md-6">
-                <h3 class="text-white mb-4">Get In Touch</h3>
-                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>{{ $settings['contact_address'] ?? '123 Street, New York, USA' }}</p>
-                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>{{ $settings['contact_phone'] ?? '+012 345 67890' }}</p>
-                <p class="mb-2"><i class="fa fa-envelope me-3"></i>{{ $settings['contact_email'] ?? 'info@example.com' }}</p>
+                <div class="d-flex align-items-center mb-3">
+                    @if(!empty($settings['site_logo']))
+                        <img src="{{ asset($settings['site_logo']) }}" alt="{{ $settings['site_title'] ?? 'Vigilant' }}" class="me-2 rounded bg-white p-1 shadow-sm" style="height: 44px; width: 44px; object-fit: contain;">
+                    @endif
+                    <h4 class="text-white mb-0">{{ $settings['site_title'] ?? 'Vigilant International School' }}</h4>
+                </div>
+                <p class="text-white-50 mb-3 small">{{ $settings['site_tagline'] ?? 'English Medium & English Version | Play Group to S.S.C & O Level' }}</p>
+                <p class="mb-2"><i class="fa fa-map-marker-alt me-3 text-secondary"></i>{{ $settings['contact_address'] ?? 'Dhaka, Bangladesh' }}</p>
+                <p class="mb-2"><i class="fa fa-phone-alt me-3 text-secondary"></i>{{ $settings['contact_phone'] ?? '+880 1700-000000' }}</p>
+                <p class="mb-2"><i class="fa fa-envelope me-3 text-secondary"></i>{{ $settings['contact_email'] ?? 'info@vigilantschool.edu.bd' }}</p>
                 <div class="d-flex pt-2">
                     @if(!empty($settings['twitter_url']))
                         <a class="btn btn-outline-light btn-social" href="{{ $settings['twitter_url'] }}" target="_blank"><i class="fab fa-twitter"></i></a>
@@ -31,15 +37,15 @@
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
-                <h3 class="text-white mb-4">Quick Links</h3>
-                <a class="btn btn-link text-white-50" href="#">About Us</a>
+                <h4 class="text-white mb-4">Quick Links</h4>
+                <a class="btn btn-link text-white-50" href="{{ route('about') }}">About Us</a>
+                <a class="btn btn-link text-white-50" href="{{ route('facilities') }}">Our Facilities</a>
+                <a class="btn btn-link text-white-50" href="#">Academic Calendar</a>
+                <a class="btn btn-link text-white-50" href="#">Admission Procedure</a>
                 <a class="btn btn-link text-white-50" href="#">Contact Us</a>
-                <a class="btn btn-link text-white-50" href="#">Our Facilities</a>
-                <a class="btn btn-link text-white-50" href="#">Privacy Policy</a>
-                <a class="btn btn-link text-white-50" href="#">Terms & Condition</a>
             </div>
             <div class="col-lg-3 col-md-6">
-                <h3 class="text-white mb-4">Photo Gallery</h3>
+                <h4 class="text-white mb-4">Photo Gallery</h4>
                 <div class="row g-2 pt-2">
                     <div class="col-4">
                         <img class="img-fluid rounded bg-light p-1" src="{{ asset('kider/img/classes-1.jpg') }}" alt="Gallery Image">
@@ -62,11 +68,11 @@
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
-                <h3 class="text-white mb-4">Newsletter</h3>
+                <h4 class="text-white mb-4">Newsletter</h4>
                 <p>Stay informed with our latest news, announcements, and school events.</p>
                 <div class="position-relative mx-auto" style="max-width: 400px;">
                     <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5 text-white" type="text" placeholder="Your email">
-                    <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                    <button type="button" class="btn btn-secondary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
                 </div>
             </div>
         </div>

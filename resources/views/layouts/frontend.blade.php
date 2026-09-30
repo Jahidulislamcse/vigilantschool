@@ -29,6 +29,8 @@
 
     <!-- Template Stylesheet -->
     <link href="{{ asset('kider/css/style.css') }}" rel="stylesheet">
+    <!-- Brand Theme Stylesheet -->
+    <link href="{{ asset('kider/css/vigilant-theme.css') }}" rel="stylesheet">
 
     @stack('styles')
 </head>

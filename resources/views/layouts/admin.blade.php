@@ -22,13 +22,16 @@
 
     <style>
         :root {
-            --primary: #FE5D37;
-            --primary-dark: #e04824;
-            --secondary: #103741;
-            --sidebar-bg: #103741;
-            --sidebar-hover: #194e5b;
-            --sidebar-active: #FE5D37;
-            --light-bg: #f4f6f9;
+            --primary: #0c4598;
+            --primary-dark: #093472;
+            --primary-light: #e8f0fe;
+            --secondary: #e31b23;
+            --secondary-dark: #be1218;
+            --accent: #0e9f4b;
+            --sidebar-bg: #0a2240;
+            --sidebar-hover: #13335a;
+            --sidebar-active: #0c4598;
+            --light-bg: #f4f7fc;
         }
 
         body {
@@ -57,12 +60,12 @@
             font-size: 1.2rem;
             font-weight: 700;
             color: #fff;
-            background: rgba(0, 0, 0, 0.15);
+            background: rgba(0, 0, 0, 0.2);
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         #sidebar-wrapper .sidebar-heading span {
-            color: var(--primary);
+            color: var(--secondary);
         }
 
         .sidebar-section-title {
@@ -95,9 +98,9 @@
         }
 
         .list-group-item-sidebar.active {
-            background: rgba(254, 93, 55, 0.15);
+            background: rgba(12, 69, 152, 0.45);
             color: #fff;
-            border-left: 3px solid var(--primary);
+            border-left: 4px solid var(--secondary);
             font-weight: 600;
         }
 
@@ -109,7 +112,7 @@
         }
 
         .list-group-item-sidebar.active i {
-            color: var(--primary);
+            color: #60a5fa;
         }
 
         /* Page Content */
@@ -195,9 +198,13 @@
     <div id="sidebar-wrapper">
         <div class="sidebar-heading d-flex align-items-center justify-content-between">
             <div class="d-flex align-items-center">
-                <i class="fa fa-graduation-cap text-primary me-2 fs-4"></i>
+                @if(!empty($settings['site_logo']))
+                    <img src="{{ asset($settings['site_logo']) }}" alt="Logo" class="me-2 rounded bg-white p-1" style="height: 38px; width: 38px; object-fit: contain;">
+                @else
+                    <i class="fa fa-graduation-cap text-primary me-2 fs-4"></i>
+                @endif
                 <div>
-                    <div>{{ $settings['site_title'] ?? 'Vigilant' }}</div>
+                    <div style="font-size: 0.95rem; font-weight: 700; line-height: 1.2;">{{ $settings['site_title'] ?? 'Vigilant School' }}</div>
                     <small class="text-white-50 fs-6 fw-normal">Control Panel</small>
                 </div>
             </div>
@@ -305,7 +312,7 @@
                 </div>
             @endif
 
-            @if($errors->any())
+            @if(isset($errors) && $errors->any())
                 <div class="alert alert-danger alert-dismissible fade show border-0 shadow-sm" role="alert">
                     <div class="d-flex align-items-start">
                         <i class="fa fa-circle-exclamation fs-5 me-2 mt-1"></i>
