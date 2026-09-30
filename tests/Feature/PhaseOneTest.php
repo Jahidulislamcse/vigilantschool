@@ -67,4 +67,11 @@ class PhaseOneTest extends TestCase
         $settingsResponse->assertStatus(200);
         $settingsResponse->assertSee('School Configuration');
     }
+
+    public function test_guest_redirects_to_login_when_accessing_admin_dashboard(): void
+    {
+        $response = $this->get('/admin/dashboard');
+
+        $response->assertRedirect('/admin/login');
+    }
 }

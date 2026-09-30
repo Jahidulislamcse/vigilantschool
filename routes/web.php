@@ -50,9 +50,11 @@ Route::post('/newsletter', [FrontendController::class, 'submitNewsletter'])->nam
 
 /*
 |--------------------------------------------------------------------------
-| Admin Authentication Routes
+| Admin Authentication & Fallback Login Routes
 |--------------------------------------------------------------------------
 */
+Route::get('/login', fn () => redirect()->route('admin.login'))->name('login');
+
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/login', [AdminAuthController::class, 'showLoginForm'])->name('login');
     Route::post('/login', [AdminAuthController::class, 'login'])->name('login.submit');
