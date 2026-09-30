@@ -53,7 +53,8 @@
                     $theme = $facility->color_theme ?: $colors[$index % 4];
                 @endphp
                 <div class="col-6 col-lg-3 wow fadeInUp" data-wow-delay="{{ $delay }}s">
-                    <div class="facility-item facility-card-{{ $theme }}">
+                    <div class="facility-item facility-card-{{ $theme }}" role="button" tabindex="0" data-bs-toggle="modal" data-bs-target="#facilityModal{{ $facility->id }}" aria-haspopup="dialog" title="Click to view details">
+                        <span class="facility-tap-badge"><i class="fa fa-arrow-up-right-from-square"></i></span>
                         <div class="facility-icon bg-{{ $theme }}">
                             <i class="fa-solid {{ $facility->icon ?? 'fa-school' }} text-{{ $theme }}"></i>
                         </div>
@@ -68,6 +69,7 @@
             </div>
         </div>
     </div>
+    @include('frontend.partials.facility-modals')
     @endif
     <!-- Facilities End -->
 

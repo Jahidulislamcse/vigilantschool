@@ -670,12 +670,46 @@ h1, h2, h3, h4, h5, h6,
     box-shadow: 0 6px 14px rgba(227, 27, 35, 0.3) !important;
 }
 
+.facility-tap-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgba(12, 69, 152, 0.08);
+    color: #0c4598;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.68rem;
+    opacity: 0.6;
+    transition: all 0.25s ease;
+    z-index: 5;
+}
+
+.facility-item:hover .facility-tap-badge {
+    opacity: 1;
+    transform: scale(1.15);
+    background: #0c4598;
+    color: #ffffff;
+}
+
 /* Mobile Minimal 2-Column Grid (< 768px) */
 @media (max-width: 767.98px) {
     .facility-item {
         padding: 1rem 0.65rem 0.85rem !important;
         border-radius: 14px !important;
         box-shadow: 0 3px 10px rgba(10, 34, 64, 0.04) !important;
+    }
+
+    .facility-tap-badge {
+        top: 6px;
+        right: 6px;
+        width: 20px;
+        height: 20px;
+        font-size: 0.58rem;
+        opacity: 0.75;
     }
 
     .facility-item .facility-icon {
@@ -708,6 +742,79 @@ h1, h2, h3, h4, h5, h6,
         -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
         overflow: hidden;
+    }
+}
+
+/* ==========================================================================
+   6.1 Facility Full-Size Interactive Modal Popup (Desktop & Mobile)
+   ========================================================================== */
+.facility-modal .modal-content {
+    border-radius: 24px !important;
+    border: none !important;
+    background: #ffffff !important;
+    box-shadow: 0 25px 60px rgba(10, 34, 64, 0.25) !important;
+}
+
+.facility-modal-bar {
+    height: 5px;
+    width: 100%;
+}
+.facility-modal-bar-primary { background: linear-gradient(90deg, #0c4598, #2563eb); }
+.facility-modal-bar-success { background: linear-gradient(90deg, #0e9f4b, #10b981); }
+.facility-modal-bar-warning { background: linear-gradient(90deg, #d97706, #f59e0b); }
+.facility-modal-bar-info { background: linear-gradient(90deg, #0284c7, #38bdf8); }
+.facility-modal-bar-secondary,
+.facility-modal-bar-danger { background: linear-gradient(90deg, #be1218, #e31b23); }
+
+.facility-modal-icon {
+    width: 68px;
+    height: 68px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 1.85rem;
+}
+.facility-modal-icon-primary {
+    background: linear-gradient(135deg, #0c4598 0%, #2563eb 100%);
+    box-shadow: 0 8px 20px rgba(12, 69, 152, 0.35);
+}
+.facility-modal-icon-success {
+    background: linear-gradient(135deg, #0e9f4b 0%, #10b981 100%);
+    box-shadow: 0 8px 20px rgba(14, 159, 75, 0.35);
+}
+.facility-modal-icon-warning {
+    background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
+    box-shadow: 0 8px 20px rgba(245, 158, 11, 0.35);
+}
+.facility-modal-icon-info {
+    background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);
+    box-shadow: 0 8px 20px rgba(2, 132, 199, 0.35);
+}
+.facility-modal-icon-secondary,
+.facility-modal-icon-danger {
+    background: linear-gradient(135deg, #be1218 0%, #e31b23 100%);
+    box-shadow: 0 8px 20px rgba(227, 27, 35, 0.35);
+}
+
+.facility-modal-highlights {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+}
+
+@media (max-width: 767.98px) {
+    .facility-modal .modal-dialog {
+        margin: 1rem;
+    }
+    .facility-modal .modal-content {
+        border-radius: 20px !important;
+    }
+    .facility-modal-icon {
+        width: 56px;
+        height: 56px;
+        border-radius: 16px;
+        font-size: 1.5rem;
     }
 }
 
