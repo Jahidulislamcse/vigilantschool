@@ -332,32 +332,36 @@ class DatabaseSeeder extends Seeder
         }
 
         // 10. Sample Appointment Inquiry
-        Appointment::create([
-            'guardian_name' => 'Md. Faruk Hossain',
-            'guardian_email' => 'faruk.hossain@gmail.com',
-            'guardian_phone' => '01711 000 111',
-            'child_name' => 'Abrar Hossain',
-            'child_age' => '4 Years',
-            'class_id' => 1,
-            'message' => 'Inquiring for Play Group admission in the Morning Shift (January Session).',
-            'status' => 'pending',
-            'admin_notes' => 'Guardian invited for campus visit next Monday.',
-        ]);
+        Appointment::firstOrCreate(
+            ['guardian_email' => 'faruk.hossain@gmail.com'],
+            [
+                'guardian_name' => 'Md. Faruk Hossain',
+                'guardian_phone' => '01711 000 111',
+                'child_name' => 'Abrar Hossain',
+                'child_age' => '4 Years',
+                'class_id' => 1,
+                'message' => 'Inquiring for Play Group admission in the Morning Shift (January Session).',
+                'status' => 'pending',
+                'admin_notes' => 'Guardian invited for campus visit next Monday.',
+            ]
+        );
 
         // 11. Sample Contact Message
-        Contact::create([
-            'name' => 'Dr. Shaheen Akhtar',
-            'email' => 'shaheen.akhtar@yahoo.com',
-            'subject' => 'Admission inquiry for S.S.C English Version',
-            'message' => 'Hello, I want to know about seat availability for Std-IX English Version in the upcoming session.',
-            'is_read' => false,
-        ]);
+        Contact::firstOrCreate(
+            ['email' => 'shaheen.akhtar@yahoo.com'],
+            [
+                'name' => 'Dr. Shaheen Akhtar',
+                'subject' => 'Admission inquiry for S.S.C English Version',
+                'message' => 'Hello, I want to know about seat availability for Std-IX English Version in the upcoming session.',
+                'is_read' => false,
+            ]
+        );
 
         // 12. Sample Newsletter Subscriber
-        Newsletter::create([
-            'email' => 'parent.updates@gmail.com',
-            'is_active' => true,
-        ]);
+        Newsletter::firstOrCreate(
+            ['email' => 'parent.updates@gmail.com'],
+            ['is_active' => true]
+        );
 
         Schema::enableForeignKeyConstraints();
     }
