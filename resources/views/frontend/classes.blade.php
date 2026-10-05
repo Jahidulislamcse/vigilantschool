@@ -9,13 +9,13 @@
     @if(isset($classes) && $classes->count() > 0)
     <div class="container-xxl py-5">
         <div class="container">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <div class="text-center mx-auto mb-5" style="max-width: 600px;">
                 <h1 class="mb-3">School Classes & Programs</h1>
                 <p>Carefully structured learning programs designed to stimulate intellect, creativity, and social empathy.</p>
             </div>
             <div class="row g-4">
                 @foreach($classes as $index => $class)
-                <div class="col-lg-4 col-md-6 wow fadeInUp d-flex flex-column" data-wow-delay="{{ 0.1 * (($index % 3) + 1) }}s">
+                <div class="col-lg-4 col-md-6 d-flex flex-column">
                     <div class="classes-item">
                         <div class="classes-img-wrapper">
                             <img class="img-fluid" src="{{ asset($class->image ?? 'kider/img/classes-1.jpg') }}" alt="{{ $class->title }}">
@@ -79,11 +79,11 @@
     @if(isset($testimonials) && $testimonials->count() > 0)
     <div class="container-xxl py-5">
         <div class="container">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <div class="text-center mx-auto mb-5" style="max-width: 600px;">
                 <h1 class="mb-3">What Our Parents Say!</h1>
                 <p>Real stories and experiences shared by our parents and community.</p>
             </div>
-            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+            <div class="owl-carousel testimonial-carousel">
                 @foreach($testimonials as $test)
                 <div class="testimonial-item bg-light rounded p-5">
                     <p class="fs-5">{{ $test->content }}</p>

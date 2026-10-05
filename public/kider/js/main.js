@@ -1,14 +1,22 @@
 (function ($) {
     "use strict";
 
-    // Initiate the wowjs safely
-    if (typeof WOW !== 'undefined') {
+    // Initiate WOW.js safely on desktop only, ensuring mobile view NEVER hides content
+    var isMobileOrSmall = $(window).width() < 992 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    if (isMobileOrSmall) {
+        $('.wow').removeClass('wow').css({
+            'visibility': 'visible',
+            'opacity': '1',
+            'animation': 'none'
+        });
+    } else if (typeof WOW !== 'undefined') {
         new WOW({
             boxClass: 'wow',
             animateClass: 'animated',
             offset: 0,
-            mobile: true,
-            live: true
+            mobile: false,
+            live: false
         }).init();
     }
 

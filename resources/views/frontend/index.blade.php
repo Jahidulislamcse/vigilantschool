@@ -38,7 +38,7 @@
     @if(isset($facilities) && $facilities->count() > 0)
     <div class="container-xxl py-4 py-md-5">
         <div class="container">
-            <div class="text-center mx-auto mb-4 mb-md-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 700px;">
+            <div class="text-center mx-auto mb-4 mb-md-5" style="max-width: 700px;">
                 <span class="badge bg-primary-subtle text-primary border px-3 py-2 rounded-pill mb-2 font-weight-bold">Campus Infrastructure</span>
                 <h1 class="mb-3">Our School Facilities</h1>
                 <p class="text-muted">Equipped with 2 dedicated teachers per junior classroom, science & computer labs, 24/7 CCTV surveillance, and after-class assistance programmes.</p>
@@ -46,13 +46,12 @@
             <div class="row g-2 g-md-3 g-lg-4">
                 @php
                     $colors = ['primary', 'success', 'warning', 'info'];
-                    $delay = 0.1;
                 @endphp
                 @foreach($facilities as $index => $facility)
                 @php
                     $theme = $facility->color_theme ?: $colors[$index % 4];
                 @endphp
-                <div class="col-6 col-lg-3 wow fadeInUp" data-wow-delay="{{ $delay }}s">
+                <div class="col-6 col-lg-3">
                     <div class="facility-item facility-card-{{ $theme }}" role="button" tabindex="0" data-bs-toggle="modal" data-bs-target="#facilityModal{{ $facility->id }}" aria-haspopup="dialog" title="Click to view details">
                         <span class="facility-tap-badge"><i class="fa fa-arrow-up-right-from-square"></i></span>
                         <div class="facility-icon bg-{{ $theme }}">
@@ -64,7 +63,6 @@
                         </div>
                     </div>
                 </div>
-                @php $delay += 0.15; @endphp
                 @endforeach
             </div>
         </div>
@@ -79,7 +77,7 @@
     <div class="container-xxl py-4 py-md-5">
         <div class="container">
             <div class="row g-4 g-lg-5 align-items-center">
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="col-lg-6">
                     <span class="badge bg-primary-subtle text-primary border px-3 py-2 rounded-pill mb-3 font-weight-bold">
                         {{ $about->tagline ?? 'About Our School' }}
                     </span>
@@ -103,7 +101,7 @@
                         @endif
                     </div>
                 </div>
-                <div class="col-lg-6 about-img wow fadeInUp" data-wow-delay="0.3s">
+                <div class="col-lg-6 about-img">
                     <div class="row g-2 g-md-3">
                         <div class="col-12 text-center">
                             <img class="img-fluid w-75 rounded-circle bg-light p-2 p-md-3 shadow-sm" src="{{ asset($about->image_1 ?? 'kider/img/about-1.jpg') }}" alt="School Life">
@@ -129,12 +127,12 @@
         <div class="container">
             <div class="cta-banner">
                 <div class="row g-0">
-                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s" style="min-height: 280px;">
+                    <div class="col-lg-6" style="min-height: 280px;">
                         <div class="position-relative h-100">
                             <img class="position-absolute w-100 h-100" src="{{ asset($about->cta_image ?? 'kider/img/call-to-action.jpg') }}" style="object-fit: cover;" alt="Call to Action">
                         </div>
                     </div>
-                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.3s">
+                    <div class="col-lg-6">
                         <div class="h-100 d-flex flex-column justify-content-center p-4 p-md-5 cta-banner-content">
                             <h1 class="mb-3">{{ $about->cta_title }}</h1>
                             <p class="mb-4 text-muted">{{ $about->cta_description }}</p>
@@ -153,14 +151,14 @@
     @if(isset($classes) && $classes->count() > 0)
     <div class="container-xxl py-4 py-md-5">
         <div class="container">
-            <div class="text-center mx-auto mb-4 mb-md-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 650px;">
+            <div class="text-center mx-auto mb-4 mb-md-5" style="max-width: 650px;">
                 <span class="badge bg-primary-subtle text-primary border px-3 py-2 rounded-pill mb-2 font-weight-bold">Academic Programs</span>
                 <h1 class="mb-3">School Classes & Programs</h1>
                 <p class="text-muted">Structured curriculum from Play Group to S.S.C & O Level with individual teacher attention and interactive learning environments.</p>
             </div>
             <div class="row g-4">
                 @foreach($classes as $index => $class)
-                <div class="col-lg-4 col-md-6 wow fadeInUp d-flex flex-column" data-wow-delay="{{ 0.1 * (($index % 3) + 1) }}s">
+                <div class="col-lg-4 col-md-6 d-flex flex-column">
                     <div class="classes-item">
                         <div class="classes-img-wrapper">
                             <img class="img-fluid" src="{{ asset($class->image ?? 'kider/img/classes-1.jpg') }}" alt="{{ $class->title }}">
@@ -215,7 +213,7 @@
         <div class="container">
             <div class="bg-light rounded-4 overflow-hidden border">
                 <div class="row g-0">
-                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="col-lg-6">
                         <div class="h-100 d-flex flex-column justify-content-center p-4 p-md-5">
                             <span class="badge bg-primary-subtle text-primary border px-3 py-2 rounded-pill mb-3 align-self-start font-weight-bold">
                                 Admissions Open
@@ -234,7 +232,7 @@
                                 <div class="alert alert-danger alert-dismissible fade show rounded-3" role="alert">
                                     <ul class="mb-0 ps-3">
                                         @foreach($errors->all() as $error)
-                                            <li>{{ $error }}</li>
+                                             <li>{{ $error }}</li>
                                         @endforeach
                                     </ul>
                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -295,14 +293,14 @@
                                     </div>
                                     <div class="col-12">
                                         <button class="btn btn-primary w-100 py-3 rounded-pill fw-bold" type="submit">
-                                            <i class="fa fa-calendar-check me-2"></i> Submit Appointment Request
+                                             <i class="fa fa-calendar-check me-2"></i> Submit Appointment Request
                                         </button>
                                     </div>
                                 </div>
                             </form>
                         </div>
                     </div>
-                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.3s" style="min-height: 350px;">
+                    <div class="col-lg-6" style="min-height: 350px;">
                         <div class="position-relative h-100">
                             <img class="position-absolute w-100 h-100" src="{{ asset('kider/img/appointment.jpg') }}" style="object-fit: cover;" alt="Campus Appointment">
                         </div>
@@ -318,14 +316,14 @@
     @if(isset($teachers) && $teachers->count() > 0)
     <div class="container-xxl py-4 py-md-5">
         <div class="container">
-            <div class="text-center mx-auto mb-4 mb-md-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <div class="text-center mx-auto mb-4 mb-md-5" style="max-width: 600px;">
                 <span class="badge bg-primary-subtle text-primary border px-3 py-2 rounded-pill mb-2 font-weight-bold">Academic Faculty</span>
                 <h1 class="mb-3">Our Dedicated Teachers</h1>
                 <p class="text-muted">Passionate educators providing personalized mentoring, moral coaching, and academic excellence.</p>
             </div>
             <div class="row g-4">
                 @foreach($teachers as $index => $teacher)
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="{{ 0.1 * (($index % 3) + 1) }}s">
+                <div class="col-lg-4 col-md-6">
                     <div class="team-item position-relative text-center">
                         <img class="img-fluid rounded-circle w-75 p-2 bg-light shadow-sm" style="height: 240px; width: 240px !important; object-fit: cover;" src="{{ asset($teacher->photo ?? 'kider/img/team-1.jpg') }}" alt="{{ $teacher->name }}">
                         <div class="team-text">
@@ -357,12 +355,12 @@
     @if(isset($testimonials) && $testimonials->count() > 0)
     <div class="container-xxl py-4 py-md-5">
         <div class="container">
-            <div class="text-center mx-auto mb-4 mb-md-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <div class="text-center mx-auto mb-4 mb-md-5" style="max-width: 600px;">
                 <span class="badge bg-primary-subtle text-primary border px-3 py-2 rounded-pill mb-2 font-weight-bold">Guardian Feedback</span>
                 <h1 class="mb-3">What Our Parents Say!</h1>
                 <p class="text-muted">Honest impressions and reviews from our active school community and parents.</p>
             </div>
-            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+            <div class="owl-carousel testimonial-carousel">
                 @foreach($testimonials as $test)
                 <div class="testimonial-item bg-light rounded-4 p-4 p-md-5 border">
                     <p class="fs-5 text-dark mb-4">"{{ $test->content }}"</p>

@@ -9,7 +9,7 @@
     @if(isset($facilities) && $facilities->count() > 0)
     <div class="container-xxl py-4 py-md-5">
         <div class="container">
-            <div class="text-center mx-auto mb-4 mb-md-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 700px;">
+            <div class="text-center mx-auto mb-4 mb-md-5" style="max-width: 700px;">
                 <span class="badge bg-primary-subtle text-primary border px-3 py-2 rounded-pill mb-2 font-weight-bold">Infrastructure & Amenities</span>
                 <h1 class="mb-3">Our Core Campus Facilities</h1>
                 <p class="text-muted">Equipped with interactive classrooms, dual educators, equipped laboratories, 24/7 security, and after-school academic programs.</p>
@@ -17,13 +17,12 @@
             <div class="row g-2 g-md-3 g-lg-4">
                 @php
                     $colors = ['primary', 'success', 'warning', 'info'];
-                    $delay = 0.1;
                 @endphp
                 @foreach($facilities as $index => $facility)
                 @php
                     $theme = $facility->color_theme ?: $colors[$index % 4];
                 @endphp
-                <div class="col-6 col-lg-3 wow fadeInUp" data-wow-delay="{{ $delay }}s">
+                <div class="col-6 col-lg-3">
                     <div class="facility-item facility-card-{{ $theme }}" role="button" tabindex="0" data-bs-toggle="modal" data-bs-target="#facilityModal{{ $facility->id }}" aria-haspopup="dialog" title="Click to view details">
                         <span class="facility-tap-badge"><i class="fa fa-arrow-up-right-from-square"></i></span>
                         <div class="facility-icon bg-{{ $theme }}">
@@ -35,7 +34,6 @@
                         </div>
                     </div>
                 </div>
-                @php $delay += 0.15; @endphp
                 @endforeach
             </div>
         </div>
@@ -49,7 +47,7 @@
     <div class="container-xxl py-4 py-md-5">
         <div class="container">
             <div class="bg-light rounded-4 p-3 p-md-5 border">
-                <div class="text-center mx-auto mb-4 mb-md-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                <div class="text-center mx-auto mb-4 mb-md-5" style="max-width: 600px;">
                     <span class="badge bg-primary-subtle text-primary border px-3 py-2 rounded-pill mb-2 font-weight-bold">Academic Schedule</span>
                     <h2 class="mb-2">School Timing & Shift Schedule</h2>
                     <p class="text-muted small">Sessions: January - December Session &bull; July - June Session</p>
@@ -57,7 +55,7 @@
 
                 <div class="row g-4 justify-content-center">
                     <!-- Morning Shift Card -->
-                    <div class="col-md-6 col-lg-5 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="col-md-6 col-lg-5">
                         <div class="card h-100 border-0 shadow-sm shift-card">
                             <div class="card-header bg-primary text-white text-center py-3">
                                 <h5 class="mb-0 text-white"><i class="fa fa-sun me-2"></i> Morning Shift</h5>
@@ -82,7 +80,7 @@
                     </div>
 
                     <!-- Day Shift Card -->
-                    <div class="col-md-6 col-lg-5 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="col-md-6 col-lg-5">
                         <div class="card h-100 border-0 shadow-sm shift-card">
                             <div class="card-header bg-dark text-white text-center py-3">
                                 <h5 class="mb-0 text-white"><i class="fa fa-clock me-2"></i> Day Shift & Primary</h5>
@@ -120,7 +118,7 @@
     <div class="container-xxl py-4 py-md-5">
         <div class="container">
             <div class="row g-4 g-lg-5">
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="col-lg-6">
                     <h3 class="mb-3 mb-md-4 text-dark"><i class="fa fa-list-check text-primary me-2"></i> Classroom Activities & Safety</h3>
                     <div class="row g-3">
                         <div class="col-12">
@@ -170,7 +168,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="col-lg-6">
                     <h3 class="mb-3 mb-md-4 text-dark"><i class="fa fa-trophy text-primary me-2"></i> Co-Curricular & Care Programs</h3>
                     <div class="row g-3">
                         <div class="col-12">
@@ -231,12 +229,12 @@
         <div class="container">
             <div class="cta-banner">
                 <div class="row g-0">
-                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s" style="min-height: 280px;">
+                    <div class="col-lg-6" style="min-height: 280px;">
                         <div class="position-relative h-100">
                             <img class="position-absolute w-100 h-100" src="{{ asset($about->cta_image ?? 'kider/img/call-to-action.jpg') }}" style="object-fit: cover;" alt="Call to Action">
                         </div>
                     </div>
-                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.3s">
+                    <div class="col-lg-6">
                         <div class="h-100 d-flex flex-column justify-content-center p-4 p-md-5 cta-banner-content">
                             <h1 class="mb-3">{{ $about->cta_title }}</h1>
                             <p class="mb-4 text-muted">{{ $about->cta_description }}</p>

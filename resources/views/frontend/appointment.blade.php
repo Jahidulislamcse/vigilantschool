@@ -10,7 +10,7 @@
         <div class="container">
             <div class="bg-light rounded">
                 <div class="row g-0">
-                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="col-lg-6">
                         <div class="h-100 d-flex flex-column justify-content-center p-4 p-md-5">
                             <h1 class="mb-4">Book A School Tour / Appointment</h1>
                             <p class="mb-4 text-muted">Complete the quick form below and our admissions team will contact you within 24 hours to schedule your campus walkthrough.</p>
@@ -90,7 +90,7 @@
                             </form>
                         </div>
                     </div>
-                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="min-height: 400px;">
+                    <div class="col-lg-6" style="min-height: 400px;">
                         <div class="position-relative h-100">
                             <img class="position-absolute w-100 h-100 rounded" src="{{ asset('kider/img/appointment.jpg') }}" style="object-fit: cover;" alt="Appointment">
                         </div>

@@ -9,13 +9,13 @@
     @if(isset($teachers) && $teachers->count() > 0)
     <div class="container-xxl py-5">
         <div class="container">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <div class="text-center mx-auto mb-5" style="max-width: 600px;">
                 <h1 class="mb-3">Our Dedicated Educators</h1>
                 <p>Passionate, caring, and certified educators devoted to nurturing your child's innate curiosity and personal growth.</p>
             </div>
             <div class="row g-4">
                 @foreach($teachers as $index => $teacher)
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="{{ 0.1 * (($index % 3) + 1) }}s">
+                <div class="col-lg-4 col-md-6">
                     <div class="team-item position-relative">
                         <img class="img-fluid rounded-circle w-75" style="height: 250px; width: 250px !important; object-fit: cover;" src="{{ asset($teacher->photo ?? 'kider/img/team-1.jpg') }}" alt="{{ $teacher->name }}">
                         <div class="team-text">

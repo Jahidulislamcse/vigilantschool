@@ -53,11 +53,23 @@ html, body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* Ensure WOW animated elements are ALWAYS visible on mobile devices & never hidden if scroll trigger lags */
+/* Ensure WOW animated elements & all card sections are ALWAYS visible on mobile devices */
 @media (max-width: 991.98px) {
-    .wow {
+    .wow,
+    [class*="wow"],
+    .classes-item,
+    .classes-item-body,
+    .team-item,
+    .testimonial-item,
+    .facility-item,
+    .animated,
+    [style*="visibility: hidden"],
+    [style*="visibility:hidden"] {
         visibility: visible !important;
         opacity: 1 !important;
+        animation: none !important;
+        -webkit-animation: none !important;
+        transform: none !important;
     }
 }
 

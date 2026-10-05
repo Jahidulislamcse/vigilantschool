@@ -10,7 +10,7 @@
     <div class="container-xxl py-4 py-md-5">
         <div class="container">
             <div class="row g-4 g-lg-5 align-items-center">
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="col-lg-6">
                     <span class="badge bg-primary-subtle text-primary border px-3 py-2 rounded-pill mb-3 font-weight-bold">
                         {{ $about->tagline ?? 'About Our School' }}
                     </span>
@@ -77,7 +77,7 @@
                     @endif
                 </div>
 
-                <div class="col-lg-6 about-img wow fadeInUp" data-wow-delay="0.3s">
+                <div class="col-lg-6 about-img">
                     <div class="row g-2 g-md-3">
                         <div class="col-12 text-center">
                             <img class="img-fluid w-75 rounded-circle bg-light p-2 p-md-3 shadow-sm" src="{{ asset($about->image_1 ?? 'kider/img/about-1.jpg') }}" alt="School Life">
@@ -102,12 +102,12 @@
         <div class="container">
             <div class="cta-banner">
                 <div class="row g-0">
-                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s" style="min-height: 280px;">
+                    <div class="col-lg-6" style="min-height: 280px;">
                         <div class="position-relative h-100">
                             <img class="position-absolute w-100 h-100" src="{{ asset($about->cta_image ?? 'kider/img/call-to-action.jpg') }}" style="object-fit: cover;" alt="Call to Action">
                         </div>
                     </div>
-                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.3s">
+                    <div class="col-lg-6">
                         <div class="h-100 d-flex flex-column justify-content-center p-4 p-md-5 cta-banner-content">
                             <h1 class="mb-3">{{ $about->cta_title }}</h1>
                             <p class="mb-4 text-muted">{{ $about->cta_description }}</p>

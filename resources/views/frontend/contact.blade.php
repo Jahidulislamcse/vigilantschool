@@ -8,26 +8,26 @@
     <!-- Contact Start -->
     <div class="container-xxl py-5">
         <div class="container">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <div class="text-center mx-auto mb-5" style="max-width: 600px;">
                 <h1 class="mb-3">Get In Touch With Us</h1>
                 <p>Have questions about admissions, syllabus, or fee structure? Reach out to us directly.</p>
             </div>
             <div class="row g-4 mb-5">
-                <div class="col-md-6 col-lg-4 text-center wow fadeInUp" data-wow-delay="0.1s">
+                <div class="col-md-6 col-lg-4 text-center">
                     <div class="bg-light rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 75px; height: 75px;">
                         <i class="fa fa-map-marker-alt fa-2x text-primary"></i>
                     </div>
                     <h6>Campus Address</h6>
                     <p class="text-muted">{{ $settings['contact_address'] ?? '123 Street, New York, USA' }}</p>
                 </div>
-                <div class="col-md-6 col-lg-4 text-center wow fadeInUp" data-wow-delay="0.3s">
+                <div class="col-md-6 col-lg-4 text-center">
                     <div class="bg-light rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 75px; height: 75px;">
                         <i class="fa fa-envelope-open fa-2x text-primary"></i>
                     </div>
                     <h6>Admissions Email</h6>
                     <p class="text-muted">{{ $settings['contact_email'] ?? 'info@vigilantschool.com' }}</p>
                 </div>
-                <div class="col-md-6 col-lg-4 text-center wow fadeInUp" data-wow-delay="0.5s">
+                <div class="col-md-6 col-lg-4 text-center">
                     <div class="bg-light rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 75px; height: 75px;">
                         <i class="fa fa-phone-alt fa-2x text-primary"></i>
                     </div>
@@ -37,7 +37,7 @@
             </div>
             <div class="bg-light rounded">
                 <div class="row g-0">
-                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="col-lg-6">
                         <div class="h-100 d-flex flex-column justify-content-center p-4 p-md-5">
                             <h3 class="mb-4">Send Us A Direct Message</h3>
 
@@ -93,7 +93,7 @@
                             </form>
                         </div>
                     </div>
-                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="min-height: 400px;">
+                    <div class="col-lg-6" style="min-height: 400px;">
                         <div class="position-relative h-100">
                             @if(isset($settings['google_map_iframe']) && !empty($settings['google_map_iframe']))
                                 @if(str_contains($settings['google_map_iframe'], '<iframe'))
