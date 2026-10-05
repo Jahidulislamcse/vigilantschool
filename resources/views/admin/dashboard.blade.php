@@ -54,9 +54,7 @@
                 </div>
             </div>
             <div class="card-footer bg-transparent border-0 pt-0">
-                <a href="{{ route('admin.contacts.index') }}" class="small text-danger fw-semibold text-decoration-none">
-                    View Messages <i class="fa fa-arrow-right ms-1"></i>
-                </a>
+                <span class="small text-muted">Inbox In Development</span>
             </div>
         </div>
     </div>
@@ -77,9 +75,7 @@
                 </div>
             </div>
             <div class="card-footer bg-transparent border-0 pt-0">
-                <a href="{{ route('admin.classes.index') }}" class="small text-success fw-semibold text-decoration-none">
-                    Manage Classes <i class="fa fa-arrow-right ms-1"></i>
-                </a>
+                <span class="small text-muted">Manager In Development</span>
             </div>
         </div>
     </div>
@@ -115,25 +111,25 @@
             <div class="d-flex align-items-center">
                 <div class="me-3 text-primary"><i class="fa fa-bolt fs-4"></i></div>
                 <div>
-                    <h6 class="mb-0 fw-bold">Quick Management Actions</h6>
-                    <small class="text-muted">Shortcuts for admissions, facilities, news, and site configuration</small>
+                    <h6 class="mb-0 fw-bold">Active Management Modules</h6>
+                    <small class="text-muted">Direct shortcuts to active school management features</small>
                 </div>
             </div>
             <div class="d-flex flex-wrap gap-2">
                 <a href="{{ route('admin.appointments.index') }}" class="btn btn-primary btn-sm rounded-pill">
                     <i class="fa fa-calendar-check me-1"></i> Tour Bookings
                 </a>
-                <a href="{{ route('admin.contacts.index') }}" class="btn btn-danger btn-sm rounded-pill">
-                    <i class="fa fa-envelope me-1"></i> Inquiries Inbox
-                </a>
-                <a href="{{ route('admin.classes.index') }}" class="btn btn-success btn-sm rounded-pill">
-                    <i class="fa fa-graduation-cap me-1"></i> Classes
-                </a>
                 <a href="{{ route('admin.facilities.index') }}" class="btn btn-info text-white btn-sm rounded-pill">
                     <i class="fa fa-school-flag me-1"></i> Facilities
                 </a>
+                <a href="{{ route('admin.about.index') }}" class="btn btn-outline-primary btn-sm rounded-pill">
+                    <i class="fa fa-circle-info me-1"></i> About & Mission
+                </a>
+                <a href="{{ route('admin.sliders.index') }}" class="btn btn-outline-primary btn-sm rounded-pill">
+                    <i class="fa fa-images me-1"></i> Hero Sliders
+                </a>
                 <a href="{{ route('admin.settings.index') }}" class="btn btn-outline-secondary btn-sm rounded-pill">
-                    <i class="fa fa-sliders me-1"></i> Settings
+                    <i class="fa fa-sliders me-1"></i> School Settings
                 </a>
                 <a href="{{ route('home') }}" target="_blank" class="btn btn-outline-dark btn-sm rounded-pill">
                     <i class="fa fa-arrow-up-right-from-square me-1"></i> View Website
