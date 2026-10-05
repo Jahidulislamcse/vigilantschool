@@ -7,21 +7,22 @@
 
     <!-- Team Start -->
     @if(isset($teachers) && $teachers->count() > 0)
-    <div class="container-xxl py-5">
+    <div class="container-xxl py-4 py-md-5">
         <div class="container">
-            <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+            <div class="text-center mx-auto mb-4 mb-md-5" style="max-width: 600px;">
+                <span class="badge bg-primary-subtle text-primary border px-3 py-2 rounded-pill mb-2 font-weight-bold">Academic Faculty</span>
                 <h1 class="mb-3">Our Dedicated Educators</h1>
-                <p>Passionate, caring, and certified educators devoted to nurturing your child's innate curiosity and personal growth.</p>
+                <p class="text-muted">Passionate, caring, and certified educators devoted to nurturing your child's innate curiosity and personal growth.</p>
             </div>
-            <div class="row g-4">
+            <div class="row g-2 g-md-3 g-lg-4">
                 @foreach($teachers as $index => $teacher)
-                <div class="col-lg-4 col-md-6">
-                    <div class="team-item position-relative">
-                        <img class="img-fluid rounded-circle w-75" style="height: 250px; width: 250px !important; object-fit: cover;" src="{{ asset($teacher->photo ?? 'kider/img/team-1.jpg') }}" alt="{{ $teacher->name }}">
+                <div class="col-6 col-md-6 col-lg-4">
+                    <div class="team-item">
+                        <img class="img-fluid team-photo" src="{{ asset($teacher->photo ?? 'kider/img/team-1.jpg') }}" alt="{{ $teacher->name }}">
                         <div class="team-text">
                             <h3>{{ $teacher->name }}</h3>
-                            <p>{{ $teacher->designation }}</p>
-                            <div class="d-flex align-items-center">
+                            <p class="team-designation">{{ $teacher->designation }}</p>
+                            <div class="d-flex align-items-center justify-content-center">
                                 @if($teacher->facebook_url)
                                     <a class="btn btn-square btn-primary mx-1" href="{{ $teacher->facebook_url }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
                                 @endif

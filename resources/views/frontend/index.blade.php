@@ -321,23 +321,23 @@
                 <h1 class="mb-3">Our Dedicated Teachers</h1>
                 <p class="text-muted">Passionate educators providing personalized mentoring, moral coaching, and academic excellence.</p>
             </div>
-            <div class="row g-4">
+            <div class="row g-2 g-md-3 g-lg-4">
                 @foreach($teachers as $index => $teacher)
-                <div class="col-lg-4 col-md-6">
-                    <div class="team-item position-relative text-center">
-                        <img class="img-fluid rounded-circle w-75 p-2 bg-light shadow-sm" style="height: 240px; width: 240px !important; object-fit: cover;" src="{{ asset($teacher->photo ?? 'kider/img/team-1.jpg') }}" alt="{{ $teacher->name }}">
+                <div class="col-6 col-md-6 col-lg-4">
+                    <div class="team-item">
+                        <img class="img-fluid team-photo" src="{{ asset($teacher->photo ?? 'kider/img/team-1.jpg') }}" alt="{{ $teacher->name }}">
                         <div class="team-text">
                             <h3>{{ $teacher->name }}</h3>
-                            <p class="text-muted">{{ $teacher->designation }}</p>
+                            <p class="team-designation">{{ $teacher->designation }}</p>
                             <div class="d-flex align-items-center justify-content-center">
                                 @if($teacher->facebook_url)
-                                    <a class="btn btn-square btn-primary mx-1 rounded-circle" href="{{ $teacher->facebook_url }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-square btn-primary mx-1" href="{{ $teacher->facebook_url }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
                                 @endif
                                 @if($teacher->twitter_url)
-                                    <a class="btn btn-square btn-primary mx-1 rounded-circle" href="{{ $teacher->twitter_url }}" target="_blank"><i class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-square btn-primary mx-1" href="{{ $teacher->twitter_url }}" target="_blank"><i class="fab fa-twitter"></i></a>
                                 @endif
                                 @if($teacher->instagram_url)
-                                    <a class="btn btn-square btn-primary mx-1 rounded-circle" href="{{ $teacher->instagram_url }}" target="_blank"><i class="fab fa-instagram"></i></a>
+                                    <a class="btn btn-square btn-primary mx-1" href="{{ $teacher->instagram_url }}" target="_blank"><i class="fab fa-instagram"></i></a>
                                 @endif
                             </div>
                         </div>
