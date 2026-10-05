@@ -18,25 +18,25 @@
         <div class="navbar-nav mx-auto py-2 py-lg-0">
             <a href="{{ route('home') }}" class="nav-item nav-link {{ request()->routeIs('home') ? 'active' : '' }}">Home</a>
             <a href="{{ route('about') }}" class="nav-item nav-link {{ request()->routeIs('about') ? 'active' : '' }}">About Us</a>
-            <a href="#" class="nav-item nav-link">Classes</a>
+            <a href="{{ route('classes') }}" class="nav-item nav-link {{ request()->routeIs('classes') ? 'active' : '' }}">Classes</a>
             <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle {{ request()->routeIs('facilities') ? 'active' : '' }}" data-bs-toggle="dropdown">Pages</a>
+                <a href="#" class="nav-link dropdown-toggle {{ request()->routeIs('facilities', 'team', 'appointment', 'testimonials') ? 'active' : '' }}" data-bs-toggle="dropdown">Pages</a>
                 <div class="dropdown-menu rounded-3 border-0 shadow-sm m-0">
                     <a href="{{ route('facilities') }}" class="dropdown-item {{ request()->routeIs('facilities') ? 'active' : '' }}">School Facilities</a>
-                    <a href="#" class="dropdown-item">Popular Teachers</a>
-                    <a href="#" class="dropdown-item">Make Appointment</a>
-                    <a href="#" class="dropdown-item">Testimonial</a>
+                    <a href="{{ route('team') }}" class="dropdown-item {{ request()->routeIs('team') ? 'active' : '' }}">Popular Teachers</a>
+                    <a href="{{ route('appointment') }}" class="dropdown-item {{ request()->routeIs('appointment') ? 'active' : '' }}">Make Appointment</a>
+                    <a href="{{ route('testimonials') }}" class="dropdown-item {{ request()->routeIs('testimonials') ? 'active' : '' }}">Testimonials</a>
                 </div>
             </div>
-            <a href="#" class="nav-item nav-link">Contact Us</a>
+            <a href="{{ route('contact') }}" class="nav-item nav-link {{ request()->routeIs('contact') ? 'active' : '' }}">Contact Us</a>
         </div>
         <!-- Desktop Join Us Button -->
-        <a href="#" class="btn btn-secondary rounded-pill px-4 py-2 d-none d-lg-inline-flex align-items-center fw-semibold">
+        <a href="{{ route('appointment') }}" class="btn btn-secondary rounded-pill px-4 py-2 d-none d-lg-inline-flex align-items-center fw-semibold">
             Join Us<i class="fa fa-arrow-right ms-2"></i>
         </a>
         <!-- Mobile Join Us Button -->
         <div class="d-lg-none pt-2 pb-1 border-top mt-2">
-            <a href="#" class="btn btn-secondary rounded-pill w-100 py-2 d-flex align-items-center justify-content-center fw-semibold">
+            <a href="{{ route('appointment') }}" class="btn btn-secondary rounded-pill w-100 py-2 d-flex align-items-center justify-content-center fw-semibold">
                 Join Us<i class="fa fa-arrow-right ms-2"></i>
             </a>
         </div>

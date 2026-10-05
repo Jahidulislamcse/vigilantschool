@@ -40,9 +40,9 @@
                 <h4 class="text-white mb-4">Quick Links</h4>
                 <a class="btn btn-link text-white-50" href="{{ route('about') }}">About Us</a>
                 <a class="btn btn-link text-white-50" href="{{ route('facilities') }}">Our Facilities</a>
-                <a class="btn btn-link text-white-50" href="#">Academic Calendar</a>
-                <a class="btn btn-link text-white-50" href="#">Admission Procedure</a>
-                <a class="btn btn-link text-white-50" href="#">Contact Us</a>
+                <a class="btn btn-link text-white-50" href="{{ route('classes') }}">Classes & Programs</a>
+                <a class="btn btn-link text-white-50" href="{{ route('appointment') }}">Book Appointment</a>
+                <a class="btn btn-link text-white-50" href="{{ route('contact') }}">Contact Us</a>
             </div>
             <div class="col-lg-3 col-md-6">
                 <h4 class="text-white mb-4">Photo Gallery</h4>

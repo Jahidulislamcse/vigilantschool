@@ -15,40 +15,42 @@
             </div>
             <div class="row g-4">
                 @foreach($classes as $index => $class)
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="{{ 0.1 * (($index % 3) + 1) }}s">
+                <div class="col-lg-4 col-md-6 wow fadeInUp d-flex flex-column" data-wow-delay="{{ 0.1 * (($index % 3) + 1) }}s">
                     <div class="classes-item">
-                        <div class="bg-light rounded-circle w-75 mx-auto p-3">
-                            <img class="img-fluid rounded-circle" style="height: 180px; width: 100%; object-fit: cover;" src="{{ asset($class->image ?? 'kider/img/classes-1.jpg') }}" alt="{{ $class->title }}">
+                        <div class="classes-img-wrapper">
+                            <img class="img-fluid" src="{{ asset($class->image ?? 'kider/img/classes-1.jpg') }}" alt="{{ $class->title }}">
                         </div>
-                        <div class="bg-light rounded p-4 pt-5 mt-n5">
-                            <a class="d-block text-center h3 mt-3 mb-4" href="{{ route('appointment') }}">{{ $class->title }}</a>
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <div class="d-flex align-items-center">
-                                    <img class="rounded-circle flex-shrink-0" src="{{ asset($class->teacher->photo ?? 'kider/img/user.jpg') }}" alt="{{ $class->teacher->name ?? 'Teacher' }}" style="width: 45px; height: 45px; object-fit: cover;">
-                                    <div class="ms-3">
-                                        <h6 class="text-primary mb-1">{{ $class->teacher->name ?? 'Instructor' }}</h6>
-                                        <small>{{ $class->teacher->designation ?? 'Teacher' }}</small>
+                        <div class="classes-item-body">
+                            <a class="classes-title" href="{{ route('appointment') }}">{{ $class->title }}</a>
+                            <div class="classes-teacher-box">
+                                <div class="teacher-info">
+                                    <img class="rounded-circle flex-shrink-0" src="{{ asset($class->teacher->photo ?? 'kider/img/user.jpg') }}" alt="{{ $class->teacher->name ?? 'Faculty' }}" style="width: 40px; height: 40px; object-fit: cover;">
+                                    <div class="ms-2 ms-sm-3 text-truncate">
+                                        <h6 class="text-primary mb-0 fw-bold">{{ $class->teacher->name ?? 'Lead Faculty' }}</h6>
+                                        <small class="text-muted">{{ $class->teacher->designation ?? 'Educator' }}</small>
                                     </div>
                                 </div>
-                                <span class="bg-primary text-white rounded-pill py-2 px-3">{{ $class->fee }}</span>
+                                <span class="bg-primary text-white rounded-pill py-1 px-2 px-sm-3 small fw-bold flex-shrink-0">{{ $class->fee }}</span>
                             </div>
-                            <div class="row g-1">
-                                <div class="col-4">
-                                    <div class="border-top border-3 border-primary pt-2">
-                                        <h6 class="text-primary mb-1">Age:</h6>
-                                        <small>{{ $class->age_range }}</small>
+                            <div class="classes-stats">
+                                <div class="row g-1">
+                                    <div class="col-4">
+                                        <div class="classes-stat-col stat-age">
+                                            <h6 class="text-primary">Age:</h6>
+                                            <small class="text-muted text-truncate" title="{{ $class->age_range }}">{{ $class->age_range }}</small>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="border-top border-3 border-success pt-2">
-                                        <h6 class="text-success mb-1">Time:</h6>
-                                        <small>{{ $class->time_schedule }}</small>
+                                    <div class="col-4">
+                                        <div class="classes-stat-col stat-time">
+                                            <h6 class="text-success">Time:</h6>
+                                            <small class="text-muted text-truncate" title="{{ $class->time_schedule }}">{{ $class->time_schedule }}</small>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="border-top border-3 border-warning pt-2">
-                                        <h6 class="text-warning mb-1">Capacity:</h6>
-                                        <small>{{ $class->capacity }}</small>
+                                    <div class="col-4">
+                                        <div class="classes-stat-col stat-capacity">
+                                            <h6 class="text-warning">Capacity:</h6>
+                                            <small class="text-muted text-truncate" title="{{ $class->capacity }}">{{ $class->capacity }}</small>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
