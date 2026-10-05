@@ -148,4 +148,236 @@
     @endif
     <!-- Call To Action Banner End -->
 
+
+    <!-- Classes & Academic Programs Start -->
+    @if(isset($classes) && $classes->count() > 0)
+    <div class="container-xxl py-4 py-md-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-4 mb-md-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 650px;">
+                <span class="badge bg-primary-subtle text-primary border px-3 py-2 rounded-pill mb-2 font-weight-bold">Academic Programs</span>
+                <h1 class="mb-3">School Classes & Programs</h1>
+                <p class="text-muted">Structured curriculum from Play Group to S.S.C & O Level with individual teacher attention and interactive learning environments.</p>
+            </div>
+            <div class="row g-4">
+                @foreach($classes as $index => $class)
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="{{ 0.1 * (($index % 3) + 1) }}s">
+                    <div class="classes-item">
+                        <div class="bg-light rounded-circle w-75 mx-auto p-3">
+                            <img class="img-fluid rounded-circle" style="height: 180px; width: 100%; object-fit: cover;" src="{{ asset($class->image ?? 'kider/img/classes-1.jpg') }}" alt="{{ $class->title }}">
+                        </div>
+                        <div class="bg-light rounded p-4 pt-5 mt-n5">
+                            <a class="d-block text-center h4 mt-3 mb-3 text-dark fw-bold text-decoration-none" href="{{ route('appointment') }}">{{ $class->title }}</a>
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <div class="d-flex align-items-center">
+                                    <img class="rounded-circle flex-shrink-0" src="{{ asset($class->teacher->photo ?? 'kider/img/user.jpg') }}" alt="{{ $class->teacher->name ?? 'Faculty' }}" style="width: 44px; height: 44px; object-fit: cover;">
+                                    <div class="ms-3">
+                                        <h6 class="text-primary mb-0 fw-bold">{{ $class->teacher->name ?? 'Lead Faculty' }}</h6>
+                                        <small class="text-muted">{{ $class->teacher->designation ?? 'Educator' }}</small>
+                                    </div>
+                                </div>
+                                <span class="bg-primary text-white rounded-pill py-1 px-3 small fw-bold">{{ $class->fee }}</span>
+                            </div>
+                            <div class="row g-1">
+                                <div class="col-4">
+                                    <div class="border-top border-3 border-primary pt-2">
+                                        <h6 class="text-primary mb-0 small fw-bold">Age:</h6>
+                                        <small class="text-muted">{{ $class->age_range }}</small>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="border-top border-3 border-success pt-2">
+                                        <h6 class="text-success mb-0 small fw-bold">Time:</h6>
+                                        <small class="text-muted text-truncate d-block" title="{{ $class->time_schedule }}">{{ $class->time_schedule }}</small>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="border-top border-3 border-warning pt-2">
+                                        <h6 class="text-warning mb-0 small fw-bold">Capacity:</h6>
+                                        <small class="text-muted">{{ $class->capacity }}</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+    @endif
+    <!-- Classes & Academic Programs End -->
+
+
+    <!-- Campus Tour & Admission Appointment Start -->
+    <div class="container-xxl py-4 py-md-5">
+        <div class="container">
+            <div class="bg-light rounded-4 overflow-hidden border">
+                <div class="row g-0">
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                        <div class="h-100 d-flex flex-column justify-content-center p-4 p-md-5">
+                            <span class="badge bg-primary-subtle text-primary border px-3 py-2 rounded-pill mb-3 align-self-start font-weight-bold">
+                                Admissions Open
+                            </span>
+                            <h1 class="mb-3">Book A School Tour & Appointment</h1>
+                            <p class="mb-4 text-muted">Visit first then decide! Complete the short form below and our admissions team will contact you to confirm your scheduled campus tour.</p>
+                            
+                            @if(session('success_appointment'))
+                                <div class="alert alert-success alert-dismissible fade show rounded-3" role="alert">
+                                    <i class="fa fa-circle-check me-2"></i>{{ session('success_appointment') }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            @endif
+
+                            @if(isset($errors) && $errors->any())
+                                <div class="alert alert-danger alert-dismissible fade show rounded-3" role="alert">
+                                    <ul class="mb-0 ps-3">
+                                        @foreach($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            @endif
+
+                            <form action="{{ route('appointment.submit') }}" method="POST">
+                                @csrf
+                                <div class="row g-3">
+                                    <div class="col-sm-6">
+                                        <div class="form-floating">
+                                            <input type="text" name="guardian_name" class="form-control bg-white border" id="home_gname" placeholder="Guardian Name" value="{{ old('guardian_name') }}" required>
+                                            <label for="home_gname">Guardian Name *</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-floating">
+                                            <input type="email" name="guardian_email" class="form-control bg-white border" id="home_gmail" placeholder="Guardian Email" value="{{ old('guardian_email') }}" required>
+                                            <label for="home_gmail">Guardian Email *</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-floating">
+                                            <input type="text" name="guardian_phone" class="form-control bg-white border" id="home_gphone" placeholder="Phone Number" value="{{ old('guardian_phone') }}" required>
+                                            <label for="home_gphone">Phone Number *</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-floating">
+                                            <input type="text" name="child_name" class="form-control bg-white border" id="home_cname" placeholder="Child Name" value="{{ old('child_name') }}" required>
+                                            <label for="home_cname">Child Name *</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-floating">
+                                            <input type="text" name="child_age" class="form-control bg-white border" id="home_cage" placeholder="Child Age" value="{{ old('child_age') }}" required>
+                                            <label for="home_cage">Child Age *</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-floating">
+                                            <select name="class_id" class="form-select bg-white border" id="home_class_select">
+                                                <option value="">Select Interested Class</option>
+                                                @if(isset($classes))
+                                                    @foreach($classes as $c)
+                                                        <option value="{{ $c->id }}" {{ old('class_id') == $c->id ? 'selected' : '' }}>{{ $c->title }}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                            <label for="home_class_select">Interested Class</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-floating">
+                                            <textarea name="message" class="form-control bg-white border" placeholder="Special requirements or message" id="home_message" style="height: 90px">{{ old('message') }}</textarea>
+                                            <label for="home_message">Questions or Notes</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn btn-primary w-100 py-3 rounded-pill fw-bold" type="submit">
+                                            <i class="fa fa-calendar-check me-2"></i> Submit Appointment Request
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.3s" style="min-height: 350px;">
+                        <div class="position-relative h-100">
+                            <img class="position-absolute w-100 h-100" src="{{ asset('kider/img/appointment.jpg') }}" style="object-fit: cover;" alt="Campus Appointment">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Campus Tour & Admission Appointment End -->
+
+
+    <!-- Qualified Teachers & Faculty Start -->
+    @if(isset($teachers) && $teachers->count() > 0)
+    <div class="container-xxl py-4 py-md-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-4 mb-md-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                <span class="badge bg-primary-subtle text-primary border px-3 py-2 rounded-pill mb-2 font-weight-bold">Academic Faculty</span>
+                <h1 class="mb-3">Our Dedicated Teachers</h1>
+                <p class="text-muted">Passionate educators providing personalized mentoring, moral coaching, and academic excellence.</p>
+            </div>
+            <div class="row g-4">
+                @foreach($teachers as $index => $teacher)
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="{{ 0.1 * (($index % 3) + 1) }}s">
+                    <div class="team-item position-relative text-center">
+                        <img class="img-fluid rounded-circle w-75 p-2 bg-light shadow-sm" style="height: 240px; width: 240px !important; object-fit: cover;" src="{{ asset($teacher->photo ?? 'kider/img/team-1.jpg') }}" alt="{{ $teacher->name }}">
+                        <div class="team-text">
+                            <h3>{{ $teacher->name }}</h3>
+                            <p class="text-muted">{{ $teacher->designation }}</p>
+                            <div class="d-flex align-items-center justify-content-center">
+                                @if($teacher->facebook_url)
+                                    <a class="btn btn-square btn-primary mx-1 rounded-circle" href="{{ $teacher->facebook_url }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                @endif
+                                @if($teacher->twitter_url)
+                                    <a class="btn btn-square btn-primary mx-1 rounded-circle" href="{{ $teacher->twitter_url }}" target="_blank"><i class="fab fa-twitter"></i></a>
+                                @endif
+                                @if($teacher->instagram_url)
+                                    <a class="btn btn-square btn-primary mx-1 rounded-circle" href="{{ $teacher->instagram_url }}" target="_blank"><i class="fab fa-instagram"></i></a>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+    @endif
+    <!-- Qualified Teachers & Faculty End -->
+
+
+    <!-- Testimonials / Parent Reviews Start -->
+    @if(isset($testimonials) && $testimonials->count() > 0)
+    <div class="container-xxl py-4 py-md-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-4 mb-md-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                <span class="badge bg-primary-subtle text-primary border px-3 py-2 rounded-pill mb-2 font-weight-bold">Guardian Feedback</span>
+                <h1 class="mb-3">What Our Parents Say!</h1>
+                <p class="text-muted">Honest impressions and reviews from our active school community and parents.</p>
+            </div>
+            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+                @foreach($testimonials as $test)
+                <div class="testimonial-item bg-light rounded-4 p-4 p-md-5 border">
+                    <p class="fs-5 text-dark mb-4">"{{ $test->content }}"</p>
+                    <div class="d-flex align-items-center bg-white p-2 rounded-pill shadow-sm">
+                        <img class="img-fluid flex-shrink-0 rounded-circle" src="{{ asset($test->avatar ?? 'kider/img/testimonial-1.jpg') }}" style="width: 65px; height: 65px; object-fit: cover;" alt="{{ $test->client_name }}">
+                        <div class="ps-3">
+                            <h5 class="mb-0 fw-bold text-dark">{{ $test->client_name }}</h5>
+                            <small class="text-muted">{{ $test->profession }}</small>
+                        </div>
+                        <i class="fa fa-quote-right fa-2x text-primary ms-auto me-3 d-none d-sm-flex opacity-50"></i>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+    @endif
+    <!-- Testimonials / Parent Reviews End -->
+
 @endsection
