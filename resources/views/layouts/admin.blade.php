@@ -222,14 +222,42 @@
                 <span>Dashboard</span>
             </a>
 
+            <div class="sidebar-section-title">Admissions & Inquiries</div>
+            <a href="{{ route('admin.appointments.index') }}" class="list-group-item-sidebar {{ request()->routeIs('admin.appointments.*') ? 'active' : '' }}">
+                <i class="fa fa-calendar-check"></i>
+                <span>Tour Bookings</span>
+                @php $pendingAppointments = \App\Models\Appointment::where('status', 'pending')->count(); @endphp
+                @if($pendingAppointments > 0)
+                    <span class="badge bg-danger rounded-pill ms-auto small">{{ $pendingAppointments }}</span>
+                @endif
+            </a>
+            <a href="{{ route('admin.contacts.index') }}" class="list-group-item-sidebar {{ request()->routeIs('admin.contacts.*') ? 'active' : '' }}">
+                <i class="fa fa-envelope"></i>
+                <span>Contact Inquiries</span>
+                @php $unreadContacts = \App\Models\Contact::where('is_read', false)->count(); @endphp
+                @if($unreadContacts > 0)
+                    <span class="badge bg-warning text-dark rounded-pill ms-auto small">{{ $unreadContacts }}</span>
+                @endif
+            </a>
+            <a href="{{ route('admin.newsletters.index') }}" class="list-group-item-sidebar {{ request()->routeIs('admin.newsletters.*') ? 'active' : '' }}">
+                <i class="fa fa-newspaper"></i>
+                <span>Subscribers</span>
+            </a>
+
+            <div class="sidebar-section-title">Academics & Faculty</div>
+            <a href="{{ route('admin.classes.index') }}" class="list-group-item-sidebar {{ request()->routeIs('admin.classes.*') ? 'active' : '' }}">
+                <i class="fa fa-graduation-cap"></i>
+                <span>Classes & Programs</span>
+            </a>
+            <a href="{{ route('admin.teachers.index') }}" class="list-group-item-sidebar {{ request()->routeIs('admin.teachers.*') ? 'active' : '' }}">
+                <i class="fa fa-chalkboard-user"></i>
+                <span>Teachers & Staff</span>
+            </a>
+
             <div class="sidebar-section-title">Content & Brand</div>
             <a href="{{ route('admin.sliders.index') }}" class="list-group-item-sidebar {{ request()->routeIs('admin.sliders.*') ? 'active' : '' }}">
                 <i class="fa fa-images"></i>
                 <span>Hero Sliders</span>
-            </a>
-            <a href="{{ route('admin.settings.index') }}" class="list-group-item-sidebar {{ request()->routeIs('admin.settings.*') ? 'active' : '' }}">
-                <i class="fa fa-sliders"></i>
-                <span>School Profile & Settings</span>
             </a>
             <a href="{{ route('admin.facilities.index') }}" class="list-group-item-sidebar {{ request()->routeIs('admin.facilities.*') ? 'active' : '' }}">
                 <i class="fa fa-school-flag"></i>
@@ -238,6 +266,18 @@
             <a href="{{ route('admin.about.index') }}" class="list-group-item-sidebar {{ request()->routeIs('admin.about.*') ? 'active' : '' }}">
                 <i class="fa fa-circle-info"></i>
                 <span>About & Mission</span>
+            </a>
+            <a href="{{ route('admin.testimonials.index') }}" class="list-group-item-sidebar {{ request()->routeIs('admin.testimonials.*') ? 'active' : '' }}">
+                <i class="fa fa-comments"></i>
+                <span>Parent Reviews</span>
+            </a>
+            <a href="{{ route('admin.galleries.index') }}" class="list-group-item-sidebar {{ request()->routeIs('admin.galleries.*') ? 'active' : '' }}">
+                <i class="fa fa-photo-film"></i>
+                <span>Photo Gallery</span>
+            </a>
+            <a href="{{ route('admin.settings.index') }}" class="list-group-item-sidebar {{ request()->routeIs('admin.settings.*') ? 'active' : '' }}">
+                <i class="fa fa-sliders"></i>
+                <span>School Settings</span>
             </a>
         </div>
     </div>
