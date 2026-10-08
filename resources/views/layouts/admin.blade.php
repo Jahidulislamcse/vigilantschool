@@ -260,15 +260,13 @@
             </a>
 
             <div class="sidebar-section-title">Academics & Faculty</div>
-            <a href="javascript:void(0);" class="list-group-item-sidebar disabled" tabindex="-1" aria-disabled="true">
+            <a href="{{ route('admin.classes.index') }}" class="list-group-item-sidebar {{ request()->routeIs('admin.classes.*') ? 'active' : '' }}">
                 <i class="fa fa-graduation-cap"></i>
                 <span>Classes & Programs</span>
-                <span class="badge bg-dark text-white-50 border border-secondary border-opacity-25 ms-auto py-1 px-2" style="font-size: 0.65rem;">Disabled</span>
             </a>
-            <a href="javascript:void(0);" class="list-group-item-sidebar disabled" tabindex="-1" aria-disabled="true">
+            <a href="{{ route('admin.teachers.index') }}" class="list-group-item-sidebar {{ request()->routeIs('admin.teachers.*') ? 'active' : '' }}">
                 <i class="fa fa-chalkboard-user"></i>
                 <span>Teachers & Staff</span>
-                <span class="badge bg-dark text-white-50 border border-secondary border-opacity-25 ms-auto py-1 px-2" style="font-size: 0.65rem;">Disabled</span>
             </a>
 
             <div class="sidebar-section-title">Content & Brand</div>
