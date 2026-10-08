@@ -154,7 +154,7 @@
             <div class="text-center mx-auto mb-4 mb-md-5" style="max-width: 650px;">
                 <span class="badge bg-primary-subtle text-primary border px-3 py-2 rounded-pill mb-2 font-weight-bold">Academic Programs</span>
                 <h1 class="mb-3">School Classes & Programs</h1>
-                <p class="text-muted">Structured curriculum from Play Group to S.S.C & O Level with individual teacher attention and interactive learning environments.</p>
+                <p class="text-muted">Structured curriculum from Play Group to Class 8 (Std-VIII) with individual teacher attention and interactive learning environments.</p>
             </div>
             <div class="row g-4">
                 @foreach($classes as $index => $class)

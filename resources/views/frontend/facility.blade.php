@@ -100,7 +100,7 @@
                                         <span class="badge bg-dark time-badge">10:45 AM - 01:30 PM</span>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center py-3 flex-wrap gap-2">
-                                        <span class="fw-semibold">Std-I to Std-X</span>
+                                        <span class="fw-semibold">Std-I to Std-VIII</span>
                                         <span class="badge bg-secondary time-badge">08:00 AM - 01:00 PM</span>
                                     </li>
                                 </ul>

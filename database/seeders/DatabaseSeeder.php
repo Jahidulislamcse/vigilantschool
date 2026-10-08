@@ -43,19 +43,19 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
-        // 2. School Settings from Official Prospectus & Bangladeshi Context
+        // 2. School Settings (Play Group to Class 8 / Std-VIII)
         $settings = [
             ['key' => 'school_name', 'value' => 'Vigilant International School', 'group' => 'general', 'type' => 'text'],
             ['key' => 'site_title', 'value' => 'Vigilant International School', 'group' => 'general', 'type' => 'text'],
             ['key' => 'site_tagline', 'value' => 'Constant effort in acquiring quality and quantity', 'group' => 'general', 'type' => 'text'],
             ['key' => 'motto', 'value' => 'Visit first then decide', 'group' => 'general', 'type' => 'text'],
-            ['key' => 'medium_version', 'value' => 'English Medium & English Version (Play Group to S.S.C & O Level)', 'group' => 'general', 'type' => 'text'],
+            ['key' => 'medium_version', 'value' => 'English Medium & English Version (Play Group to Class 8 / Std-VIII)', 'group' => 'general', 'type' => 'text'],
             ['key' => 'affiliations', 'value' => 'Corporate Member of British Council • Following the Curriculum of Edexcel', 'group' => 'general', 'type' => 'text'],
-            ['key' => 'meta_description', 'value' => 'Vigilant International School, South Mugda, Dhaka - English Medium & English Version from Play Group to S.S.C & O Level with Edexcel and British Council affiliation.', 'group' => 'general', 'type' => 'textarea'],
+            ['key' => 'meta_description', 'value' => 'Vigilant International School, South Mugda, Dhaka - English Medium & English Version from Play Group to Class 8 (Std-VIII) with British Council and Edexcel curriculum standards.', 'group' => 'general', 'type' => 'textarea'],
             ['key' => 'contact_email', 'value' => 'vigilantschool@gmail.com', 'group' => 'contact', 'type' => 'text'],
             ['key' => 'contact_phone', 'value' => '01734 655 655, 01674 655 655, 01978 655 655', 'group' => 'contact', 'type' => 'text'],
             ['key' => 'contact_address', 'value' => '1/51/5 South Mugda, WASA Road, Mugda, Dhaka-1214, Bangladesh', 'group' => 'contact', 'type' => 'textarea'],
-            ['key' => 'working_hours', 'value' => 'Morning Shift: 08:00 AM - 10:45 AM | Day Shift: 10:45 AM - 01:30 PM | Std-I to X: 08:00 AM - 01:00 PM', 'group' => 'contact', 'type' => 'text'],
+            ['key' => 'working_hours', 'value' => 'Morning Shift: 08:00 AM - 10:45 AM | Day Shift: 10:45 AM - 01:30 PM | Std-I to VIII: 08:00 AM - 01:00 PM', 'group' => 'contact', 'type' => 'text'],
             ['key' => 'academic_sessions', 'value' => 'January - December Session | July - June Session', 'group' => 'general', 'type' => 'text'],
             ['key' => 'google_map_iframe', 'value' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.548777931362!2d90.4285!3d23.7285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDQzJzQyLjYiTiA5MMKwMjUnNDIuNiJF!5e0!3m2!1sen!2sbd!4v1680000000000', 'group' => 'contact', 'type' => 'textarea'],
             ['key' => 'facebook_url', 'value' => 'https://facebook.com/vigilantschool', 'group' => 'social', 'type' => 'text'],
@@ -65,18 +65,18 @@ class DatabaseSeeder extends Seeder
             ['key' => 'linkedin_url', 'value' => '', 'group' => 'social', 'type' => 'text'],
             ['key' => 'site_logo', 'value' => null, 'group' => 'branding', 'type' => 'image'],
             ['key' => 'site_favicon', 'value' => 'kider/img/favicon.ico', 'group' => 'branding', 'type' => 'image'],
-            ['key' => 'footer_about', 'value' => 'A child is born with an abundance of multiple capabilities. Vigilant International School in South Mugda, Dhaka is committed to nurturing your children into confident, competitive citizens for the global village with British Council affiliation, Edexcel curriculum, and Islamic moral coaching.', 'group' => 'general', 'type' => 'textarea'],
+            ['key' => 'footer_about', 'value' => 'A child is born with an abundance of multiple capabilities. Vigilant International School in South Mugda, Dhaka is committed to nurturing your children from Play Group to Class 8 into confident, competitive citizens for the global village with British Council affiliation, Edexcel curriculum, and Islamic moral coaching.', 'group' => 'general', 'type' => 'textarea'],
         ];
 
         foreach ($settings as $setting) {
             Setting::updateOrCreate(['key' => $setting['key']], $setting);
         }
 
-        // 3. Hero Carousel Sliders (Authentic Vigilant School Banners)
+        // 3. Hero Carousel Sliders
         Slider::truncate();
         Slider::create([
             'title' => 'Constant Effort in Acquiring Quality and Quantity',
-            'subtitle' => 'English Medium & English Version • Play Group to S.S.C & O Level',
+            'subtitle' => 'English Medium & English Version • Play Group to Class 8 (Std-VIII)',
             'description' => 'Moulding competitive citizens for the global village in South Mugda, Dhaka with caring teachers, modern lab facilities, and Islamic moral grounding.',
             'btn_text_1' => 'Explore Classes',
             'btn_url_1' => '/classes',
@@ -89,7 +89,7 @@ class DatabaseSeeder extends Seeder
         Slider::create([
             'title' => 'Visit First Then Decide — Premier Education Hub in Dhaka',
             'subtitle' => 'Corporate Member of British Council • Edexcel Curriculum',
-            'description' => 'Two teachers in each junior classroom, equipped science and computer labs, 24/7 CCTV monitoring with audio, and After Class Assistance Programme (ACAP).',
+            'description' => 'Two teachers in each junior classroom, equipped science and computer labs, 24/7 CCTV monitoring with audio, and After Class Assistance Programme (ACAP) up to Class 8.',
             'btn_text_1' => 'Admission Inquiry',
             'btn_url_1' => '/appointment',
             'btn_text_2' => 'Contact Us',
@@ -100,7 +100,7 @@ class DatabaseSeeder extends Seeder
         ]);
         Slider::create([
             'title' => 'Admissions Open for Academic Sessions (Jan–Dec & Jul–Jun)',
-            'subtitle' => 'From Play Group to S.S.C & O Level • South Mugda Campus',
+            'subtitle' => 'From Play Group to Class 8 (Std-VIII) • South Mugda Campus',
             'description' => 'Give your child the advantage of personalized education with full lesson preparation at school, zero private tuition pressure, and caring educators.',
             'btn_text_1' => 'Book A School Tour',
             'btn_url_1' => '/appointment',
@@ -167,12 +167,12 @@ class DatabaseSeeder extends Seeder
             Facility::create($facility);
         }
 
-        // 5. About Section with Official Mission & Bangladeshi Perspective
+        // 5. About Section (Play Group to Class 8 Scope)
         AboutSection::truncate();
         AboutSection::create([
             'title' => 'Moulding Competitive Citizens in the Global Village',
             'tagline' => 'About Vigilant International School, South Mugda, Dhaka',
-            'description_1' => 'A Child is born with an abundance of multiple capabilities. At Vigilant International School (South Mugda, Dhaka), our mission is to nourish each child with British Council standards, Edexcel curriculum, and sound moral values so they proudly represent Bangladesh on the global stage.',
+            'description_1' => 'A Child is born with an abundance of multiple capabilities. At Vigilant International School (South Mugda, Dhaka), our mission is to nourish each child from Play Group to Class 8 with British Council standards, Edexcel curriculum, and sound moral values so they represent Bangladesh with pride.',
             'description_2' => 'We operate under two flexible academic sessions (January - December & July - June) with a 3-Semester evaluation system. With two teachers in junior classrooms and our After Class Assistance Programme (ACAP), all homework and lessons are completed on campus without private coaching burden.',
             'founder_name' => 'Prof. Dr. M. A. Rahman',
             'founder_role' => 'Chairman & Senior Academic Advisor',
@@ -187,7 +187,7 @@ class DatabaseSeeder extends Seeder
             'cta_image' => 'kider/img/call-to-action.jpg',
         ]);
 
-        // 6. Faculty Teachers with Authentic Bangladeshi Names & Qualifications
+        // 6. Faculty Teachers
         Teacher::truncate();
         $teachers = [
             [
@@ -203,9 +203,9 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'name' => 'Md. Jahidul Islam, M.Sc (Physics)',
-                'designation' => 'Science & Mathematics Department Head',
+                'designation' => 'Science & Mathematics Department Head (Class 6 to 8)',
                 'photo' => 'kider/img/team-2.jpg',
-                'bio' => 'Senior faculty with 10+ years coaching Edexcel O Level physics, higher math, and mentoring students in national science olympiads.',
+                'bio' => 'Senior faculty with 10+ years experience teaching middle school physics, mathematics, and mentoring students in science fairs.',
                 'facebook_url' => 'https://facebook.com',
                 'twitter_url' => '',
                 'instagram_url' => '',
@@ -214,7 +214,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'name' => 'Farhana Chowdhury, M.A (ELT), B.Ed',
-                'designation' => 'Senior English Faculty & Edexcel Coordinator',
+                'designation' => 'Senior English Faculty & Primary Curriculum Coordinator',
                 'photo' => 'kider/img/team-3.jpg',
                 'bio' => 'British Council trained educator specializing in English language mastery, creative writing, and Edexcel curriculum standards.',
                 'facebook_url' => 'https://facebook.com',
@@ -263,7 +263,7 @@ class DatabaseSeeder extends Seeder
             $teacherModels[] = Teacher::create($t);
         }
 
-        // 7. Classes & Academic Levels with Bangladeshi Tuition Fees (BDT / ৳)
+        // 7. Classes & Academic Levels from Play Group to Class 8 (Std-VIII)
         SchoolClass::truncate();
         $classes = [
             [
@@ -301,45 +301,45 @@ class DatabaseSeeder extends Seeder
                 'time_schedule' => 'Morning: 8:00-10:45 | Day: 10:45-1:30',
                 'capacity' => '25 Kids (2 Teachers)',
                 'fee' => '৳ 3,000 / mo',
-                'teacher_id' => $teacherModels[2]->id,
+                'teacher_id' => $teacherModels[0]->id,
                 'order' => 3,
                 'is_active' => true,
             ],
             [
-                'title' => 'Standard I to V (Primary English Version)',
-                'slug' => 'standard-1-to-5',
+                'title' => 'Standard I to III (Junior Primary)',
+                'slug' => 'standard-1-to-3',
                 'image' => 'kider/img/classes-4.jpg',
-                'description' => 'National curriculum English Version with dual teachers up to Std-IV, computer lab, and ACAP assistance.',
-                'age_range' => '6 - 11 Years',
+                'description' => 'Dual-teacher classroom care, English Version foundational curriculum, mental arithmetic, and ACAP assistance.',
+                'age_range' => '6 - 9 Years',
                 'time_schedule' => '08:00 AM - 01:00 PM',
-                'capacity' => '25 Students',
-                'fee' => '৳ 3,500 / mo',
+                'capacity' => '25 Students (2 Teachers)',
+                'fee' => '৳ 3,200 / mo',
                 'teacher_id' => $teacherModels[2]->id,
                 'order' => 4,
                 'is_active' => true,
             ],
             [
-                'title' => 'Standard VI to X (Secondary / S.S.C)',
-                'slug' => 'standard-6-to-10',
+                'title' => 'Standard IV to V (Upper Primary)',
+                'slug' => 'standard-4-to-5',
                 'image' => 'kider/img/classes-5.jpg',
-                'description' => 'Rigorous S.S.C English Version syllabus, model tests, science lab practicums, and continuous evaluation.',
-                'age_range' => '11 - 16 Years',
+                'description' => 'Subject-specialist teaching, science and computer lab practicums, moral education, and semester assessments.',
+                'age_range' => '9 - 11 Years',
                 'time_schedule' => '08:00 AM - 01:00 PM',
-                'capacity' => '30 Students',
-                'fee' => '৳ 4,000 / mo',
-                'teacher_id' => $teacherModels[1]->id,
+                'capacity' => '25 Students',
+                'fee' => '৳ 3,500 / mo',
+                'teacher_id' => $teacherModels[2]->id,
                 'order' => 5,
                 'is_active' => true,
             ],
             [
-                'title' => 'O Level & Edexcel International',
-                'slug' => 'o-level-edexcel',
+                'title' => 'Standard VI to VIII (Junior Secondary / Class 6 to 8)',
+                'slug' => 'standard-6-to-8',
                 'image' => 'kider/img/classes-6.jpg',
-                'description' => 'British Council attached centre curriculum preparing students for international Edexcel IGCSE / O Level exams.',
-                'age_range' => '14 - 17 Years',
+                'description' => 'Advanced English Version curriculum, hands-on physics & chemistry labs, ICT coding, and comprehensive evaluation.',
+                'age_range' => '11 - 14 Years',
                 'time_schedule' => '08:00 AM - 01:30 PM',
-                'capacity' => '20 Students',
-                'fee' => '৳ 5,500 / mo',
+                'capacity' => '30 Students',
+                'fee' => '৳ 4,000 / mo',
                 'teacher_id' => $teacherModels[1]->id,
                 'order' => 6,
                 'is_active' => true,
@@ -351,7 +351,7 @@ class DatabaseSeeder extends Seeder
             $classModels[] = SchoolClass::create($c);
         }
 
-        // 8. Authentic Parent Testimonials from Dhaka Guardians
+        // 8. Authentic Parent Testimonials
         Testimonial::truncate();
         $testimonials = [
             [
@@ -365,9 +365,9 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'client_name' => 'Dr. Sabina Yasmin',
-                'profession' => 'Physician & Parent of O-Level Candidate, WASA Road, Dhaka',
+                'profession' => 'Physician & Parent of Class 8 (Std-VIII) Student, WASA Road, Dhaka',
                 'avatar' => 'kider/img/testimonial-2.jpg',
-                'content' => 'Vigilant International School’s British Council affiliation and Edexcel curriculum guidance ensure top-tier academic standards right in our neighbourhood. The laboratory facilities and teacher dedication are outstanding.',
+                'content' => 'Vigilant International School’s British Council affiliation and Edexcel curriculum guidance ensure top-tier academic standards right in our neighbourhood. My daughter has excelled in Class 8 science and math.',
                 'rating' => 5,
                 'order' => 2,
                 'is_active' => true,
@@ -413,7 +413,7 @@ class DatabaseSeeder extends Seeder
             Gallery::create($g);
         }
 
-        // 10. Sample Appointment Inquiries from Bangladeshi Guardians
+        // 10. Sample Appointment Inquiries from Bangladeshi Guardians (Play Group to Class 8)
         Appointment::truncate();
         $appointments = [
             [
@@ -432,9 +432,9 @@ class DatabaseSeeder extends Seeder
                 'guardian_email' => 'dr.sabina.y@gmail.com',
                 'guardian_phone' => '01819-876543',
                 'child_name' => 'Nafisa Zaki',
-                'child_age' => '14 Years',
+                'child_age' => '13 Years',
                 'class_id' => $classModels[5]->id,
-                'message' => 'Would like to know the subject combination for Edexcel O-Level Science stream and lab practicum schedule.',
+                'message' => 'Would like to know about Class 8 science lab practicum, ICT computer classes, and semester exam schedule.',
                 'status' => 'pending',
                 'admin_notes' => 'Phone consultation scheduled for tomorrow 11:00 AM.',
             ],
@@ -477,7 +477,7 @@ class DatabaseSeeder extends Seeder
             Appointment::create($app);
         }
 
-        // 11. Sample Contact Inquiries with Authentic Bangladeshi Perspective
+        // 11. Sample Contact Inquiries (Play Group to Class 8 Scope)
         Contact::truncate();
         $contacts = [
             [
@@ -499,8 +499,8 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'Dr. Enamul Karim',
                 'email' => 'enamul.karim.dr@gmail.com',
-                'subject' => 'Edexcel O Level Science Stream Lab Facilities',
-                'message' => 'Hello, I would like to visit the Physics and Chemistry laboratories before finalizing admission for my daughter in Std-IX O-Level.',
+                'subject' => 'Class 7 & 8 Science Lab and Computer Facilities',
+                'message' => 'Hello, I would like to visit the science and computer laboratories before finalizing admission for my son in Class 7.',
                 'is_read' => true,
                 'admin_reply' => 'Dear Dr. Enamul, you are warmly invited to visit our science lab this Thursday at 11:30 AM to meet our Head of Science, Md. Jahidul Islam.',
             ],
