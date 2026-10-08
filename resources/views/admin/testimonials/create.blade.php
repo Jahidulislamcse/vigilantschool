@@ -67,14 +67,11 @@
                         <!-- Avatar Photo -->
                         <div class="col-md-4">
                             <label class="form-label fw-semibold">Parent Avatar / Photo</label>
-                            <input type="file" name="avatar" class="form-control @error('avatar') is-invalid @enderror" accept="image/*" onchange="previewImage(this, 'avatarPreview')">
+                            <input type="file" name="avatar" class="form-control @error('avatar') is-invalid @enderror" accept="image/*">
                             <small class="text-muted">Max: 2MB (Optional)</small>
                             @error('avatar')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
-                            <div class="mt-2" id="previewContainer" style="display: none;">
-                                <img id="avatarPreview" src="#" alt="Preview" class="rounded-circle shadow-sm border p-1" style="width: 50px; height: 50px; object-fit: cover;">
-                            </div>
                         </div>
 
                         <!-- Testimonial Content -->

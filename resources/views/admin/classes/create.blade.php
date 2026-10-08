@@ -97,14 +97,11 @@
                         <!-- Image Upload -->
                         <div class="col-12">
                             <label class="form-label fw-semibold">Program Photo / Banner <span class="text-danger">*</span></label>
-                            <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" accept="image/*" required onchange="previewImage(this, 'classImagePreview')">
+                            <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" accept="image/*" required>
                             <small class="text-muted">Recommended: High quality square or landscape photo (Max 3MB)</small>
                             @error('image')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
-                            <div class="mt-2" id="previewContainer" style="display: none;">
-                                <img id="classImagePreview" src="#" alt="Preview" class="rounded-circle shadow-sm border p-1" style="width: 100px; height: 100px; object-fit: cover;">
-                            </div>
                         </div>
 
                         <!-- Description -->

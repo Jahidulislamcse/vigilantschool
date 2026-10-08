@@ -54,17 +54,20 @@
                         <!-- Photo Upload & Existing Preview -->
                         <div class="col-md-6">
                             <label class="form-label fw-semibold">Profile Photo</label>
-                            <input type="file" name="photo" class="form-control @error('photo') is-invalid @enderror" accept="image/*" onchange="previewImage(this, 'teacherPhotoPreview')">
+                            <input type="file" name="photo" class="form-control @error('photo') is-invalid @enderror" accept="image/*">
                             <small class="text-muted">Leave empty to keep current photo. Max: 2MB</small>
                             @error('photo')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
-                            <div class="mt-2 d-flex align-items-center gap-3">
+                            @if($teacher->photo)
+                            <div class="admin-img-preview-box d-flex align-items-center gap-3 mt-2">
+                                <img src="{{ asset($teacher->photo) }}" alt="{{ $teacher->name }}" class="admin-preview-thumb circle" style="width: 60px; height: 60px;">
                                 <div>
-                                    <small class="text-muted d-block mb-1">Current Photo:</small>
-                                    <img id="teacherPhotoPreview" src="{{ asset($teacher->photo ?? 'kider/img/team-1.jpg') }}" alt="{{ $teacher->name }}" class="rounded-circle shadow-sm border p-1" style="width: 80px; height: 80px; object-fit: cover;">
+                                    <span class="badge bg-primary-subtle text-primary admin-preview-badge mb-1"><i class="fa fa-user me-1"></i> Current Profile Photo</span>
+                                    <div class="small text-muted font-monospace text-truncate" style="max-width: 220px;">{{ $teacher->photo }}</div>
                                 </div>
                             </div>
+                            @endif
                         </div>
 
                         <!-- Social Media Links -->

@@ -41,12 +41,16 @@
                         <div class="col-md-6">
                             <label class="form-label fw-bold small text-secondary">Slide Background Image</label>
                             <input type="file" name="image" class="form-control" accept="image/*">
-                            <small class="text-muted">Leave empty to keep existing image.</small>
+                            <small class="text-muted">Leave empty to keep existing image (1920x750 px recommended).</small>
                             
-                            <div class="mt-3 p-2 border rounded bg-light">
-                                <span class="small text-muted d-block mb-1 fw-bold">Current Slide Image:</span>
+                            @if($slider->image)
+                            <div class="admin-img-preview-box mt-2">
+                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                    <span class="badge bg-primary-subtle text-primary admin-preview-badge"><i class="fa fa-image me-1"></i> Current Slide Image</span>
+                                </div>
                                 <img src="{{ asset($slider->image) }}" alt="{{ $slider->title }}" class="rounded shadow-sm" style="max-height: 120px; width: 100%; object-fit: cover;">
                             </div>
+                            @endif
                         </div>
 
                         <div class="col-md-3">

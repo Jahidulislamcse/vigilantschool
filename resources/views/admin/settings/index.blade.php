@@ -72,25 +72,37 @@
                                 </div>
 
                                 <div class="col-md-6">
-                                    <label class="form-label fw-bold small text-secondary">School Logo (Optional Image)</label>
-                                    <input type="file" name="site_logo" class="form-control" accept="image/*">
-                                    <small class="text-muted">Upload custom PNG/SVG logo to replace text brand in navbar.</small>
+                                    <label class="form-label fw-bold small text-secondary">School Brand Logo</label>
+                                    <input type="file" name="site_logo" class="form-control" accept="image/png,image/jpeg,image/svg+xml,image/webp">
+                                    <small class="text-muted">Custom PNG or SVG logo for navbar and official documents (Max 3MB).</small>
                                     @if(isset($settings['site_logo']) && $settings['site_logo'])
-                                        <div class="mt-2 p-2 border rounded bg-light d-inline-block">
-                                            <span class="small text-muted d-block mb-1">Current Logo:</span>
-                                            <img src="{{ asset($settings['site_logo']) }}" alt="Current Logo" style="max-height: 45px;">
+                                        <div class="admin-img-preview-box d-flex align-items-center justify-content-between mt-2">
+                                            <div class="d-flex align-items-center gap-3">
+                                                <img src="{{ asset($settings['site_logo']) }}" alt="Current Logo" class="admin-preview-thumb p-1 bg-white" style="height: 48px; width: auto; max-width: 140px; object-fit: contain;">
+                                                <div>
+                                                    <span class="badge bg-primary-subtle text-primary admin-preview-badge mb-1"><i class="fa fa-image me-1"></i> Current Logo Active</span>
+                                                    <div class="small text-muted font-monospace text-truncate" style="max-width: 220px;">{{ $settings['site_logo'] }}</div>
+                                                </div>
+                                            </div>
                                         </div>
                                     @endif
                                 </div>
 
                                 <div class="col-md-6">
-                                    <label class="form-label fw-bold small text-secondary">Browser Favicon</label>
-                                    <input type="file" name="site_favicon" class="form-control" accept="image/*">
-                                    <small class="text-muted">Icon shown in the browser tab (recommended 32x32 .png or .ico).</small>
+                                    <label class="form-label fw-bold small text-secondary">Browser Favicon (.ico / .png / .svg)</label>
+                                    <input type="file" name="site_favicon" class="form-control" accept=".ico,image/x-icon,image/png,image/svg+xml,image/jpeg,image/webp">
+                                    <small class="text-muted">Appears on browser tabs, bookmarks & mobile shortcuts (32x32 px recommended).</small>
                                     @if(isset($settings['site_favicon']) && $settings['site_favicon'])
-                                        <div class="mt-2 p-2 border rounded bg-light d-inline-block">
-                                            <span class="small text-muted d-block mb-1">Current Favicon:</span>
-                                            <img src="{{ asset($settings['site_favicon']) }}" alt="Current Favicon" style="max-height: 28px;">
+                                        <div class="admin-img-preview-box d-flex align-items-center justify-content-between mt-2">
+                                            <div class="d-flex align-items-center gap-3">
+                                                <div class="border rounded p-2 bg-white shadow-sm d-flex align-items-center justify-content-center" style="width: 44px; height: 44px;">
+                                                    <img src="{{ asset($settings['site_favicon']) }}" alt="Current Favicon" class="admin-preview-thumb favicon" style="width: 28px; height: 28px; object-fit: contain;">
+                                                </div>
+                                                <div>
+                                                    <span class="badge bg-info-subtle text-info admin-preview-badge mb-1"><i class="fa fa-globe me-1"></i> Current Favicon Active</span>
+                                                    <div class="small text-muted font-monospace text-truncate" style="max-width: 220px;">{{ $settings['site_favicon'] }}</div>
+                                                </div>
+                                            </div>
                                         </div>
                                     @endif
                                 </div>
@@ -217,11 +229,16 @@
                                 <div class="col-md-6">
                                     <label class="form-label fw-bold small text-secondary">Social Share Preview Banner (OG Image)</label>
                                     <input type="file" name="og_image" class="form-control" accept="image/*">
-                                    <small class="text-muted">Image displayed when sharing links on Facebook, WhatsApp, and LinkedIn.</small>
+                                    <small class="text-muted">Image displayed when sharing links on Facebook, WhatsApp, and LinkedIn (1200x630 px recommended).</small>
                                     @if(isset($settings['og_image']) && $settings['og_image'])
-                                        <div class="mt-2 p-2 border rounded bg-light d-inline-block">
-                                            <span class="small text-muted d-block mb-1">Current Share Image:</span>
-                                            <img src="{{ asset($settings['og_image']) }}" alt="OG Banner" style="max-height: 50px;">
+                                        <div class="admin-img-preview-box d-flex align-items-center justify-content-between mt-2">
+                                            <div class="d-flex align-items-center gap-3">
+                                                <img src="{{ asset($settings['og_image']) }}" alt="OG Banner" class="admin-preview-thumb banner" style="width: 120px; height: 60px; object-fit: cover;">
+                                                <div>
+                                                    <span class="badge bg-secondary-subtle text-dark admin-preview-badge mb-1"><i class="fa fa-share-nodes me-1"></i> Current OG Image</span>
+                                                    <div class="small text-muted font-monospace text-truncate" style="max-width: 200px;">{{ $settings['og_image'] }}</div>
+                                                </div>
+                                            </div>
                                         </div>
                                     @endif
                                 </div>

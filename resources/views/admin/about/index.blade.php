@@ -62,8 +62,11 @@
                             <label class="form-label fw-bold small text-secondary">Leader Photo</label>
                             <input type="file" name="founder_photo" class="form-control" accept="image/*">
                             @if($about->founder_photo)
-                                <div class="mt-2">
-                                    <img src="{{ asset($about->founder_photo) }}" alt="Leader Photo" class="rounded-circle border" style="width: 45px; height: 45px; object-fit: cover;">
+                                <div class="admin-img-preview-box d-flex align-items-center gap-3 mt-2">
+                                    <img src="{{ asset($about->founder_photo) }}" alt="Leader Photo" class="admin-preview-thumb circle" style="width: 50px; height: 50px;">
+                                    <div>
+                                        <span class="badge bg-primary-subtle text-primary admin-preview-badge mb-1"><i class="fa fa-user me-1"></i> Current Photo</span>
+                                    </div>
                                 </div>
                             @endif
                         </div>
@@ -75,8 +78,11 @@
                             <label class="form-label fw-bold small text-secondary">Collage Top Image</label>
                             <input type="file" name="image_1" class="form-control" accept="image/*">
                             @if($about->image_1)
-                                <div class="mt-2">
-                                    <img src="{{ asset($about->image_1) }}" alt="Image 1" class="rounded border" style="height: 70px; object-fit: cover;">
+                                <div class="admin-img-preview-box d-flex align-items-center gap-3 mt-2">
+                                    <img src="{{ asset($about->image_1) }}" alt="Image 1" class="admin-preview-thumb" style="width: 60px; height: 60px; object-fit: cover;">
+                                    <div>
+                                        <span class="badge bg-primary-subtle text-primary admin-preview-badge mb-1">Top Image</span>
+                                    </div>
                                 </div>
                             @endif
                         </div>
@@ -85,8 +91,11 @@
                             <label class="form-label fw-bold small text-secondary">Collage Left Image</label>
                             <input type="file" name="image_2" class="form-control" accept="image/*">
                             @if($about->image_2)
-                                <div class="mt-2">
-                                    <img src="{{ asset($about->image_2) }}" alt="Image 2" class="rounded border" style="height: 70px; object-fit: cover;">
+                                <div class="admin-img-preview-box d-flex align-items-center gap-3 mt-2">
+                                    <img src="{{ asset($about->image_2) }}" alt="Image 2" class="admin-preview-thumb" style="width: 60px; height: 60px; object-fit: cover;">
+                                    <div>
+                                        <span class="badge bg-primary-subtle text-primary admin-preview-badge mb-1">Left Image</span>
+                                    </div>
                                 </div>
                             @endif
                         </div>
@@ -95,8 +104,11 @@
                             <label class="form-label fw-bold small text-secondary">Collage Right Image</label>
                             <input type="file" name="image_3" class="form-control" accept="image/*">
                             @if($about->image_3)
-                                <div class="mt-2">
-                                    <img src="{{ asset($about->image_3) }}" alt="Image 3" class="rounded border" style="height: 70px; object-fit: cover;">
+                                <div class="admin-img-preview-box d-flex align-items-center gap-3 mt-2">
+                                    <img src="{{ asset($about->image_3) }}" alt="Image 3" class="admin-preview-thumb" style="width: 60px; height: 60px; object-fit: cover;">
+                                    <div>
+                                        <span class="badge bg-primary-subtle text-primary admin-preview-badge mb-1">Right Image</span>
+                                    </div>
                                 </div>
                             @endif
                         </div>
@@ -128,8 +140,11 @@
                             <label class="form-label fw-bold small text-secondary">CTA Background Image</label>
                             <input type="file" name="cta_image" class="form-control" accept="image/*">
                             @if($about->cta_image)
-                                <div class="mt-2">
-                                    <img src="{{ asset($about->cta_image) }}" alt="CTA Image" class="rounded border" style="height: 60px; object-fit: cover;">
+                                <div class="admin-img-preview-box d-flex align-items-center gap-3 mt-2">
+                                    <img src="{{ asset($about->cta_image) }}" alt="CTA Image" class="admin-preview-thumb banner" style="width: 90px; height: 50px;">
+                                    <div>
+                                        <span class="badge bg-secondary-subtle text-dark admin-preview-badge mb-1">Current CTA</span>
+                                    </div>
                                 </div>
                             @endif
                         </div>

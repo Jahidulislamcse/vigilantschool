@@ -194,6 +194,50 @@
             color: #fff;
         }
 
+        /* Universal Admin Image Preview Styles */
+        .admin-img-preview-box {
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            background: #f8fafc;
+            padding: 0.65rem 0.85rem;
+            margin-top: 0.5rem;
+            transition: all 0.2s ease-in-out;
+        }
+        .admin-img-preview-box:hover {
+            border-color: #cbd5e1;
+            background: #f1f5f9;
+        }
+        .admin-preview-thumb {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            background: #ffffff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+        .admin-preview-thumb.circle {
+            border-radius: 50% !important;
+        }
+        .admin-preview-thumb.favicon {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            padding: 3px;
+        }
+        .admin-preview-thumb.banner {
+            width: 140px;
+            height: 60px;
+        }
+        .admin-preview-badge {
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 0.2rem 0.45rem;
+            border-radius: 4px;
+        }
+
         @media (max-width: 991.98px) {
             #sidebar-wrapper {
                 margin-left: -260px;
@@ -408,7 +452,102 @@
                 document.getElementById('sidebar-wrapper').classList.toggle('toggled');
             });
         }
+
+        // Initialize Universal Image Preview on all file inputs
+        initGlobalImagePreviews();
     });
+
+    function initGlobalImagePreviews() {
+        const fileInputs = document.querySelectorAll('input[type="file"]');
+
+        fileInputs.forEach(input => {
+            const accept = input.getAttribute('accept') || '';
+            const name = input.getAttribute('name') || '';
+            const isImage = accept.includes('image') || accept.includes('.ico') || accept.includes('.png') || accept.includes('.jpg') || 
+                ['image', 'photo', 'avatar', 'logo', 'favicon', 'og_image', 'banner', 'founder'].some(k => name.toLowerCase().includes(k));
+
+            if (!isImage) return;
+
+            const isCircle = input.dataset.shape === 'circle' || ['avatar', 'photo', 'founder_photo'].some(k => name.includes(k));
+            const isFavicon = name.includes('favicon');
+            const isBanner = ['slider', 'cta', 'og_image'].some(k => name.includes(k));
+
+            input.addEventListener('change', function () {
+                if (this.files && this.files[0]) {
+                    const file = this.files[0];
+                    const reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        const result = e.target.result;
+                        const fileSizeKB = (file.size / 1024).toFixed(1) + ' KB';
+
+                        let thumbClass = 'admin-preview-thumb';
+                        if (isFavicon) thumbClass += ' favicon';
+                        else if (isCircle) thumbClass += ' circle';
+                        else if (isBanner) thumbClass += ' banner';
+
+                        // Find or create live preview card directly beneath the input / parent container
+                        let container = input.closest('.col-12, .col-md-6, .col-md-4, .col-md-8, .mb-3, .form-group') || input.parentElement;
+                        let previewBox = container.querySelector('.js-live-preview-box');
+
+                        if (!previewBox) {
+                            previewBox = document.createElement('div');
+                            previewBox.className = 'js-live-preview-box admin-img-preview-box d-flex align-items-center justify-content-between mt-2';
+                            // Insert right after the input or its helper text
+                            if (input.nextElementSibling) {
+                                input.parentElement.appendChild(previewBox);
+                            } else {
+                                input.after(previewBox);
+                            }
+                        }
+
+                        previewBox.innerHTML = `
+                            <div class="d-flex align-items-center gap-3">
+                                <img src="${result}" alt="New Preview" class="${thumbClass}">
+                                <div>
+                                    <span class="badge bg-success admin-preview-badge mb-1"><i class="fa fa-check-circle me-1"></i> New Selected Image</span>
+                                    <div class="small fw-bold text-dark text-truncate" style="max-width: 200px;" title="${file.name}">${file.name}</div>
+                                    <div class="text-muted" style="font-size: 0.72rem;"><i class="fa fa-file-image me-1"></i> ${fileSizeKB}</div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-sm btn-outline-danger rounded-pill px-2 py-1" style="font-size: 0.75rem;" title="Cancel Selection">
+                                <i class="fa fa-xmark me-1"></i> Cancel
+                            </button>
+                        `;
+                        previewBox.style.display = 'flex';
+
+                        // Hook Cancel button
+                        const cancelBtn = previewBox.querySelector('button');
+                        if (cancelBtn) {
+                            cancelBtn.addEventListener('click', function () {
+                                input.value = '';
+                                previewBox.style.display = 'none';
+                                previewBox.innerHTML = '';
+                            });
+                        }
+                    };
+
+                    reader.readAsDataURL(file);
+                }
+            });
+        });
+    }
+
+    // Global fallback for any inline onchange="previewImage(this, 'id')" calls
+    window.previewImage = function(input, previewId) {
+        if (input.files && input.files[0]) {
+            const preview = document.getElementById(previewId);
+            if (preview) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    const container = document.getElementById('previewContainer') || preview.closest('.preview-container');
+                    if (container) container.style.display = 'block';
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    };
 </script>
 @stack('scripts')
 </body>

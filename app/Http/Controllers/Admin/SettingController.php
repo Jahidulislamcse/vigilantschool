@@ -35,21 +35,21 @@ class SettingController extends Controller
 
         // Handle Site Logo Upload
         if ($request->hasFile('site_logo')) {
-            $request->validate(['site_logo' => 'image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048']);
+            $request->validate(['site_logo' => 'file|mimes:jpeg,png,jpg,gif,svg,webp|max:3072']);
             $logoPath = $request->file('site_logo')->store('uploads/branding', 'public');
             Setting::set('site_logo', 'storage/' . $logoPath, 'branding', 'image');
         }
 
         // Handle Site Favicon Upload
         if ($request->hasFile('site_favicon')) {
-            $request->validate(['site_favicon' => 'image|mimes:jpeg,png,jpg,gif,ico,webp|max:1024']);
+            $request->validate(['site_favicon' => 'file|mimes:jpeg,png,jpg,gif,ico,svg,webp|max:2048']);
             $faviconPath = $request->file('site_favicon')->store('uploads/branding', 'public');
             Setting::set('site_favicon', 'storage/' . $faviconPath, 'branding', 'image');
         }
 
         // Handle Social Share (OG) Image Upload
         if ($request->hasFile('og_image')) {
-            $request->validate(['og_image' => 'image|mimes:jpeg,png,jpg,webp|max:3072']);
+            $request->validate(['og_image' => 'file|mimes:jpeg,png,jpg,webp,svg|max:4096']);
             $ogPath = $request->file('og_image')->store('uploads/seo', 'public');
             Setting::set('og_image', 'storage/' . $ogPath, 'seo', 'image');
         }

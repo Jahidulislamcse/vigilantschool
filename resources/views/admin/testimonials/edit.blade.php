@@ -68,14 +68,19 @@
                         <!-- Avatar Photo -->
                         <div class="col-md-4">
                             <label class="form-label fw-semibold">Parent Avatar / Photo</label>
-                            <input type="file" name="avatar" class="form-control @error('avatar') is-invalid @enderror" accept="image/*" onchange="previewImage(this, 'avatarPreview')">
+                            <input type="file" name="avatar" class="form-control @error('avatar') is-invalid @enderror" accept="image/*">
                             <small class="text-muted">Leave empty to keep current photo.</small>
                             @error('avatar')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
-                            <div class="mt-2">
-                                <img id="avatarPreview" src="{{ asset($testimonial->avatar ?? 'kider/img/user.jpg') }}" alt="Preview" class="rounded-circle shadow-sm border p-1" style="width: 50px; height: 50px; object-fit: cover;">
+                            @if($testimonial->avatar)
+                            <div class="admin-img-preview-box d-flex align-items-center gap-3 mt-2">
+                                <img src="{{ asset($testimonial->avatar) }}" alt="{{ $testimonial->name }}" class="admin-preview-thumb circle" style="width: 50px; height: 50px;">
+                                <div>
+                                    <span class="badge bg-primary-subtle text-primary admin-preview-badge mb-1"><i class="fa fa-user me-1"></i> Current Avatar</span>
+                                </div>
                             </div>
+                            @endif
                         </div>
 
                         <!-- Testimonial Content -->

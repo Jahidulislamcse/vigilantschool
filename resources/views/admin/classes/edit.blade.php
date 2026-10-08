@@ -98,17 +98,20 @@
                         <!-- Image Upload & Existing Preview -->
                         <div class="col-12">
                             <label class="form-label fw-semibold">Program Photo / Banner</label>
-                            <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" accept="image/*" onchange="previewImage(this, 'classImagePreview')">
+                            <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" accept="image/*">
                             <small class="text-muted">Leave empty to keep current photo. Max: 3MB</small>
                             @error('image')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
-                            <div class="mt-2 d-flex align-items-center gap-3">
+                            @if($class->image)
+                            <div class="admin-img-preview-box d-flex align-items-center gap-3 mt-2">
+                                <img src="{{ asset($class->image) }}" alt="{{ $class->title }}" class="admin-preview-thumb circle" style="width: 75px; height: 75px;">
                                 <div>
-                                    <small class="text-muted d-block mb-1">Current Photo:</small>
-                                    <img id="classImagePreview" src="{{ asset($class->image ?? 'kider/img/classes-1.jpg') }}" alt="{{ $class->title }}" class="rounded-circle shadow-sm border p-1" style="width: 100px; height: 100px; object-fit: cover;">
+                                    <span class="badge bg-primary-subtle text-primary admin-preview-badge mb-1"><i class="fa fa-image me-1"></i> Current Class Photo</span>
+                                    <div class="small text-muted font-monospace text-truncate" style="max-width: 250px;">{{ $class->image }}</div>
                                 </div>
                             </div>
+                            @endif
                         </div>
 
                         <!-- Description -->

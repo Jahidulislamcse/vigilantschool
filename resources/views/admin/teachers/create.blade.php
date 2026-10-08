@@ -53,14 +53,11 @@
                         <!-- Photo Upload -->
                         <div class="col-md-6">
                             <label class="form-label fw-semibold">Profile Photo <span class="text-danger">*</span></label>
-                            <input type="file" name="photo" class="form-control @error('photo') is-invalid @enderror" accept="image/*" required onchange="previewImage(this, 'teacherPhotoPreview')">
+                            <input type="file" name="photo" class="form-control @error('photo') is-invalid @enderror" accept="image/*" required>
                             <small class="text-muted">Recommended: Square portrait (Max 2MB)</small>
                             @error('photo')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
-                            <div class="mt-2" id="previewContainer" style="display: none;">
-                                <img id="teacherPhotoPreview" src="#" alt="Preview" class="rounded-circle shadow-sm border p-1" style="width: 80px; height: 80px; object-fit: cover;">
-                            </div>
                         </div>
 
                         <!-- Social Media Links -->
