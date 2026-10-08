@@ -18,7 +18,7 @@ class SettingController extends Controller
 
     public function update(Request $request)
     {
-        $data = $request->except(['_token', '_method', 'site_logo', 'site_favicon']);
+        $data = $request->except(['_token', '_method', 'site_logo', 'site_favicon', 'og_image']);
 
         foreach ($data as $key => $value) {
             $group = 'general';
@@ -26,6 +26,8 @@ class SettingController extends Controller
                 $group = 'contact';
             } elseif (str_contains($key, '_url')) {
                 $group = 'social';
+            } elseif (str_contains($key, 'meta_') || str_contains($key, 'google_') || $key === 'og_image') {
+                $group = 'seo';
             }
 
             Setting::set($key, $value, $group);
@@ -43,6 +45,13 @@ class SettingController extends Controller
             $request->validate(['site_favicon' => 'image|mimes:jpeg,png,jpg,gif,ico,webp|max:1024']);
             $faviconPath = $request->file('site_favicon')->store('uploads/branding', 'public');
             Setting::set('site_favicon', 'storage/' . $faviconPath, 'branding', 'image');
+        }
+
+        // Handle Social Share (OG) Image Upload
+        if ($request->hasFile('og_image')) {
+            $request->validate(['og_image' => 'image|mimes:jpeg,png,jpg,webp|max:3072']);
+            $ogPath = $request->file('og_image')->store('uploads/seo', 'public');
+            Setting::set('og_image', 'storage/' . $ogPath, 'seo', 'image');
         }
 
         Cache::forget('all_settings_grouped');

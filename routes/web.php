@@ -48,6 +48,8 @@ Route::get('/testimonials', [FrontendController::class, 'testimonials'])->name('
 Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
 Route::post('/contact', [FrontendController::class, 'submitContact'])->name('contact.submit');
 Route::post('/newsletter', [FrontendController::class, 'submitNewsletter'])->name('newsletter.submit');
+Route::get('/sitemap.xml', [FrontendController::class, 'sitemap'])->name('sitemap');
+Route::get('/robots.txt', [FrontendController::class, 'robots'])->name('robots');
 
 /*
 |--------------------------------------------------------------------------

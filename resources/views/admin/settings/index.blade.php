@@ -42,6 +42,11 @@
                                 <i class="fa fa-share-nodes me-2"></i> Social Links
                             </button>
                         </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link rounded-pill px-4" id="seo-tab" data-bs-toggle="tab" data-bs-target="#seo" type="button" role="tab">
+                                <i class="fa fa-magnifying-glass-chart me-2"></i> SEO & Meta Tags
+                            </button>
+                        </li>
                     </ul>
 
                     <div class="tab-content" id="settingsTabsContent">
@@ -141,7 +146,7 @@
 
                                 <div class="col-md-6">
                                     <label class="form-label fw-bold small text-secondary">School Shift Timings</label>
-                                    <input type="text" name="working_hours" class="form-control" value="{{ old('working_hours', $settings['working_hours'] ?? 'Morning Shift: 08:00 AM - 10:45 AM | Day Shift: 10:45 AM - 01:30 PM | Std-I to X: 08:00 AM - 01:00 PM') }}">
+                                    <input type="text" name="working_hours" class="form-control" value="{{ old('working_hours', $settings['working_hours'] ?? 'Morning Shift: 08:00 AM - 10:45 AM | Day Shift: 10:45 AM - 01:30 PM | Std-I to VIII: 08:00 AM - 01:00 PM') }}">
                                 </div>
 
                                 <div class="col-12">
@@ -178,6 +183,61 @@
                                 <div class="col-md-6">
                                     <label class="form-label fw-bold small text-secondary"><i class="fab fa-linkedin text-primary me-2"></i> LinkedIn Profile</label>
                                     <input type="url" name="linkedin_url" class="form-control" value="{{ old('linkedin_url', $settings['linkedin_url'] ?? '') }}" placeholder="https://linkedin.com/company/your-school">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SEO & Meta Tags Tab -->
+                        <div class="tab-pane fade" id="seo" role="tabpanel">
+                            <div class="row g-4">
+                                <div class="col-md-12">
+                                    <label class="form-label fw-bold small text-secondary">Search Engine Meta Description</label>
+                                    <textarea name="meta_description" class="form-control" rows="3" placeholder="Brief summary of your school for Google search results...">{{ old('meta_description', $settings['meta_description'] ?? '') }}</textarea>
+                                    <small class="text-muted">Recommended length: 150-160 characters. Appears directly under your school link on Google.</small>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold small text-secondary">Meta Keywords</label>
+                                    <input type="text" name="meta_keywords" class="form-control" value="{{ old('meta_keywords', $settings['meta_keywords'] ?? 'school, english medium, english version, play group, primary, edexcel, british council') }}" placeholder="school, english medium, admissions...">
+                                    <small class="text-muted">Comma-separated keywords for search engine indexers.</small>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold small text-secondary">Google Site Verification Token</label>
+                                    <input type="text" name="google_site_verification" class="form-control" value="{{ old('google_site_verification', $settings['google_site_verification'] ?? '') }}" placeholder="e.g. AbC123XyZ_search_console_token">
+                                    <small class="text-muted">Google Search Console verification meta tag token.</small>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold small text-secondary">Google Analytics (GA4) Measurement ID</label>
+                                    <input type="text" name="google_analytics_id" class="form-control" value="{{ old('google_analytics_id', $settings['google_analytics_id'] ?? '') }}" placeholder="e.g. G-XXXXXXXXXX">
+                                    <small class="text-muted">Enter your Google Analytics 4 Measurement ID to track visitor traffic.</small>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold small text-secondary">Social Share Preview Banner (OG Image)</label>
+                                    <input type="file" name="og_image" class="form-control" accept="image/*">
+                                    <small class="text-muted">Image displayed when sharing links on Facebook, WhatsApp, and LinkedIn.</small>
+                                    @if(isset($settings['og_image']) && $settings['og_image'])
+                                        <div class="mt-2 p-2 border rounded bg-light d-inline-block">
+                                            <span class="small text-muted d-block mb-1">Current Share Image:</span>
+                                            <img src="{{ asset($settings['og_image']) }}" alt="OG Banner" style="max-height: 50px;">
+                                        </div>
+                                    @endif
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="alert alert-info d-flex align-items-center mb-0 rounded-3">
+                                        <i class="fa fa-circle-info fs-4 me-3 text-info"></i>
+                                        <div>
+                                            <strong>Automated SEO Features Active:</strong>
+                                            <div class="small">
+                                                • Dynamic XML Sitemap is live at <a href="{{ route('sitemap') }}" target="_blank" class="fw-bold text-decoration-underline">{{ route('sitemap') }}</a><br>
+                                                • Crawler Directives are live at <a href="{{ route('robots') }}" target="_blank" class="fw-bold text-decoration-underline">{{ route('robots') }}</a><br>
+                                                • Schema.org JSON-LD Structured Data (Google Knowledge Graph) is auto-injected on every page.
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

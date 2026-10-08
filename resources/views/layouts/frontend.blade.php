@@ -6,8 +6,68 @@
     <title>@yield('title', $settings['site_title'] ?? 'Kider - Preschool & Grammar School')</title>
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport">
     <meta name="theme-color" content="#0c4598">
-    <meta content="@yield('meta_keywords', 'school, preschool, kindergarten, grammar school, education, classes, teachers')" name="keywords">
-    <meta content="@yield('meta_description', $settings['meta_description'] ?? 'Modern kindergarten and grammar school')" name="description">
+    <!-- Primary SEO Meta Tags -->
+    <meta name="title" content="@yield('title', ($settings['site_title'] ?? 'Vigilant International School') . ' - ' . ($settings['site_tagline'] ?? 'Constant effort in acquiring quality and quantity'))">
+    <meta name="description" content="@yield('meta_description', $settings['meta_description'] ?? 'Vigilant International School - English Medium & English Version from Play Group to Class 8 with British Council and Edexcel curriculum standards.')">
+    <meta name="keywords" content="@yield('meta_keywords', $settings['meta_keywords'] ?? 'school, english medium, english version, edexcel, british council, kindergarten, play group, primary school, high school, education')">
+    <meta name="author" content="{{ $settings['school_name'] ?? 'Vigilant International School' }}">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="{{ url()->current() }}">
+
+    @if(!empty($settings['google_site_verification']))
+    <meta name="google-site-verification" content="{{ $settings['google_site_verification'] }}">
+    @endif
+
+    <!-- Open Graph / Facebook / WhatsApp Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="{{ $settings['site_title'] ?? 'Vigilant International School' }}">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:title" content="@yield('title', $settings['site_title'] ?? 'Vigilant International School')">
+    <meta property="og:description" content="@yield('meta_description', $settings['meta_description'] ?? 'Vigilant International School - Quality English Medium & English Version Education from Play Group to Class 8.')">
+    <meta property="og:image" content="{{ asset($settings['og_image'] ?? $settings['site_logo'] ?? 'kider/img/carousel-1.jpg') }}">
+    <meta property="og:image:alt" content="{{ $settings['site_title'] ?? 'Vigilant International School' }}">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter / X Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="{{ url()->current() }}">
+    <meta name="twitter:title" content="@yield('title', $settings['site_title'] ?? 'Vigilant International School')">
+    <meta name="twitter:description" content="@yield('meta_description', $settings['meta_description'] ?? 'Vigilant International School - Quality English Medium & English Version Education.')">
+    <meta name="twitter:image" content="{{ asset($settings['og_image'] ?? $settings['site_logo'] ?? 'kider/img/carousel-1.jpg') }}">
+
+    <!-- Schema.org JSON-LD Structured Data (Google Knowledge Graph) -->
+    <script type="application/ld+json">
+    {
+      "@@context": "https://schema.org",
+      "@type": "School",
+      "name": "{{ $settings['school_name'] ?? 'Vigilant International School' }}",
+      "alternateName": "{{ $settings['site_title'] ?? 'Vigilant School' }}",
+      "url": "{{ url('/') }}",
+      "logo": "{{ asset($settings['site_logo'] ?? 'kider/img/favicon.ico') }}",
+      "image": "{{ asset($settings['og_image'] ?? 'kider/img/carousel-1.jpg') }}",
+      "description": "{{ $settings['meta_description'] ?? 'English Medium & English Version School from Play Group to Class 8.' }}",
+      "telephone": "{{ $settings['contact_phone'] ?? '' }}",
+      "email": "{{ $settings['contact_email'] ?? '' }}",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "{{ $settings['contact_address'] ?? '' }}"
+      },
+      "sameAs": [
+        @if(!empty($settings['facebook_url'])) "{{ $settings['facebook_url'] }}" @endif
+      ]
+    }
+    </script>
+
+    @if(!empty($settings['google_analytics_id']))
+    <!-- Google tag (gtag.js) GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ $settings['google_analytics_id'] }}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '{{ $settings['google_analytics_id'] }}');
+    </script>
+    @endif
 
     <!-- Favicon -->
     <link href="{{ asset($settings['site_favicon'] ?? 'kider/img/favicon.ico') }}" rel="icon">
