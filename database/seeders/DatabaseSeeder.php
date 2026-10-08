@@ -43,7 +43,7 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
-        // 2. School Settings (Play Group to Class 8 / Std-VIII)
+        // 2. School Settings (Clean & Configurable)
         $settings = [
             ['key' => 'school_name', 'value' => 'Vigilant International School', 'group' => 'general', 'type' => 'text'],
             ['key' => 'site_title', 'value' => 'Vigilant International School', 'group' => 'general', 'type' => 'text'],
@@ -51,7 +51,7 @@ class DatabaseSeeder extends Seeder
             ['key' => 'motto', 'value' => 'Visit first then decide', 'group' => 'general', 'type' => 'text'],
             ['key' => 'medium_version', 'value' => 'English Medium & English Version (Play Group to Class 8 / Std-VIII)', 'group' => 'general', 'type' => 'text'],
             ['key' => 'affiliations', 'value' => 'Corporate Member of British Council • Following the Curriculum of Edexcel', 'group' => 'general', 'type' => 'text'],
-            ['key' => 'meta_description', 'value' => 'Vigilant International School, South Mugda, Dhaka - English Medium & English Version from Play Group to Class 8 (Std-VIII) with British Council and Edexcel curriculum standards.', 'group' => 'general', 'type' => 'textarea'],
+            ['key' => 'meta_description', 'value' => 'Vigilant International School - English Medium & English Version from Play Group to Class 8 (Std-VIII) with British Council and Edexcel curriculum standards.', 'group' => 'general', 'type' => 'textarea'],
             ['key' => 'contact_email', 'value' => 'vigilantschool@gmail.com', 'group' => 'contact', 'type' => 'text'],
             ['key' => 'contact_phone', 'value' => '01734 655 655, 01674 655 655, 01978 655 655', 'group' => 'contact', 'type' => 'text'],
             ['key' => 'contact_address', 'value' => '1/51/5 South Mugda, WASA Road, Mugda, Dhaka-1214, Bangladesh', 'group' => 'contact', 'type' => 'textarea'],
@@ -65,19 +65,19 @@ class DatabaseSeeder extends Seeder
             ['key' => 'linkedin_url', 'value' => '', 'group' => 'social', 'type' => 'text'],
             ['key' => 'site_logo', 'value' => null, 'group' => 'branding', 'type' => 'image'],
             ['key' => 'site_favicon', 'value' => 'kider/img/favicon.ico', 'group' => 'branding', 'type' => 'image'],
-            ['key' => 'footer_about', 'value' => 'A child is born with an abundance of multiple capabilities. Vigilant International School in South Mugda, Dhaka is committed to nurturing your children from Play Group to Class 8 into confident, competitive citizens for the global village with British Council affiliation, Edexcel curriculum, and Islamic moral coaching.', 'group' => 'general', 'type' => 'textarea'],
+            ['key' => 'footer_about', 'value' => 'A child is born with an abundance of multiple capabilities. Vigilant International School is committed to nurturing your children from Play Group to Class 8 into confident, competitive citizens for the global village with British Council affiliation, Edexcel curriculum, and Islamic moral coaching.', 'group' => 'general', 'type' => 'textarea'],
         ];
 
         foreach ($settings as $setting) {
             Setting::updateOrCreate(['key' => $setting['key']], $setting);
         }
 
-        // 3. Hero Carousel Sliders
+        // 3. Hero Carousel Sliders (Location-agnostic, Professional Copy)
         Slider::truncate();
         Slider::create([
             'title' => 'Constant Effort in Acquiring Quality and Quantity',
             'subtitle' => 'English Medium & English Version • Play Group to Class 8 (Std-VIII)',
-            'description' => 'Moulding competitive citizens for the global village in South Mugda, Dhaka with caring teachers, modern lab facilities, and Islamic moral grounding.',
+            'description' => 'Moulding competitive citizens for the global village with caring teachers, modern lab facilities, and Islamic moral grounding.',
             'btn_text_1' => 'Explore Classes',
             'btn_url_1' => '/classes',
             'btn_text_2' => 'School Timing',
@@ -87,7 +87,7 @@ class DatabaseSeeder extends Seeder
             'is_active' => true,
         ]);
         Slider::create([
-            'title' => 'Visit First Then Decide — Premier Education Hub in Dhaka',
+            'title' => 'Visit First Then Decide — Premier Education Hub',
             'subtitle' => 'Corporate Member of British Council • Edexcel Curriculum',
             'description' => 'Two teachers in each junior classroom, equipped science and computer labs, 24/7 CCTV monitoring with audio, and After Class Assistance Programme (ACAP) up to Class 8.',
             'btn_text_1' => 'Admission Inquiry',
@@ -100,7 +100,7 @@ class DatabaseSeeder extends Seeder
         ]);
         Slider::create([
             'title' => 'Admissions Open for Academic Sessions (Jan–Dec & Jul–Jun)',
-            'subtitle' => 'From Play Group to Class 8 (Std-VIII) • South Mugda Campus',
+            'subtitle' => 'From Play Group to Class 8 (Std-VIII) • Modern Campus',
             'description' => 'Give your child the advantage of personalized education with full lesson preparation at school, zero private tuition pressure, and caring educators.',
             'btn_text_1' => 'Book A School Tour',
             'btn_url_1' => '/appointment',
@@ -167,12 +167,12 @@ class DatabaseSeeder extends Seeder
             Facility::create($facility);
         }
 
-        // 5. About Section (Play Group to Class 8 Scope)
+        // 5. About Section (Clean & Location-Agnostic CTA)
         AboutSection::truncate();
         AboutSection::create([
             'title' => 'Moulding Competitive Citizens in the Global Village',
-            'tagline' => 'About Vigilant International School, South Mugda, Dhaka',
-            'description_1' => 'A Child is born with an abundance of multiple capabilities. At Vigilant International School (South Mugda, Dhaka), our mission is to nourish each child from Play Group to Class 8 with British Council standards, Edexcel curriculum, and sound moral values so they represent Bangladesh with pride.',
+            'tagline' => 'About Vigilant International School',
+            'description_1' => 'A Child is born with an abundance of multiple capabilities. At Vigilant International School, our mission is to nourish each child from Play Group to Class 8 with British Council standards, Edexcel curriculum, and sound moral values so they represent our nation with pride.',
             'description_2' => 'We operate under two flexible academic sessions (January - December & July - June) with a 3-Semester evaluation system. With two teachers in junior classrooms and our After Class Assistance Programme (ACAP), all homework and lessons are completed on campus without private coaching burden.',
             'founder_name' => 'Prof. Dr. M. A. Rahman',
             'founder_role' => 'Chairman & Senior Academic Advisor',
@@ -180,8 +180,8 @@ class DatabaseSeeder extends Seeder
             'image_1' => 'kider/img/about-1.jpg',
             'image_2' => 'kider/img/about-2.jpg',
             'image_3' => 'kider/img/about-3.jpg',
-            'cta_title' => 'Visit Our South Mugda Campus First, Then Decide',
-            'cta_description' => 'Schedule a campus walkthrough at 1/51/5 South Mugda, WASA Road, Dhaka to observe our multimedia classrooms, laboratories, and interactive learning environment.',
+            'cta_title' => 'Visit Our Campus First, Then Decide',
+            'cta_description' => 'Schedule a campus walkthrough to observe our interactive classrooms, laboratories, and modern learning environment.',
             'cta_button_text' => 'Book A School Tour',
             'cta_button_url' => '/appointment',
             'cta_image' => 'kider/img/call-to-action.jpg',
@@ -263,14 +263,14 @@ class DatabaseSeeder extends Seeder
             $teacherModels[] = Teacher::create($t);
         }
 
-        // 7. Classes & Academic Levels from Play Group to Class 8 (Std-VIII)
+        // 7. Classes & Academic Levels (Play Group to Class 8)
         SchoolClass::truncate();
         $classes = [
             [
                 'title' => 'Play Group (Morning / Day)',
                 'slug' => 'play-group',
                 'image' => 'kider/img/classes-1.jpg',
-                'description' => 'Sensory development, nursery rhymes, motor skills, and 2 dedicated teachers per classroom in South Mugda.',
+                'description' => 'Sensory development, nursery rhymes, motor skills, and 2 dedicated teachers per classroom.',
                 'age_range' => '3 - 4 Years',
                 'time_schedule' => 'Morning: 8:00-10:15 | Day: 10:45-1:00',
                 'capacity' => '20 Kids (2 Teachers)',
@@ -356,7 +356,7 @@ class DatabaseSeeder extends Seeder
         $testimonials = [
             [
                 'client_name' => 'Engr. M. Rafiqul Islam',
-                'profession' => 'Senior Engineer & Father of Std-IV Student, Mugda, Dhaka',
+                'profession' => 'Senior Engineer & Guardian of Std-IV Student',
                 'avatar' => 'kider/img/testimonial-1.jpg',
                 'content' => 'The two-teacher system in junior classes and the ACAP after-class assistance have made a huge difference for my son. All lessons and homework are completed right at school without needing private tutors!',
                 'rating' => 5,
@@ -365,16 +365,16 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'client_name' => 'Dr. Sabina Yasmin',
-                'profession' => 'Physician & Parent of Class 8 (Std-VIII) Student, WASA Road, Dhaka',
+                'profession' => 'Physician & Parent of Class 8 (Std-VIII) Student',
                 'avatar' => 'kider/img/testimonial-2.jpg',
-                'content' => 'Vigilant International School’s British Council affiliation and Edexcel curriculum guidance ensure top-tier academic standards right in our neighbourhood. My daughter has excelled in Class 8 science and math.',
+                'content' => 'Vigilant International School’s British Council affiliation and Edexcel curriculum guidance ensure top-tier academic standards. My daughter has excelled in Class 8 science and math.',
                 'rating' => 5,
                 'order' => 2,
                 'is_active' => true,
             ],
             [
                 'client_name' => 'Advocate Nazrul Islam',
-                'profession' => 'Supreme Court Advocate & Guardian of KG Student, Maniknagar, Dhaka',
+                'profession' => 'Supreme Court Advocate & Guardian of KG Student',
                 'avatar' => 'kider/img/testimonial-3.jpg',
                 'content' => '24/7 CCTV surveillance with audio, standby IPS generator, and highly attentive teachers give our family complete peace of mind regarding our child\'s safety and moral upbringing.',
                 'rating' => 5,
@@ -383,7 +383,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'client_name' => 'Farzana Haque, M.Sc',
-                'profession' => 'Banker & Mother of Play Group Student, Gopibagh, Dhaka',
+                'profession' => 'Banker & Parent of Play Group Student',
                 'avatar' => 'kider/img/testimonial-1.jpg',
                 'content' => 'The caring environment in the Play Group section helped my daughter adapt within days. Her English speaking fluency, moral manners, and confidence have improved noticeably.',
                 'rating' => 5,
@@ -396,12 +396,12 @@ class DatabaseSeeder extends Seeder
             Testimonial::create($test);
         }
 
-        // 9. Photo Gallery Matching Bangladeshi Campus & Cultural Events
+        // 9. Photo Gallery Matching Campus & Cultural Events
         Gallery::truncate();
         $galleries = [
             ['title' => 'Annual Science & IT Fair', 'image' => 'kider/img/classes-6.jpg', 'category' => 'Events', 'order' => 1],
             ['title' => 'Bangla Noboborsho & Baishakhi Utshob', 'image' => 'kider/img/classes-2.jpg', 'category' => 'Culture', 'order' => 2],
-            ['title' => 'Annual Study Tour & Picnic to Gazipur', 'image' => 'kider/img/classes-3.jpg', 'category' => 'Tour', 'order' => 3],
+            ['title' => 'Annual Study Tour & Field Trip', 'image' => 'kider/img/classes-3.jpg', 'category' => 'Tour', 'order' => 3],
             ['title' => 'Art, Calligraphy & Handwriting Competition', 'image' => 'kider/img/classes-1.jpg', 'category' => 'Co-Curricular', 'order' => 4],
             ['title' => 'Annual Sports & Prize Giving Ceremony', 'image' => 'kider/img/classes-5.jpg', 'category' => 'Events', 'order' => 5],
             ['title' => 'Eid Reunion & Moral Values Assembly', 'image' => 'kider/img/classes-4.jpg', 'category' => 'Culture', 'order' => 6],
@@ -413,7 +413,7 @@ class DatabaseSeeder extends Seeder
             Gallery::create($g);
         }
 
-        // 10. Sample Appointment Inquiries from Bangladeshi Guardians (Play Group to Class 8)
+        // 10. Sample Appointment Inquiries
         Appointment::truncate();
         $appointments = [
             [
@@ -423,7 +423,7 @@ class DatabaseSeeder extends Seeder
                 'child_name' => 'Aayan Alam',
                 'child_age' => '3.5 Years',
                 'class_id' => $classModels[0]->id,
-                'message' => 'Inquiring for Play Group morning shift admission in January session. We live nearby on WASA Road, Mugda.',
+                'message' => 'Inquiring for Play Group morning shift admission in January session.',
                 'status' => 'confirmed',
                 'admin_notes' => 'Guardian visited campus on Oct 6. Admitted for Morning Shift.',
             ],
@@ -456,7 +456,7 @@ class DatabaseSeeder extends Seeder
                 'child_name' => 'Tahsin Ahmed',
                 'child_age' => '7 Years',
                 'class_id' => $classModels[3]->id,
-                'message' => 'Transfer inquiry for Std-II English Version from another school due to family relocation to South Mugda.',
+                'message' => 'Transfer inquiry for Std-II English Version from another school due to family relocation.',
                 'status' => 'confirmed',
                 'admin_notes' => 'Transfer evaluation assessment scheduled for Saturday.',
             ],
@@ -467,7 +467,7 @@ class DatabaseSeeder extends Seeder
                 'child_name' => 'Amina Hasan',
                 'child_age' => '4.5 Years',
                 'class_id' => $classModels[1]->id,
-                'message' => 'Inquiry about school van/transportation coverage for Mugda/Maniknagar and shift timing for Nursery.',
+                'message' => 'Inquiry about school transportation coverage and shift timing for Nursery.',
                 'status' => 'pending',
                 'admin_notes' => 'Inquiry received through website appointment form.',
             ],
@@ -477,7 +477,7 @@ class DatabaseSeeder extends Seeder
             Appointment::create($app);
         }
 
-        // 11. Sample Contact Inquiries (Play Group to Class 8 Scope)
+        // 11. Sample Contact Inquiries
         Contact::truncate();
         $contacts = [
             [
@@ -486,13 +486,13 @@ class DatabaseSeeder extends Seeder
                 'subject' => 'Admission Form & Fee Structure for 2027 Session',
                 'message' => 'Dear Authority, Could you please provide details on admission fees and monthly tuition for Standard-III English Version for the upcoming academic session?',
                 'is_read' => true,
-                'admin_reply' => 'Dear Mr. Shafiq, thank you for your interest. The admission brochure and fee schedule have been sent to your email. You are also welcome to visit our South Mugda campus between 8:00 AM and 2:00 PM.',
+                'admin_reply' => 'Dear Mr. Shafiq, thank you for your interest. The admission brochure and fee schedule have been sent to your email. You are also welcome to visit our campus during office hours (8:00 AM - 2:00 PM).',
             ],
             [
                 'name' => 'Tahmina Akter',
                 'email' => 'tahmina.akter.dhaka@yahoo.com',
-                'subject' => 'School Transportation Coverage for Motijheel & Khilgaon',
-                'message' => 'Assalamu Alaikum, Does the school have designated van or transport support for students coming from Motijheel / Khilgaon area?',
+                'subject' => 'School Transportation Routes & Coverage',
+                'message' => 'Assalamu Alaikum, Does the school have designated van or transport support for surrounding routes?',
                 'is_read' => false,
                 'admin_reply' => null,
             ],
@@ -510,13 +510,13 @@ class DatabaseSeeder extends Seeder
             Contact::create($cnt);
         }
 
-        // 12. Sample Newsletter Subscribers from Bangladesh
+        // 12. Sample Newsletter Subscribers
         Newsletter::truncate();
         $subscribers = [
             'alamgir.kabir.bd@gmail.com',
             'rashida.begum.dhaka@yahoo.com',
             'tareq.zaman@outlook.com',
-            'anwar.hossain.mugda@gmail.com',
+            'anwar.hossain.parent@gmail.com',
             'farzana.haque.banker@gmail.com',
         ];
 
