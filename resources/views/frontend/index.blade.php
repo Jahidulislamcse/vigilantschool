@@ -173,7 +173,7 @@
                                         <small class="text-muted">{{ $class->teacher->designation ?? 'Educator' }}</small>
                                     </div>
                                 </div>
-                                <span class="bg-primary text-white py-1 px-2 px-sm-3 small fw-bold flex-shrink-0">{{ $class->fee }}</span>
+                                <a href="{{ route('appointment') }}" class="btn btn-sm btn-primary rounded-pill px-3 py-1 fw-bold flex-shrink-0 shadow-none"><i class="fa fa-calendar-check me-1"></i> Apply</a>
                             </div>
                             <div class="classes-stats">
                                 <div class="row g-1">
