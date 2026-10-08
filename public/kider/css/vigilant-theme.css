@@ -230,36 +230,48 @@ h1, h2, h3, h4, h5, h6,
     display: flex;
     align-items: center;
     text-decoration: none;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
 }
 
-.navbar-brand img {
-    height: 52px;
+.navbar-brand img,
+.navbar-logo-img {
+    height: 70px !important;
     width: auto;
+    max-width: 120px;
     object-fit: contain;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.1));
+    transition: transform 0.2s ease;
+}
+
+.navbar-brand:hover .navbar-logo-img {
+    transform: scale(1.03);
 }
 
 .brand-title-wrap {
     display: flex;
     flex-direction: column;
-    line-height: 1.15;
+    line-height: 1.1;
+    justify-content: center;
 }
 
 .brand-title-main {
     font-family: 'Lobster Two', cursive;
-    font-size: 1.7rem;
+    font-size: 2.15rem;
     font-weight: 700;
     color: #0c4598;
     letter-spacing: 0.5px;
+    line-height: 1.05;
 }
 
 .brand-title-sub {
     font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-    font-size: 0.72rem;
-    font-weight: 700;
+    font-size: 0.82rem;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
     color: #e31b23;
+    line-height: 1.2;
 }
 
 .navbar .navbar-nav .nav-link {
@@ -313,17 +325,19 @@ h1, h2, h3, h4, h5, h6,
         padding-bottom: 0.6rem !important;
     }
 
-    .navbar-brand img {
-        height: 42px;
+    .navbar-brand img,
+    .navbar-logo-img {
+        height: 52px !important;
+        max-width: 80px;
     }
 
     .brand-title-main {
-        font-size: 1.35rem;
+        font-size: 1.55rem;
     }
 
     .brand-title-sub {
-        font-size: 0.62rem;
-        letter-spacing: 1px;
+        font-size: 0.65rem;
+        letter-spacing: 1.2px;
     }
 
     .navbar-toggler {

@@ -5,7 +5,7 @@
             <div class="col-lg-3 col-md-6">
                 <div class="d-flex align-items-center mb-3">
                     @if(!empty($settings['site_logo']))
-                        <img src="{{ asset($settings['site_logo']) }}" alt="{{ $settings['site_title'] ?? 'Vigilant' }}" class="me-2 rounded bg-white p-1 shadow-sm" style="height: 44px; width: 44px; object-fit: contain;">
+                        <img src="{{ asset($settings['site_logo']) }}" alt="{{ $settings['site_title'] ?? 'Vigilant' }}" class="me-2 rounded bg-white p-1 shadow-sm" style="height: 54px; width: 54px; object-fit: contain;">
                     @endif
                     <h4 class="text-white mb-0">{{ $settings['site_title'] ?? 'Vigilant International School' }}</h4>
                 </div>
