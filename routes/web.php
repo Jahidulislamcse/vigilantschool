@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FacilityController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\NewsletterController;
+use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\SchoolClassController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SliderController;
@@ -91,6 +92,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::resource('classes', SchoolClassController::class)->except(['show']);
 
     // Appointments / Admissions
+    Route::get('/appointments/export', [AdminAppointmentController::class, 'export'])->name('appointments.export');
     Route::resource('appointments', AdminAppointmentController::class)->only(['index', 'show', 'destroy']);
     Route::put('/appointments/{appointment}/status', [AdminAppointmentController::class, 'updateStatus'])->name('appointments.status');
 
@@ -105,5 +107,10 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::resource('galleries', GalleryController::class)->only(['index', 'store', 'destroy']);
 
     // Newsletter Subscribers
+    Route::get('/newsletters/export', [NewsletterController::class, 'export'])->name('newsletters.export');
     Route::resource('newsletters', NewsletterController::class)->only(['index', 'destroy']);
+
+    // Admin Profile & Password Settings
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
 });

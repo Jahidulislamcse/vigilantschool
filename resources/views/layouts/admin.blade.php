@@ -331,6 +331,7 @@
                                 <small class="text-muted">{{ auth()->user()->email ?? 'admin@vigilantschool.com' }}</small>
                             </div>
                         </li>
+                        <li><a class="dropdown-item py-2" href="{{ route('admin.profile.edit') }}"><i class="fa fa-user-gear me-2 text-primary"></i> My Profile & Security</a></li>
                         <li><a class="dropdown-item py-2" href="{{ route('admin.settings.index') }}"><i class="fa fa-sliders me-2 text-muted"></i> School Settings</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li>

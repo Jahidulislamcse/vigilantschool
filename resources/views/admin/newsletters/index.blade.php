@@ -15,9 +15,14 @@
                         <small class="text-muted">Subscribers registered via website footer subscription bar</small>
                     </div>
                 </div>
-                <span class="badge bg-primary rounded-pill px-3 py-2">
-                    Total: {{ $subscribers->total() }}
-                </span>
+                <div class="d-flex align-items-center gap-2">
+                    <span class="badge bg-primary rounded-pill px-3 py-2">
+                        Total: {{ $subscribers->total() }}
+                    </span>
+                    <a href="{{ route('admin.newsletters.export') }}" class="btn btn-sm btn-outline-success rounded-pill px-3" title="Download Subscribers CSV">
+                        <i class="fa fa-file-excel me-1"></i> Export CSV
+                    </a>
+                </div>
             </div>
 
             <div class="card-body p-0">

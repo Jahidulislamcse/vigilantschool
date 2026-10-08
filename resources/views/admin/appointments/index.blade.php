@@ -18,22 +18,29 @@
                     </div>
                 </div>
 
-                <!-- Status Filter Pills -->
-                <div class="btn-group btn-group-sm" role="group">
-                    <a href="{{ route('admin.appointments.index') }}" class="btn {{ empty($status) ? 'btn-primary' : 'btn-outline-secondary' }}">
-                        All ({{ \App\Models\Appointment::count() }})
-                    </a>
-                    <a href="{{ route('admin.appointments.index', ['status' => 'pending']) }}" class="btn {{ $status == 'pending' ? 'btn-warning text-dark' : 'btn-outline-secondary' }}">
-                        Pending ({{ \App\Models\Appointment::where('status', 'pending')->count() }})
-                    </a>
-                    <a href="{{ route('admin.appointments.index', ['status' => 'contacted']) }}" class="btn {{ $status == 'contacted' ? 'btn-info text-white' : 'btn-outline-secondary' }}">
-                        Contacted ({{ \App\Models\Appointment::where('status', 'contacted')->count() }})
-                    </a>
-                    <a href="{{ route('admin.appointments.index', ['status' => 'approved']) }}" class="btn {{ $status == 'approved' ? 'btn-success' : 'btn-outline-secondary' }}">
-                        Approved ({{ \App\Models\Appointment::where('status', 'approved')->count() }})
-                    </a>
-                    <a href="{{ route('admin.appointments.index', ['status' => 'cancelled']) }}" class="btn {{ $status == 'cancelled' ? 'btn-danger' : 'btn-outline-secondary' }}">
-                        Cancelled ({{ \App\Models\Appointment::where('status', 'cancelled')->count() }})
+                <!-- Actions & Filters -->
+                <div class="d-flex flex-wrap align-items-center gap-2">
+                    <!-- Status Filter Pills -->
+                    <div class="btn-group btn-group-sm" role="group">
+                        <a href="{{ route('admin.appointments.index') }}" class="btn {{ empty($status) ? 'btn-primary' : 'btn-outline-secondary' }}">
+                            All ({{ \App\Models\Appointment::count() }})
+                        </a>
+                        <a href="{{ route('admin.appointments.index', ['status' => 'pending']) }}" class="btn {{ $status == 'pending' ? 'btn-warning text-dark' : 'btn-outline-secondary' }}">
+                            Pending ({{ \App\Models\Appointment::where('status', 'pending')->count() }})
+                        </a>
+                        <a href="{{ route('admin.appointments.index', ['status' => 'contacted']) }}" class="btn {{ $status == 'contacted' ? 'btn-info text-white' : 'btn-outline-secondary' }}">
+                            Contacted ({{ \App\Models\Appointment::where('status', 'contacted')->count() }})
+                        </a>
+                        <a href="{{ route('admin.appointments.index', ['status' => 'approved']) }}" class="btn {{ $status == 'approved' ? 'btn-success' : 'btn-outline-secondary' }}">
+                            Approved ({{ \App\Models\Appointment::where('status', 'approved')->count() }})
+                        </a>
+                        <a href="{{ route('admin.appointments.index', ['status' => 'cancelled']) }}" class="btn {{ $status == 'cancelled' ? 'btn-danger' : 'btn-outline-secondary' }}">
+                            Cancelled ({{ \App\Models\Appointment::where('status', 'cancelled')->count() }})
+                        </a>
+                    </div>
+
+                    <a href="{{ route('admin.appointments.export', ['status' => $status]) }}" class="btn btn-sm btn-outline-success rounded-pill px-3" title="Download Excel/CSV Report">
+                        <i class="fa fa-file-excel me-1"></i> Export CSV
                     </a>
                 </div>
             </div>

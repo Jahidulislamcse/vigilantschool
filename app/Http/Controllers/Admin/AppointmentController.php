@@ -47,4 +47,66 @@ class AppointmentController extends Controller
         return redirect()->route('admin.appointments.index')
             ->with('success', 'Appointment record deleted successfully!');
     }
+
+    public function export(Request $request)
+    {
+        $status = $request->query('status');
+        $query = Appointment::with('schoolClass')->latest();
+
+        if ($status && in_array($status, ['pending', 'contacted', 'approved', 'cancelled'])) {
+            $query->where('status', $status);
+        }
+
+        $appointments = $query->get();
+
+        $filename = 'admissions_bookings_' . date('Y-m-d_His') . '.csv';
+
+        $headers = [
+            'Content-Type' => 'text/csv; charset=UTF-8',
+            'Content-Disposition' => "attachment; filename=\"$filename\"",
+            'Pragma' => 'no-cache',
+            'Cache-Control' => 'must-revalidate, post-check=0, pre-check=0',
+            'Expires' => '0',
+        ];
+
+        $callback = function () use ($appointments) {
+            $file = fopen('php://output', 'w');
+            // Add UTF-8 BOM for Excel compatibility
+            fprintf($file, chr(0xEF).chr(0xBB).chr(0xBF));
+
+            fputcsv($file, [
+                'ID',
+                'Guardian Name',
+                'Guardian Email',
+                'Guardian Phone',
+                'Child Name',
+                'Child Age',
+                'Interested Program',
+                'Status',
+                'Guardian Notes',
+                'Admin Follow-up Notes',
+                'Submission Date'
+            ]);
+
+            foreach ($appointments as $item) {
+                fputcsv($file, [
+                    $item->id,
+                    $item->guardian_name,
+                    $item->guardian_email,
+                    $item->guardian_phone,
+                    $item->child_name,
+                    $item->child_age,
+                    $item->schoolClass ? $item->schoolClass->title : 'General Inquiry',
+                    strtoupper($item->status),
+                    $item->message,
+                    $item->admin_notes,
+                    $item->created_at->format('Y-m-d H:i:s'),
+                ]);
+            }
+
+            fclose($file);
+        };
+
+        return response()->stream($callback, 200, $headers);
+    }
 }
