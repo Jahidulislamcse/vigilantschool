@@ -282,15 +282,28 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .navbar .dropdown-item {
-    padding: 0.6rem 1.25rem;
+    padding: 0.65rem 1.25rem;
     font-weight: 500;
     color: #2d3748;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.navbar .dropdown-item i {
+    width: 20px;
+    text-align: center;
+    transition: transform 0.2s ease;
 }
 
 .navbar .dropdown-item:hover,
 .navbar .dropdown-item.active {
     background-color: #f0f4fa;
     color: #0c4598;
+}
+
+.navbar .dropdown-item:hover i {
+    transform: scale(1.15);
 }
 
 /* Mobile Navbar Adjustments (< 992px) */

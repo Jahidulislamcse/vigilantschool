@@ -20,12 +20,12 @@
             <a href="{{ route('about') }}" class="nav-item nav-link {{ request()->routeIs('about') ? 'active' : '' }}">About Us</a>
             <a href="{{ route('classes') }}" class="nav-item nav-link {{ request()->routeIs('classes') ? 'active' : '' }}">Classes</a>
             <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle {{ request()->routeIs('facilities', 'team', 'appointment', 'testimonials') ? 'active' : '' }}" data-bs-toggle="dropdown">Pages</a>
+                <a href="#" class="nav-link dropdown-toggle {{ request()->routeIs('facilities', 'team', 'appointment', 'testimonials') ? 'active' : '' }}" data-bs-toggle="dropdown">Explore</a>
                 <div class="dropdown-menu rounded-3 border-0 shadow-sm m-0">
-                    <a href="{{ route('facilities') }}" class="dropdown-item {{ request()->routeIs('facilities') ? 'active' : '' }}">School Facilities</a>
-                    <a href="{{ route('team') }}" class="dropdown-item {{ request()->routeIs('team') ? 'active' : '' }}">Popular Teachers</a>
-                    <a href="{{ route('appointment') }}" class="dropdown-item {{ request()->routeIs('appointment') ? 'active' : '' }}">Make Appointment</a>
-                    <a href="{{ route('testimonials') }}" class="dropdown-item {{ request()->routeIs('testimonials') ? 'active' : '' }}">Testimonials</a>
+                    <a href="{{ route('facilities') }}" class="dropdown-item {{ request()->routeIs('facilities') ? 'active' : '' }}"><i class="fa fa-school text-primary me-2"></i> School Facilities</a>
+                    <a href="{{ route('team') }}" class="dropdown-item {{ request()->routeIs('team') ? 'active' : '' }}"><i class="fa fa-chalkboard-user text-primary me-2"></i> Our Teachers</a>
+                    <a href="{{ route('appointment') }}" class="dropdown-item {{ request()->routeIs('appointment') ? 'active' : '' }}"><i class="fa fa-calendar-check text-primary me-2"></i> Book A School Tour</a>
+                    <a href="{{ route('testimonials') }}" class="dropdown-item {{ request()->routeIs('testimonials') ? 'active' : '' }}"><i class="fa fa-comments text-primary me-2"></i> Parent Reviews</a>
                 </div>
             </div>
             <a href="{{ route('contact') }}" class="nav-item nav-link {{ request()->routeIs('contact') ? 'active' : '' }}">Contact Us</a>
