@@ -167,32 +167,32 @@
                             <a class="classes-title" href="{{ route('appointment') }}">{{ $class->title }}</a>
                             <div class="classes-teacher-box">
                                 <div class="teacher-info">
-                                    <img class="rounded-circle flex-shrink-0" src="{{ asset($class->teacher->photo ?? 'kider/img/user.jpg') }}" alt="{{ $class->teacher->name ?? 'Faculty' }}" style="width: 40px; height: 40px; object-fit: cover;">
-                                    <div class="ms-2 ms-sm-3 text-truncate">
+                                    <img class="rounded-circle flex-shrink-0" src="{{ asset($class->teacher->photo ?? 'kider/img/user.jpg') }}" alt="{{ $class->teacher->name ?? 'Faculty' }}" style="width: 38px; height: 38px; object-fit: cover;">
+                                    <div class="ms-2 text-truncate">
                                         <h6 class="text-primary mb-0 fw-bold">{{ $class->teacher->name ?? 'Lead Faculty' }}</h6>
                                         <small class="text-muted">{{ $class->teacher->designation ?? 'Educator' }}</small>
                                     </div>
                                 </div>
-                                <span class="bg-primary text-white rounded-pill py-1 px-2 px-sm-3 small fw-bold flex-shrink-0">{{ $class->fee }}</span>
+                                <span class="bg-primary text-white py-1 px-2 px-sm-3 small fw-bold flex-shrink-0">{{ $class->fee }}</span>
                             </div>
                             <div class="classes-stats">
                                 <div class="row g-1">
                                     <div class="col-4">
                                         <div class="classes-stat-col stat-age">
                                             <h6 class="text-primary">Age:</h6>
-                                            <small class="text-muted text-truncate" title="{{ $class->age_range }}">{{ $class->age_range }}</small>
+                                            <small title="{{ $class->age_range }}">{{ $class->age_range }}</small>
                                         </div>
                                     </div>
                                     <div class="col-4">
                                         <div class="classes-stat-col stat-time">
                                             <h6 class="text-success">Time:</h6>
-                                            <small class="text-muted text-truncate" title="{{ $class->time_schedule }}">{{ $class->time_schedule }}</small>
+                                            <small title="{{ $class->time_schedule }}">{{ $class->time_schedule }}</small>
                                         </div>
                                     </div>
                                     <div class="col-4">
                                         <div class="classes-stat-col stat-capacity">
                                             <h6 class="text-warning">Capacity:</h6>
-                                            <small class="text-muted text-truncate" title="{{ $class->capacity }}">{{ $class->capacity }}</small>
+                                            <small title="{{ $class->capacity }}">{{ $class->capacity }}</small>
                                         </div>
                                     </div>
                                 </div>
