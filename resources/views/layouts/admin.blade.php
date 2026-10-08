@@ -248,15 +248,17 @@
                     <span class="badge bg-danger rounded-pill ms-auto small">{{ $pendingAppointments }}</span>
                 @endif
             </a>
-            <a href="javascript:void(0);" class="list-group-item-sidebar disabled" tabindex="-1" aria-disabled="true">
+            <a href="{{ route('admin.contacts.index') }}" class="list-group-item-sidebar {{ request()->routeIs('admin.contacts.*') ? 'active' : '' }}">
                 <i class="fa fa-envelope"></i>
                 <span>Contact Inquiries</span>
-                <span class="badge bg-dark text-white-50 border border-secondary border-opacity-25 ms-auto py-1 px-2" style="font-size: 0.65rem;">Disabled</span>
+                @php $unreadContacts = \App\Models\Contact::where('is_read', false)->count(); @endphp
+                @if($unreadContacts > 0)
+                    <span class="badge bg-danger rounded-pill ms-auto small">{{ $unreadContacts }}</span>
+                @endif
             </a>
-            <a href="javascript:void(0);" class="list-group-item-sidebar disabled" tabindex="-1" aria-disabled="true">
+            <a href="{{ route('admin.newsletters.index') }}" class="list-group-item-sidebar {{ request()->routeIs('admin.newsletters.*') ? 'active' : '' }}">
                 <i class="fa fa-newspaper"></i>
                 <span>Subscribers</span>
-                <span class="badge bg-dark text-white-50 border border-secondary border-opacity-25 ms-auto py-1 px-2" style="font-size: 0.65rem;">Disabled</span>
             </a>
 
             <div class="sidebar-section-title">Academics & Faculty</div>
@@ -282,15 +284,13 @@
                 <i class="fa fa-circle-info"></i>
                 <span>About & Mission</span>
             </a>
-            <a href="javascript:void(0);" class="list-group-item-sidebar disabled" tabindex="-1" aria-disabled="true">
+            <a href="{{ route('admin.testimonials.index') }}" class="list-group-item-sidebar {{ request()->routeIs('admin.testimonials.*') ? 'active' : '' }}">
                 <i class="fa fa-comments"></i>
                 <span>Parent Reviews</span>
-                <span class="badge bg-dark text-white-50 border border-secondary border-opacity-25 ms-auto py-1 px-2" style="font-size: 0.65rem;">Disabled</span>
             </a>
-            <a href="javascript:void(0);" class="list-group-item-sidebar disabled" tabindex="-1" aria-disabled="true">
+            <a href="{{ route('admin.galleries.index') }}" class="list-group-item-sidebar {{ request()->routeIs('admin.galleries.*') ? 'active' : '' }}">
                 <i class="fa fa-photo-film"></i>
                 <span>Photo Gallery</span>
-                <span class="badge bg-dark text-white-50 border border-secondary border-opacity-25 ms-auto py-1 px-2" style="font-size: 0.65rem;">Disabled</span>
             </a>
             <a href="{{ route('admin.settings.index') }}" class="list-group-item-sidebar {{ request()->routeIs('admin.settings.*') ? 'active' : '' }}">
                 <i class="fa fa-sliders"></i>
