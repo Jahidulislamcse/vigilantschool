@@ -6,7 +6,7 @@
 @section('content')
 <div class="row">
     <div class="col-12">
-        <div class="card shadow-sm">
+        <div class="card shadow-sm w-100">
             <div class="card-header d-flex align-items-center justify-content-between bg-white py-3">
                 <div class="d-flex align-items-center">
                     <i class="fa fa-images text-primary me-2 fs-5"></i>
@@ -22,7 +22,7 @@
 
             <div class="card-body p-0">
                 <div class="table-responsive">
-                    <table class="table table-hover align-middle mb-0">
+                    <table class="table table-hover align-middle mb-0 w-100">
                         <thead class="table-light">
                             <tr>
                                 <th style="width: 80px;">Order</th>
@@ -47,7 +47,7 @@
                                         <div class="badge bg-primary-subtle text-primary mb-1">{{ $slider->subtitle }}</div>
                                     @endif
                                     <div class="fw-bold text-dark">{{ $slider->title }}</div>
-                                    <small class="text-muted text-truncate d-block" style="max-width: 320px;">{{ $slider->description }}</small>
+                                    <small class="text-muted d-block">{{ $slider->description }}</small>
                                 </td>
                                 <td>
                                     <div class="d-flex flex-column gap-1 small">

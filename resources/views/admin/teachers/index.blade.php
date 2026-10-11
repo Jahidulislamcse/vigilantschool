@@ -60,7 +60,7 @@
 @section('content')
 <div class="row">
     <div class="col-12">
-        <div class="card shadow-sm border-0">
+        <div class="card shadow-sm border-0 w-100">
             <div class="card-header d-flex flex-wrap align-items-center justify-content-between bg-white py-3 gap-2">
                 <div class="d-flex align-items-center">
                     <i class="fa fa-chalkboard-user text-primary me-2 fs-5"></i>

@@ -4,9 +4,9 @@
 @section('page-title', 'Create Educator Profile')
 
 @section('content')
-<div class="row justify-content-center">
-    <div class="col-lg-10">
-        <div class="card shadow-sm">
+<div class="row">
+    <div class="col-12">
+        <div class="card shadow-sm w-100">
             <div class="card-header bg-white py-3 d-flex align-items-center justify-content-between">
                 <div class="d-flex align-items-center">
                     <i class="fa fa-user-plus text-primary me-2 fs-5"></i>

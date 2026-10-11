@@ -5,8 +5,8 @@
 
 @section('content')
 <div class="row">
-    <div class="col-12 col-xl-10 mx-auto">
-        <div class="card shadow-sm border-0 mb-4">
+    <div class="col-12">
+        <div class="card shadow-sm border-0 mb-4 w-100">
             <div class="card-header bg-white py-3 d-flex align-items-center justify-content-between">
                 <div>
                     <h6 class="mb-0 fw-bold">Edit Event: {{ $event->display_title }}</h6>

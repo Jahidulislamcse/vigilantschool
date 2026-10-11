@@ -6,7 +6,7 @@
 @section('content')
 <div class="row">
     <div class="col-12">
-        <div class="card shadow-sm">
+        <div class="card shadow-sm w-100">
             <div class="card-header d-flex align-items-center justify-content-between bg-white py-3">
                 <div class="d-flex align-items-center">
                     <i class="fa fa-newspaper text-primary me-2 fs-5"></i>
@@ -27,7 +27,7 @@
 
             <div class="card-body p-0">
                 <div class="table-responsive">
-                    <table class="table table-hover align-middle mb-0">
+                    <table class="table table-hover align-middle mb-0 w-100">
                         <thead class="table-light">
                             <tr>
                                 <th style="width: 70px;">#ID</th>

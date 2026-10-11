@@ -5,8 +5,8 @@
 
 @section('content')
 <div class="row">
-    <div class="col-lg-10 mx-auto">
-        <div class="card shadow-sm">
+    <div class="col-12">
+        <div class="card shadow-sm w-100">
             <div class="card-header d-flex align-items-center justify-content-between bg-white py-3">
                 <div class="d-flex align-items-center">
                     <i class="fa fa-plus-circle text-primary me-2 fs-5"></i>
