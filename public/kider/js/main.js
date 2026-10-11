@@ -110,12 +110,12 @@
         ],
         responsive: {
             0: {
-                items: 1,
-                margin: 15
+                items: 2,
+                margin: 10
             },
             576: {
                 items: 2,
-                margin: 20
+                margin: 16
             },
             992: {
                 items: 3,

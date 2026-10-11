@@ -1396,6 +1396,51 @@ h1, h2, h3, h4, h5, h6,
     }
 }
 
+@media (max-width: 767.98px) {
+    .team-carousel {
+        padding: 0 !important;
+    }
+    .team-carousel .team-item {
+        min-height: auto !important;
+        padding: 0.85rem 0.5rem 0.75rem !important;
+        border-radius: 14px !important;
+        margin: 2px !important;
+    }
+    .team-carousel .team-photo,
+    .team-carousel .team-item img {
+        width: 70px !important;
+        height: 70px !important;
+        min-width: 70px !important;
+        max-width: 70px !important;
+        margin-bottom: 0.4rem !important;
+    }
+    .team-carousel .team-text h3 {
+        font-size: 0.85rem !important;
+        margin-bottom: 2px !important;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+    }
+    .team-carousel .team-text .team-designation,
+    .team-carousel .team-text p {
+        font-size: 0.7rem !important;
+        margin-bottom: 0.4rem !important;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+    }
+    .team-carousel .btn-square {
+        width: 26px !important;
+        height: 26px !important;
+        font-size: 0.68rem !important;
+    }
+    .team-carousel .owl-dots {
+        margin-top: 1rem !important;
+    }
+}
+
 /* ==========================================================================
    7.3 Testimonials & Parent Reviews (Desktop & Mobile-Optimized)
    ========================================================================== */
