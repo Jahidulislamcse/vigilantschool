@@ -333,6 +333,10 @@
                 <i class="fa fa-comments"></i>
                 <span>Parent Reviews</span>
             </a>
+            <a href="{{ route('admin.events.index') }}" class="list-group-item-sidebar {{ request()->routeIs('admin.events.*') ? 'active' : '' }}">
+                <i class="fa fa-calendar-days"></i>
+                <span>Events & Albums</span>
+            </a>
             <a href="{{ route('admin.galleries.index') }}" class="list-group-item-sidebar {{ request()->routeIs('admin.galleries.*') ? 'active' : '' }}">
                 <i class="fa fa-photo-film"></i>
                 <span>Photo Gallery</span>

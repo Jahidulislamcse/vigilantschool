@@ -363,6 +363,79 @@
     <!-- Qualified Teachers & Faculty End -->
 
 
+    <!-- School Events & Photo Albums Start -->
+    @if(isset($events) && $events->count() > 0)
+    <div class="container-xxl py-4 py-md-5 bg-light-subtle">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-end justify-content-between mb-4 mb-md-5">
+                <div>
+                    <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 rounded-pill mb-2 font-weight-bold">
+                        <i class="fa fa-camera-retro me-1"></i> School Memories & Gallery
+                    </span>
+                    <h1 class="mb-1 text-brand-dark">Latest Events & Photo Albums</h1>
+                    <p class="text-muted mb-0">Explore our student galas, sports meets, and vibrant academic celebrations.</p>
+                </div>
+                <a href="{{ route('events.index') }}" class="btn btn-outline-primary rounded-pill px-4 mt-3 mt-md-0">
+                    View All Albums <i class="fa fa-arrow-right ms-1"></i>
+                </a>
+            </div>
+
+            <div class="row g-4">
+                @foreach($events as $event)
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden event-album-card bg-white">
+                        <div class="position-relative overflow-hidden">
+                            <a href="{{ route('events.show', $event->slug) }}">
+                                <img class="img-fluid w-100 event-cover-img" src="{{ asset($event->cover_image ?? 'kider/img/carousel-1.jpg') }}" alt="{{ $event->title }}" style="height: 220px; object-fit: cover;">
+                            </a>
+                            <div class="position-absolute top-0 start-0 m-3">
+                                <span class="badge bg-dark bg-opacity-75 text-white px-3 py-2 rounded-pill small shadow-sm backdrop-blur">
+                                    <i class="fa fa-calendar-day me-1 text-warning"></i> {{ $event->formatted_date }}
+                                </span>
+                            </div>
+                            <div class="position-absolute top-0 end-0 m-3">
+                                <span class="badge bg-primary text-white px-3 py-2 rounded-pill small shadow-sm">
+                                    <i class="fa fa-images me-1"></i> {{ $event->images->count() }} Photos
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="card-body p-4 d-flex flex-column">
+                            @if($event->location)
+                            <div class="small text-muted mb-2">
+                                <i class="fa fa-location-dot text-danger me-1"></i> {{ $event->location }}
+                            </div>
+                            @endif
+
+                            <h5 class="card-title fw-bold mb-2">
+                                <a href="{{ route('events.show', $event->slug) }}" class="text-dark text-decoration-none hover-primary">
+                                    {{ $event->title }}
+                                </a>
+                            </h5>
+
+                            <p class="card-text text-muted small flex-grow-1 mb-3" style="line-height: 1.5;">
+                                {{ Str::limit($event->summary ?: $event->description, 95) }}
+                            </p>
+
+                            <div class="mt-auto pt-2 border-top d-flex align-items-center justify-content-between">
+                                <span class="small fw-semibold text-primary">
+                                    <i class="fa fa-photo-film me-1"></i> View Album
+                                </span>
+                                <a href="{{ route('events.show', $event->slug) }}" class="btn btn-sm btn-outline-primary rounded-pill px-3 py-1">
+                                    Explore <i class="fa fa-arrow-right ms-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+    @endif
+    <!-- School Events & Photo Albums End -->
+
+
     <!-- Testimonials / Parent Reviews Start -->
     @if(isset($testimonials) && $testimonials->count() > 0)
     <div class="container-xxl py-4 py-md-5">

@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\AppointmentController as AdminAppointmentController;
 use App\Http\Controllers\Admin\ContactController as AdminContactController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\FacilityController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\NewsletterController;
@@ -42,6 +43,8 @@ Route::get('/about', [FrontendController::class, 'about'])->name('about');
 Route::get('/classes', [FrontendController::class, 'classes'])->name('classes');
 Route::get('/facilities', [FrontendController::class, 'facilities'])->name('facilities');
 Route::get('/team', [FrontendController::class, 'teachers'])->name('team');
+Route::get('/events', [FrontendController::class, 'events'])->name('events.index');
+Route::get('/events/{slug}', [FrontendController::class, 'eventDetails'])->name('events.show');
 Route::get('/appointment', [FrontendController::class, 'appointment'])->name('appointment');
 Route::post('/appointment', [FrontendController::class, 'submitAppointment'])->name('appointment.submit');
 Route::get('/testimonials', [FrontendController::class, 'testimonials'])->name('testimonials');
@@ -109,6 +112,11 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
 
     // Photo Gallery
     Route::resource('galleries', GalleryController::class)->only(['index', 'store', 'destroy']);
+
+    // School Events & Photo Albums
+    Route::post('/events/reorder', [EventController::class, 'reorder'])->name('events.reorder');
+    Route::delete('/events/images/{image}', [EventController::class, 'destroyImage'])->name('events.images.destroy');
+    Route::resource('events', EventController::class)->except(['show']);
 
     // Newsletter Subscribers
     Route::get('/newsletters/export', [NewsletterController::class, 'export'])->name('newsletters.export');

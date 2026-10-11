@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\AboutSection;
 use App\Models\Appointment;
 use App\Models\Contact;
+use App\Models\Event;
 use App\Models\Facility;
 use App\Models\Newsletter;
 use App\Models\SchoolClass;
@@ -23,6 +24,7 @@ class FrontendController extends Controller
         $classes = SchoolClass::with('teacher')->where('is_active', true)->orderBy('order', 'asc')->take(6)->get();
         $teachers = Teacher::where('is_active', true)->inRandomOrder()->get();
         $testimonials = Testimonial::where('is_active', true)->orderBy('order', 'asc')->get();
+        $events = Event::with('images')->where('is_active', true)->orderBy('order', 'asc')->orderBy('event_date', 'desc')->take(3)->get();
 
         return view('frontend.index', compact(
             'sliders',
@@ -30,7 +32,8 @@ class FrontendController extends Controller
             'about',
             'classes',
             'teachers',
-            'testimonials'
+            'testimonials',
+            'events'
         ));
     }
 
@@ -63,6 +66,33 @@ class FrontendController extends Controller
         $teachers = Teacher::where('is_active', true)->orderBy('order', 'asc')->orderBy('id', 'asc')->get();
 
         return view('frontend.team', compact('teachers'));
+    }
+
+    public function events()
+    {
+        $events = Event::with('images')
+            ->where('is_active', true)
+            ->orderBy('order', 'asc')
+            ->orderBy('event_date', 'desc')
+            ->paginate(9);
+
+        return view('frontend.events', compact('events'));
+    }
+
+    public function eventDetails(string $slug)
+    {
+        $event = Event::with('images')
+            ->where('slug', $slug)
+            ->where('is_active', true)
+            ->firstOrFail();
+
+        $recentEvents = Event::where('is_active', true)
+            ->where('id', '!=', $event->id)
+            ->orderBy('event_date', 'desc')
+            ->take(4)
+            ->get();
+
+        return view('frontend.event-details', compact('event', 'recentEvents'));
     }
 
     public function appointment()
