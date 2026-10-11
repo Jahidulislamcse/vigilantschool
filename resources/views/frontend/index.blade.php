@@ -324,23 +324,32 @@
             <div class="owl-carousel team-carousel position-relative">
                 @foreach($teachers as $index => $teacher)
                 <div class="team-item">
-                    <img class="img-fluid team-photo" src="{{ asset($teacher->photo ?? 'kider/img/team-1.jpg') }}" alt="{{ $teacher->name }}">
+                    <div class="team-header-backdrop"></div>
+                    <div class="team-avatar-wrap">
+                        <img class="img-fluid team-photo" src="{{ asset($teacher->photo ?? 'kider/img/team-1.jpg') }}" alt="{{ $teacher->name }}">
+                        <span class="team-verified-badge" title="Certified Educator"><i class="fas fa-check"></i></span>
+                    </div>
                     <div class="team-text">
-                        <h3>{{ $teacher->name }}</h3>
-                        <p class="team-designation">{{ $teacher->designation }}</p>
+                        <h3 class="team-name">{{ $teacher->name }}</h3>
+                        <div class="team-designation-wrap">
+                            <span class="team-designation-badge">{{ $teacher->designation }}</span>
+                        </div>
                         @if(!empty($teacher->bio))
-                            <p class="team-bio">{{ $teacher->bio }}</p>
+                            <div class="team-bio-box">
+                                <i class="fas fa-quote-left team-quote-icon"></i>
+                                <p class="team-bio">{{ $teacher->bio }}</p>
+                            </div>
                         @endif
                         @if($teacher->facebook_url || $teacher->twitter_url || $teacher->instagram_url)
-                        <div class="d-flex align-items-center justify-content-center">
+                        <div class="team-social d-flex align-items-center justify-content-center">
                             @if($teacher->facebook_url)
-                                <a class="btn btn-square btn-primary mx-1" href="{{ $teacher->facebook_url }}" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square team-social-btn team-social-fb" href="{{ $teacher->facebook_url }}" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                             @endif
                             @if($teacher->twitter_url)
-                                <a class="btn btn-square btn-primary mx-1" href="{{ $teacher->twitter_url }}" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square team-social-btn team-social-tw" href="{{ $teacher->twitter_url }}" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                             @endif
                             @if($teacher->instagram_url)
-                                <a class="btn btn-square btn-primary mx-1" href="{{ $teacher->instagram_url }}" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                                <a class="btn btn-square team-social-btn team-social-ig" href="{{ $teacher->instagram_url }}" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                             @endif
                         </div>
                         @endif

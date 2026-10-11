@@ -1167,14 +1167,14 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* ==========================================================================
-   7.2 Dedicated Teachers & Faculty Cards (Desktop & Mobile-Optimized)
+   7.2 Dedicated Teachers & Faculty Cards (Modern Profile Design)
    ========================================================================== */
 .team-item {
     background: #ffffff !important;
-    border-radius: 18px !important;
-    padding: 1.5rem 1rem !important;
-    border: 1px solid rgba(12, 69, 152, 0.08) !important;
-    box-shadow: 0 4px 16px rgba(10, 34, 64, 0.05) !important;
+    border-radius: 20px !important;
+    padding: 0 1.25rem 1.35rem !important;
+    border: 1px solid rgba(12, 69, 152, 0.09) !important;
+    box-shadow: 0 8px 24px -4px rgba(10, 34, 64, 0.06), 0 2px 6px -1px rgba(10, 34, 64, 0.03) !important;
     text-align: center !important;
     height: 100% !important;
     display: flex !important;
@@ -1182,74 +1182,228 @@ h1, h2, h3, h4, h5, h6,
     align-items: center !important;
     justify-content: flex-start !important;
     position: relative !important;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    overflow: hidden !important;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .team-item:hover {
-    transform: translateY(-6px) !important;
-    box-shadow: 0 14px 28px rgba(10, 34, 64, 0.1) !important;
-    border-color: rgba(12, 69, 152, 0.25) !important;
+    transform: translateY(-8px) !important;
+    box-shadow: 0 20px 38px -6px rgba(12, 69, 152, 0.16), 0 6px 12px -2px rgba(10, 34, 64, 0.05) !important;
+    border-color: rgba(12, 69, 152, 0.3) !important;
+}
+
+/* Card Header Backdrop Banner */
+.team-header-backdrop {
+    width: calc(100% + 2.5rem) !important;
+    margin-left: -1.25rem !important;
+    margin-right: -1.25rem !important;
+    height: 80px !important;
+    background: linear-gradient(135deg, rgba(12, 69, 152, 0.12) 0%, rgba(227, 27, 35, 0.07) 100%) !important;
+    border-top: 3.5px solid #0c4598 !important;
+    border-bottom: 1px solid rgba(12, 69, 152, 0.08) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    flex-shrink: 0 !important;
+}
+
+.team-header-backdrop::before {
+    content: "";
+    position: absolute;
+    top: -24px;
+    right: -24px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(12, 69, 152, 0.14) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.team-header-backdrop::after {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    left: -10px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(227, 27, 35, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+/* Avatar Frame & Photo */
+.team-avatar-wrap {
+    position: relative !important;
+    margin-top: -50px !important;
+    margin-bottom: 0.75rem !important;
+    display: inline-block !important;
+    z-index: 2 !important;
+    flex-shrink: 0 !important;
 }
 
 .team-item .team-photo,
 .team-item img {
-    width: 130px !important;
-    height: 130px !important;
-    min-width: 130px !important;
-    max-width: 130px !important;
+    width: 114px !important;
+    height: 114px !important;
+    min-width: 114px !important;
+    max-width: 114px !important;
     border-radius: 50% !important;
     object-fit: cover !important;
-    border: 4px solid #f0f4fa !important;
-    margin: 0 auto 0.85rem !important;
-    padding: 3px !important;
     background: #ffffff !important;
-    transition: transform 0.3s ease !important;
+    padding: 4px !important;
+    box-shadow: 0 0 0 3px #ffffff, 0 0 0 5px rgba(12, 69, 152, 0.14), 0 8px 20px rgba(10, 34, 64, 0.12) !important;
+    border: none !important;
+    margin: 0 auto !important;
     display: block !important;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .team-item:hover .team-photo,
 .team-item:hover img {
-    transform: scale(1.05) !important;
-    border-color: #e8f0fe !important;
+    transform: scale(1.06) !important;
+    box-shadow: 0 0 0 3px #ffffff, 0 0 0 6px #0c4598, 0 12px 28px rgba(12, 69, 152, 0.28) !important;
 }
 
+/* Verified Faculty Badge */
+.team-verified-badge {
+    position: absolute !important;
+    bottom: 4px !important;
+    right: 4px !important;
+    width: 24px !important;
+    height: 24px !important;
+    border-radius: 50% !important;
+    background: linear-gradient(135deg, #0c4598 0%, #1e5bb8 100%) !important;
+    color: #ffffff !important;
+    border: 2px solid #ffffff !important;
+    box-shadow: 0 2px 6px rgba(12, 69, 152, 0.35) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 10px !important;
+    z-index: 3 !important;
+    transition: all 0.3s ease !important;
+}
+
+.team-item:hover .team-verified-badge {
+    transform: scale(1.15) rotate(12deg) !important;
+    background: #e31b23 !important;
+    box-shadow: 0 4px 10px rgba(227, 27, 35, 0.4) !important;
+}
+
+/* Faculty Info Body */
 .team-item .team-text {
     position: static !important;
     width: 100% !important;
-    height: auto !important;
-    border: none !important;
-    border-radius: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    flex: 1 1 auto !important;
     padding: 0 !important;
     background: transparent !important;
-    margin-top: auto !important;
+    border: none !important;
+    border-radius: 0 !important;
+    height: auto !important;
 }
 
-.team-item .team-text h3 {
-    font-size: 1.1rem !important;
+.team-item .team-text h3,
+.team-item .team-name {
+    font-size: 1.12rem !important;
     font-weight: 700 !important;
     color: #0a2240 !important;
-    margin-bottom: 2px !important;
-    line-height: 1.25 !important;
-}
-
-.team-item .team-text .team-designation {
-    font-size: 0.82rem !important;
-    font-weight: 600 !important;
-    color: #0c4598 !important;
     margin-bottom: 0.35rem !important;
+    line-height: 1.3 !important;
+    letter-spacing: -0.01em !important;
+    transition: color 0.3s ease !important;
 }
 
+.team-item:hover .team-name,
+.team-item:hover .team-text h3 {
+    color: #0c4598 !important;
+}
+
+/* Designation Pill */
+.team-designation-wrap {
+    margin-bottom: 0.75rem !important;
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+}
+
+.team-item .team-designation-badge,
+.team-item .team-text .team-designation {
+    display: inline-block !important;
+    font-size: 0.73rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.04em !important;
+    color: #0c4598 !important;
+    background: rgba(12, 69, 152, 0.07) !important;
+    border: 1px solid rgba(12, 69, 152, 0.16) !important;
+    padding: 0.25rem 0.85rem !important;
+    border-radius: 50px !important;
+    line-height: 1.25 !important;
+    margin-bottom: 0 !important;
+    transition: all 0.3s ease !important;
+}
+
+.team-item:hover .team-designation-badge,
+.team-item:hover .team-text .team-designation {
+    background: #0c4598 !important;
+    color: #ffffff !important;
+    border-color: #0c4598 !important;
+    box-shadow: 0 4px 12px rgba(12, 69, 152, 0.25) !important;
+}
+
+/* Teacher Bio Quote Inset */
+.team-bio-box {
+    width: 100% !important;
+    background: #f8fafc !important;
+    border: 1px dashed rgba(12, 69, 152, 0.18) !important;
+    border-radius: 12px !important;
+    padding: 0.65rem 0.85rem !important;
+    margin-bottom: 0.85rem !important;
+    position: relative !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+    transition: all 0.3s ease !important;
+}
+
+.team-item:hover .team-bio-box {
+    background: #ffffff !important;
+    border-color: rgba(12, 69, 152, 0.35) !important;
+    border-style: solid !important;
+    box-shadow: 0 4px 14px rgba(12, 69, 152, 0.06) !important;
+}
+
+.team-quote-icon {
+    color: #0c4598 !important;
+    opacity: 0.55 !important;
+    font-size: 0.72rem !important;
+    margin-right: 0.45rem !important;
+    margin-top: 0.2rem !important;
+    flex-shrink: 0 !important;
+}
+
+.team-bio,
 .team-item .team-text .team-bio {
     font-size: 0.78rem !important;
-    color: #64748b !important;
+    color: #475569 !important;
     line-height: 1.45 !important;
-    margin-bottom: 0.65rem !important;
+    margin-bottom: 0 !important;
     display: -webkit-box !important;
     -webkit-line-clamp: 2 !important;
     -webkit-box-orient: vertical !important;
     overflow: hidden !important;
 }
 
+/* Social Buttons */
+.team-social {
+    margin-top: auto !important;
+    padding-top: 0.25rem !important;
+    width: 100% !important;
+}
+
+.team-social-btn,
 .team-item .btn-square {
     width: 32px !important;
     height: 32px !important;
@@ -1258,46 +1412,131 @@ h1, h2, h3, h4, h5, h6,
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    margin: 0 2px !important;
+    margin: 0 3px !important;
+    background: #f1f5f9 !important;
+    color: #64748b !important;
+    border: 1px solid #e2e8f0 !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
+.team-social-fb:hover {
+    background: #1877f2 !important;
+    color: #ffffff !important;
+    border-color: #1877f2 !important;
+    transform: translateY(-3px) scale(1.1) !important;
+    box-shadow: 0 4px 12px rgba(24, 119, 242, 0.4) !important;
+}
+
+.team-social-tw:hover {
+    background: #0f1419 !important;
+    color: #ffffff !important;
+    border-color: #0f1419 !important;
+    transform: translateY(-3px) scale(1.1) !important;
+    box-shadow: 0 4px 12px rgba(15, 20, 25, 0.35) !important;
+}
+
+.team-social-ig:hover {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888) !important;
+    color: #ffffff !important;
+    border-color: transparent !important;
+    transform: translateY(-3px) scale(1.1) !important;
+    box-shadow: 0 4px 12px rgba(220, 39, 67, 0.4) !important;
+}
+
+.team-item .btn-square:not(.team-social-fb):not(.team-social-tw):not(.team-social-ig):hover {
+    background: #0c4598 !important;
+    color: #ffffff !important;
+    border-color: #0c4598 !important;
+    transform: translateY(-3px) scale(1.1) !important;
+    box-shadow: 0 4px 12px rgba(12, 69, 152, 0.35) !important;
+}
+
+/* Mobile Responsiveness for Cards */
 @media (max-width: 767.98px) {
     .team-item {
-        padding: 0.85rem 0.5rem 0.75rem !important;
-        border-radius: 12px !important;
-        box-shadow: 0 2px 8px rgba(10, 34, 64, 0.04) !important;
+        padding: 0 0.55rem 0.75rem !important;
+        border-radius: 15px !important;
+        box-shadow: 0 3px 12px rgba(10, 34, 64, 0.05) !important;
+    }
+
+    .team-header-backdrop {
+        height: 48px !important;
+        margin-left: -0.55rem !important;
+        margin-right: -0.55rem !important;
+        width: calc(100% + 1.1rem) !important;
+        border-top-width: 2.5px !important;
+    }
+
+    .team-avatar-wrap {
+        margin-top: -30px !important;
+        margin-bottom: 0.45rem !important;
     }
 
     .team-item .team-photo,
     .team-item img {
-        width: 76px !important;
-        height: 76px !important;
-        min-width: 76px !important;
-        max-width: 76px !important;
-        border-width: 2px !important;
-        margin-bottom: 0.45rem !important;
+        width: 70px !important;
+        height: 70px !important;
+        min-width: 70px !important;
+        max-width: 70px !important;
         padding: 2px !important;
+        box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px rgba(12, 69, 152, 0.12), 0 4px 12px rgba(10, 34, 64, 0.1) !important;
     }
 
-    .team-item .team-text h3 {
+    .team-verified-badge {
+        width: 17px !important;
+        height: 17px !important;
+        font-size: 8px !important;
+        bottom: 2px !important;
+        right: 2px !important;
+        border-width: 1.5px !important;
+    }
+
+    .team-item .team-text h3,
+    .team-item .team-name {
         font-size: 0.82rem !important;
-        margin-bottom: 1px !important;
-        display: -webkit-box;
-        -webkit-line-clamp: 1;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
+        margin-bottom: 0.15rem !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        max-width: 100% !important;
     }
 
-    .team-item .team-text .team-designation,
-    .team-item .team-text p {
-        font-size: 0.68rem !important;
+    .team-designation-wrap {
         margin-bottom: 0.35rem !important;
-        display: -webkit-box;
-        -webkit-line-clamp: 1;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
     }
 
+    .team-item .team-designation-badge,
+    .team-item .team-text .team-designation {
+        font-size: 0.62rem !important;
+        padding: 0.12rem 0.5rem !important;
+        letter-spacing: 0 !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        max-width: 100% !important;
+        display: block !important;
+    }
+
+    .team-bio-box {
+        padding: 0.35rem 0.45rem !important;
+        margin-bottom: 0.45rem !important;
+        border-radius: 8px !important;
+    }
+
+    .team-quote-icon {
+        font-size: 0.58rem !important;
+        margin-right: 0.25rem !important;
+        margin-top: 0.1rem !important;
+    }
+
+    .team-bio,
+    .team-item .team-text .team-bio {
+        font-size: 0.64rem !important;
+        line-height: 1.25 !important;
+        -webkit-line-clamp: 2 !important;
+    }
+
+    .team-social-btn,
     .team-item .btn-square {
         width: 24px !important;
         height: 24px !important;
@@ -1315,19 +1554,28 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .team-carousel .owl-stage-outer {
-    padding-top: 12px;
-    padding-bottom: 20px;
-    margin-top: -12px;
-    margin-bottom: -20px;
+    padding-top: 14px;
+    padding-bottom: 22px;
+    margin-top: -14px;
+    margin-bottom: -22px;
+}
+
+.team-carousel .owl-stage {
+    display: flex !important;
+}
+
+.team-carousel .owl-item {
+    display: flex !important;
+    flex: 1 0 auto !important;
+    height: auto !important;
 }
 
 .team-carousel .team-item {
-    margin: 4px;
-    min-height: 270px;
-    background: #ffffff !important;
-    border: 1px solid rgba(12, 69, 152, 0.08) !important;
-    border-radius: 18px !important;
-    box-shadow: 0 4px 16px rgba(10, 34, 64, 0.05) !important;
+    margin: 6px !important;
+    width: calc(100% - 12px) !important;
+    min-height: 330px !important;
+    display: flex !important;
+    flex-direction: column !important;
 }
 
 .team-carousel .owl-nav {
@@ -1411,51 +1659,13 @@ h1, h2, h3, h4, h5, h6,
     .team-carousel {
         padding: 0 !important;
     }
+
     .team-carousel .team-item {
         min-height: auto !important;
-        padding: 0.85rem 0.5rem 0.75rem !important;
-        border-radius: 14px !important;
         margin: 2px !important;
+        width: calc(100% - 4px) !important;
     }
-    .team-carousel .team-photo,
-    .team-carousel .team-item img {
-        width: 70px !important;
-        height: 70px !important;
-        min-width: 70px !important;
-        max-width: 70px !important;
-        margin-bottom: 0.4rem !important;
-    }
-    .team-carousel .team-text h3 {
-        font-size: 0.85rem !important;
-        margin-bottom: 2px !important;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        max-width: 100%;
-    }
-    .team-carousel .team-text .team-designation {
-        font-size: 0.7rem !important;
-        margin-bottom: 0.2rem !important;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        max-width: 100%;
-    }
-    .team-carousel .team-text .team-bio {
-        font-size: 0.65rem !important;
-        line-height: 1.3 !important;
-        margin-bottom: 0.35rem !important;
-        display: -webkit-box !important;
-        -webkit-line-clamp: 2 !important;
-        -webkit-box-orient: vertical !important;
-        overflow: hidden !important;
-        white-space: normal !important;
-    }
-    .team-carousel .btn-square {
-        width: 26px !important;
-        height: 26px !important;
-        font-size: 0.68rem !important;
-    }
+
     .team-carousel .owl-dots {
         margin-top: 1rem !important;
     }
