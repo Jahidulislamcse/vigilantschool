@@ -9,8 +9,8 @@
         <div class="card shadow-sm border-0 mb-4">
             <div class="card-header bg-white py-3 d-flex align-items-center justify-content-between">
                 <div>
-                    <h6 class="mb-0 fw-bold">Edit Event: {{ $event->title }}</h6>
-                    <small class="text-muted">Update event information and manage photo album gallery</small>
+                    <h6 class="mb-0 fw-bold">Edit Event: {{ $event->display_title }}</h6>
+                    <small class="text-muted">Update event information and add photos to this album</small>
                 </div>
                 <div class="d-flex gap-2">
                     <a href="{{ route('events.show', $event->slug) }}" target="_blank" class="btn btn-outline-info btn-sm rounded-pill px-3">
@@ -27,58 +27,50 @@
                     @csrf
                     @method('PUT')
 
-                    <div class="row g-3">
-                        <!-- Title -->
+                    <div class="row g-4">
+                        <!-- Title (Optional) -->
                         <div class="col-12 col-md-8">
-                            <label class="form-label fw-bold">Event Title <span class="text-danger">*</span></label>
-                            <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" value="{{ old('title', $event->title) }}" required>
+                            <label class="form-label fw-bold">Event Title <small class="text-muted fw-normal">(Optional)</small></label>
+                            <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" value="{{ old('title', $event->title) }}" placeholder="e.g. Annual Sports Day (Optional)">
                             @error('title')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
 
-                        <!-- Event Date -->
+                        <!-- Slug (Optional) -->
                         <div class="col-12 col-md-4">
-                            <label class="form-label fw-bold">Event Date</label>
-                            <input type="date" name="event_date" class="form-control @error('event_date') is-invalid @enderror" value="{{ old('event_date', $event->event_date ? $event->event_date->format('Y-m-d') : '') }}">
-                            @error('event_date')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-
-                        <!-- Location -->
-                        <div class="col-12 col-md-6">
-                            <label class="form-label fw-bold">Venue / Location</label>
-                            <div class="input-group">
-                                <span class="input-group-text bg-light"><i class="fa fa-location-dot text-danger"></i></span>
-                                <input type="text" name="location" class="form-control @error('location') is-invalid @enderror" value="{{ old('location', $event->location) }}" placeholder="e.g. Main Auditorium">
-                            </div>
-                            @error('location')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-
-                        <!-- Display Order -->
-                        <div class="col-12 col-md-3">
-                            <label class="form-label fw-bold">Sort Order</label>
-                            <input type="number" name="order" class="form-control @error('order') is-invalid @enderror" value="{{ old('order', $event->order) }}" min="0">
-                            @error('order')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-
-                        <!-- Slug -->
-                        <div class="col-12 col-md-3">
-                            <label class="form-label fw-bold">Slug URL</label>
+                            <label class="form-label fw-bold">Custom URL Slug <small class="text-muted fw-normal">(Optional)</small></label>
                             <input type="text" name="slug" class="form-control @error('slug') is-invalid @enderror" value="{{ old('slug', $event->slug) }}">
                             @error('slug')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
 
+                        <!-- Add More Album Photos -->
+                        <div class="col-12">
+                            <div class="p-4 bg-light rounded-4 border">
+                                <label class="form-label fw-bold fs-6 d-flex align-items-center mb-1">
+                                    <i class="fa fa-cloud-arrow-up text-success me-2"></i> Add More Album Photos
+                                </label>
+                                <p class="text-muted small mb-3">Upload additional photos to this album. You can manage and delete existing photos below.</p>
+                                
+                                <input type="file" name="album_images[]" id="albumImagesInput" class="form-control @error('album_images') is-invalid @enderror" multiple accept="image/*">
+                                <small class="text-muted d-block mt-1">Supports JPG, PNG, WEBP (Max 5MB per photo)</small>
+                                @error('album_images')
+                                    <div class="invalid-feedback d-block">{{ $message }}</div>
+                                @enderror
+
+                                <!-- New Selected Photos Preview -->
+                                <div class="mt-3 pt-3 border-top" id="albumPreviewSection" style="display: none;">
+                                    <label class="form-label fw-bold small text-muted mb-2">Newly Selected Photos (<span id="previewCount">0</span> selected):</label>
+                                    <div class="d-flex flex-wrap gap-2 p-2 bg-white rounded-3 border" id="albumPreviewContainer"></div>
+                                </div>
+                            </div>
+                        </div>
+
                         <!-- Short Summary -->
                         <div class="col-12">
-                            <label class="form-label fw-bold">Short Summary / Teaser</label>
+                            <label class="form-label fw-bold">Short Summary / Teaser <small class="text-muted fw-normal">(Optional)</small></label>
                             <textarea name="summary" class="form-control @error('summary') is-invalid @enderror" rows="2">{{ old('summary', $event->summary) }}</textarea>
                             @error('summary')
                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -87,51 +79,11 @@
 
                         <!-- Detailed Description -->
                         <div class="col-12">
-                            <label class="form-label fw-bold">Detailed Event Story & Highlights</label>
-                            <textarea name="description" class="form-control @error('description') is-invalid @enderror" rows="5">{{ old('description', $event->description) }}</textarea>
+                            <label class="form-label fw-bold">Detailed Description & Story <small class="text-muted fw-normal">(Optional)</small></label>
+                            <textarea name="description" class="form-control @error('description') is-invalid @enderror" rows="4">{{ old('description', $event->description) }}</textarea>
                             @error('description')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
-                        </div>
-
-                        <!-- Cover Image -->
-                        <div class="col-12 col-md-6">
-                            <div class="p-3 bg-light rounded-3 border h-100">
-                                <label class="form-label fw-bold d-flex align-items-center">
-                                    <i class="fa fa-image text-primary me-2"></i> Event Cover Image
-                                </label>
-                                @if($event->cover_image)
-                                <div class="mb-2 position-relative d-inline-block">
-                                    <img src="{{ asset($event->cover_image) }}" alt="Current Cover" class="rounded border shadow-sm" style="max-height: 120px; object-fit: cover;">
-                                    <span class="badge bg-primary position-absolute top-0 start-0 m-1">Current Cover</span>
-                                </div>
-                                @endif
-                                <input type="file" name="cover_image" class="form-control @error('cover_image') is-invalid @enderror" accept="image/*">
-                                <small class="text-muted d-block mt-1">Leave empty to keep existing cover photo</small>
-                                @error('cover_image')
-                                    <div class="invalid-feedback d-block">{{ $message }}</div>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <!-- Add More Album Photos -->
-                        <div class="col-12 col-md-6">
-                            <div class="p-3 bg-light rounded-3 border h-100">
-                                <label class="form-label fw-bold d-flex align-items-center">
-                                    <i class="fa fa-cloud-arrow-up text-success me-2"></i> Add More Album Photos
-                                </label>
-                                <input type="file" name="album_images[]" id="albumImagesInput" class="form-control @error('album_images') is-invalid @enderror" multiple accept="image/*">
-                                <small class="text-muted d-block mt-1">Select new photos to add to this event's album gallery</small>
-                                @error('album_images')
-                                    <div class="invalid-feedback d-block">{{ $message }}</div>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <!-- New Selected Photos Preview -->
-                        <div class="col-12" id="albumPreviewSection" style="display: none;">
-                            <label class="form-label fw-bold small text-muted">Newly Selected Photos to Upload:</label>
-                            <div class="d-flex flex-wrap gap-2 p-3 bg-white rounded border" id="albumPreviewContainer"></div>
                         </div>
 
                         <!-- Status Checkboxes -->
@@ -165,7 +117,7 @@
             <div class="card-header bg-white py-3 d-flex align-items-center justify-content-between">
                 <div>
                     <h6 class="mb-0 fw-bold">Current Album Photos ({{ $event->images->count() }})</h6>
-                    <small class="text-muted">Click the trash icon to remove photos from this album</small>
+                    <small class="text-muted">Click the trash icon on any photo to remove it from the album</small>
                 </div>
                 <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2">
                     <i class="fa fa-images me-1"></i> Album Gallery
@@ -174,12 +126,14 @@
             <div class="card-body p-4">
                 @if($event->images->count() > 0)
                 <div class="row g-3" id="existingAlbumGrid">
-                    @foreach($event->images as $img)
+                    @foreach($event->images as $index => $img)
                     <div class="col-6 col-sm-4 col-md-3 col-lg-2" id="photo-card-{{ $img->id }}">
                         <div class="card h-100 border shadow-sm position-relative overflow-hidden group-photo-card">
                             <img src="{{ asset($img->image) }}" alt="Album Photo" style="height: 110px; object-fit: cover;" class="card-img-top">
                             <div class="p-2 bg-light d-flex align-items-center justify-content-between">
-                                <small class="text-muted" style="font-size: 0.7rem;">#{{ $img->order }}</small>
+                                <span class="badge {{ $index === 0 ? 'bg-primary' : 'bg-secondary' }}" style="font-size: 0.65rem;">
+                                    {{ $index === 0 ? 'Preview' : '#' . ($index + 1) }}
+                                </span>
                                 <button type="button" 
                                         class="btn btn-sm btn-outline-danger p-0 d-inline-flex align-items-center justify-content-center" 
                                         style="width: 24px; height: 24px; border-radius: 50%;" 
@@ -210,20 +164,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const input = document.getElementById('albumImagesInput');
     const previewSection = document.getElementById('albumPreviewSection');
     const previewContainer = document.getElementById('albumPreviewContainer');
+    const previewCount = document.getElementById('previewCount');
 
     if (input) {
         input.addEventListener('change', function() {
             previewContainer.innerHTML = '';
             if (this.files && this.files.length > 0) {
                 previewSection.style.display = 'block';
+                if (previewCount) previewCount.textContent = this.files.length;
                 Array.from(this.files).forEach((file, index) => {
                     if (file.type.startsWith('image/')) {
                         const reader = new FileReader();
                         reader.onload = function(e) {
                             const thumb = document.createElement('div');
                             thumb.className = 'position-relative border rounded shadow-sm overflow-hidden';
-                            thumb.style.width = '90px';
-                            thumb.style.height = '70px';
+                            thumb.style.width = '95px';
+                            thumb.style.height = '75px';
                             thumb.innerHTML = `
                                 <img src="${e.target.result}" style="width: 100%; height: 100%; object-fit: cover;">
                                 <span class="badge bg-success position-absolute bottom-0 start-0 m-1" style="font-size: 0.6rem;">+ New #${index + 1}</span>
@@ -235,6 +191,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             } else {
                 previewSection.style.display = 'none';
+                if (previewCount) previewCount.textContent = '0';
             }
         });
     }

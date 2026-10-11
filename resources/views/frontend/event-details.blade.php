@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 
-@section('title', $event->title . ' - Event Album - ' . ($settings['site_title'] ?? 'Vigilant International School'))
+@section('title', $event->display_title . ' - Event Album - ' . ($settings['site_title'] ?? 'Vigilant International School'))
 
 @section('content')
     @include('frontend.partials.page-header', ['pageTitle' => 'Event Album', 'breadcrumb' => 'Events'])
@@ -14,31 +14,18 @@
                     <div class="mb-4">
                         <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
                             <span class="badge bg-primary px-3 py-2 rounded-pill">
-                                <i class="fa fa-calendar-day me-1"></i> {{ $event->formatted_date }}
-                            </span>
-                            @if($event->location)
-                            <span class="badge bg-light text-dark border px-3 py-2 rounded-pill">
-                                <i class="fa fa-location-dot text-danger me-1"></i> {{ $event->location }}
-                            </span>
-                            @endif
-                            <span class="badge bg-secondary px-3 py-2 rounded-pill">
                                 <i class="fa fa-images me-1"></i> {{ $event->images->count() }} Album Photos
                             </span>
                         </div>
-                        <h1 class="display-6 fw-bold text-brand-dark mb-3">{{ $event->title }}</h1>
+                        <h1 class="display-6 fw-bold text-brand-dark mb-3">{{ $event->display_title }}</h1>
                         @if($event->summary)
                             <p class="lead text-muted fs-6 mb-4">{{ $event->summary }}</p>
                         @endif
                     </div>
 
-                    <!-- Main Cover Image -->
-                    <div class="position-relative rounded-4 overflow-hidden shadow-sm mb-4 border">
-                        <img src="{{ asset($event->cover_image ?? 'kider/img/carousel-1.jpg') }}" alt="{{ $event->title }}" class="img-fluid w-100" style="max-height: 420px; object-fit: cover;">
-                    </div>
-
                     <!-- Event Description -->
                     @if($event->description)
-                    <div class="p-4 bg-white rounded-4 shadow-sm border mb-5">
+                    <div class="p-4 bg-white rounded-4 shadow-sm border mb-4">
                         <h4 class="fw-bold text-dark mb-3"><i class="fa fa-circle-info text-primary me-2"></i> About This Celebration</h4>
                         <div class="text-secondary" style="line-height: 1.8; white-space: pre-line;">
                             {{ $event->description }}
@@ -67,8 +54,8 @@
                                 <div class="album-photo-card position-relative rounded-3 overflow-hidden shadow-sm border cursor-pointer" 
                                      onclick="openLightbox({{ $index }})"
                                      data-src="{{ asset($img->image) }}"
-                                     data-caption="{{ $img->caption ?: $event->title . ' - Photo #' . ($index + 1) }}">
-                                    <img src="{{ asset($img->image) }}" alt="{{ $img->caption ?? $event->title }}" class="img-fluid w-100 album-thumbnail" style="height: 180px; object-fit: cover;">
+                                     data-caption="{{ $img->caption ?: $event->display_title . ' - Photo #' . ($index + 1) }}">
+                                    <img src="{{ asset($img->image) }}" alt="{{ $img->caption ?? $event->display_title }}" class="img-fluid w-100 album-thumbnail" style="height: 190px; object-fit: cover;">
                                     <div class="album-photo-overlay d-flex flex-column align-items-center justify-content-center text-white p-2">
                                         <i class="fa fa-magnifying-glass-plus fs-3 mb-1"></i>
                                         <small class="text-center px-1" style="font-size: 0.72rem;">{{ Str::limit($img->caption, 40) ?: 'View Photo' }}</small>
@@ -83,7 +70,7 @@
                         @else
                         <div class="p-4 bg-light rounded-4 text-center text-muted">
                             <i class="fa fa-images fs-1 text-black-50 mb-2"></i>
-                            <p class="mb-0">Additional album photos are being curated for this event. Check back soon!</p>
+                            <p class="mb-0">Photos for this album will be added soon.</p>
                         </div>
                         @endif
                     </div>
@@ -95,27 +82,24 @@
                     <div class="card border-0 shadow-sm rounded-4 mb-4">
                         <div class="card-header bg-white py-3 border-bottom">
                             <h5 class="fw-bold mb-0 text-dark">
-                                <i class="fa fa-calendar-days text-primary me-2"></i> Other Events & Albums
+                                <i class="fa fa-images text-primary me-2"></i> Other Event Albums
                             </h5>
                         </div>
                         <div class="card-body p-3">
                             @forelse($recentEvents as $re)
                             <div class="d-flex align-items-center gap-3 p-2 rounded hover-bg-light transition-all mb-2">
-                                <img src="{{ asset($re->cover_image ?? 'kider/img/carousel-1.jpg') }}" alt="{{ $re->title }}" class="rounded shadow-sm" style="width: 70px; height: 60px; object-fit: cover;">
+                                <img src="{{ $re->cover_photo }}" alt="{{ $re->display_title }}" class="rounded shadow-sm" style="width: 70px; height: 60px; object-fit: cover;">
                                 <div class="flex-grow-1 overflow-hidden">
-                                    <small class="text-primary fw-semibold d-block" style="font-size: 0.72rem;">
-                                        <i class="fa fa-calendar-day me-1"></i> {{ $re->formatted_date }}
-                                    </small>
-                                    <a href="{{ route('events.show', $re->slug) }}" class="text-dark text-decoration-none fw-bold small text-truncate d-block hover-primary">
-                                        {{ $re->title }}
+                                    <a href="{{ route('events.show', $re->slug) }}" class="text-dark text-decoration-none fw-bold small text-truncate d-block hover-primary mb-1">
+                                        {{ $re->display_title }}
                                     </a>
-                                    <small class="text-muted" style="font-size: 0.7rem;">
-                                        <i class="fa fa-images me-1"></i> {{ $re->images->count() }} Photos
+                                    <small class="text-muted" style="font-size: 0.75rem;">
+                                        <i class="fa fa-images me-1 text-primary"></i> {{ $re->images->count() }} Photos
                                     </small>
                                 </div>
                             </div>
                             @empty
-                            <p class="text-muted small mb-0 p-2">No other events published currently.</p>
+                            <p class="text-muted small mb-0 p-2">No other albums published currently.</p>
                             @endforelse
 
                             <div class="pt-3 border-top mt-2 text-center">
@@ -212,7 +196,7 @@
         @foreach($event->images as $img)
         {
             src: "{{ asset($img->image) }}",
-            caption: "{{ addslashes($img->caption ?: $event->title . ' - Photo #' . ($loop->iteration)) }}"
+            caption: "{{ addslashes($img->caption ?: $event->display_title . ' - Photo #' . ($loop->iteration)) }}"
         },
         @endforeach
     ];

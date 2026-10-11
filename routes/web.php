@@ -114,7 +114,6 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::resource('galleries', GalleryController::class)->only(['index', 'store', 'destroy']);
 
     // School Events & Photo Albums
-    Route::post('/events/reorder', [EventController::class, 'reorder'])->name('events.reorder');
     Route::delete('/events/images/{image}', [EventController::class, 'destroyImage'])->name('events.images.destroy');
     Route::resource('events', EventController::class)->except(['show']);
 

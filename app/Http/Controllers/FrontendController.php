@@ -24,7 +24,7 @@ class FrontendController extends Controller
         $classes = SchoolClass::with('teacher')->where('is_active', true)->orderBy('order', 'asc')->take(6)->get();
         $teachers = Teacher::where('is_active', true)->inRandomOrder()->get();
         $testimonials = Testimonial::where('is_active', true)->orderBy('order', 'asc')->get();
-        $events = Event::with('images')->where('is_active', true)->orderBy('order', 'asc')->orderBy('event_date', 'desc')->take(3)->get();
+        $events = Event::with('images')->where('is_active', true)->latest()->take(3)->get();
 
         return view('frontend.index', compact(
             'sliders',
@@ -72,8 +72,7 @@ class FrontendController extends Controller
     {
         $events = Event::with('images')
             ->where('is_active', true)
-            ->orderBy('order', 'asc')
-            ->orderBy('event_date', 'desc')
+            ->latest()
             ->paginate(9);
 
         return view('frontend.events', compact('events'));
@@ -88,7 +87,7 @@ class FrontendController extends Controller
 
         $recentEvents = Event::where('is_active', true)
             ->where('id', '!=', $event->id)
-            ->orderBy('event_date', 'desc')
+            ->latest()
             ->take(4)
             ->get();
 

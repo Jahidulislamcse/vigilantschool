@@ -386,13 +386,8 @@
                     <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden event-album-card bg-white">
                         <div class="position-relative overflow-hidden">
                             <a href="{{ route('events.show', $event->slug) }}">
-                                <img class="img-fluid w-100 event-cover-img" src="{{ asset($event->cover_image ?? 'kider/img/carousel-1.jpg') }}" alt="{{ $event->title }}" style="height: 220px; object-fit: cover;">
+                                <img class="img-fluid w-100 event-cover-img" src="{{ $event->cover_photo }}" alt="{{ $event->display_title }}" style="height: 220px; object-fit: cover;">
                             </a>
-                            <div class="position-absolute top-0 start-0 m-3">
-                                <span class="badge bg-dark bg-opacity-75 text-white px-3 py-2 rounded-pill small shadow-sm backdrop-blur">
-                                    <i class="fa fa-calendar-day me-1 text-warning"></i> {{ $event->formatted_date }}
-                                </span>
-                            </div>
                             <div class="position-absolute top-0 end-0 m-3">
                                 <span class="badge bg-primary text-white px-3 py-2 rounded-pill small shadow-sm">
                                     <i class="fa fa-images me-1"></i> {{ $event->images->count() }} Photos
@@ -401,21 +396,19 @@
                         </div>
 
                         <div class="card-body p-4 d-flex flex-column">
-                            @if($event->location)
-                            <div class="small text-muted mb-2">
-                                <i class="fa fa-location-dot text-danger me-1"></i> {{ $event->location }}
-                            </div>
-                            @endif
-
                             <h5 class="card-title fw-bold mb-2">
                                 <a href="{{ route('events.show', $event->slug) }}" class="text-dark text-decoration-none hover-primary">
-                                    {{ $event->title }}
+                                    {{ $event->display_title }}
                                 </a>
                             </h5>
 
+                            @if($event->summary || $event->description)
                             <p class="card-text text-muted small flex-grow-1 mb-3" style="line-height: 1.5;">
                                 {{ Str::limit($event->summary ?: $event->description, 95) }}
                             </p>
+                            @else
+                            <div class="flex-grow-1 mb-3"></div>
+                            @endif
 
                             <div class="mt-auto pt-2 border-top d-flex align-items-center justify-content-between">
                                 <span class="small fw-semibold text-primary">

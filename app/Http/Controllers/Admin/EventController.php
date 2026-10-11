@@ -13,7 +13,7 @@ class EventController extends Controller
 {
     public function index()
     {
-        $events = Event::with('images')->orderBy('order', 'asc')->orderBy('event_date', 'desc')->get();
+        $events = Event::with('images')->latest()->get();
         return view('admin.events.index', compact('events'));
     }
 
@@ -25,27 +25,21 @@ class EventController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'title' => 'required|string|max:255',
+            'title' => 'nullable|string|max:255',
             'slug' => 'nullable|string|max:255|unique:events,slug',
-            'event_date' => 'nullable|date',
-            'location' => 'nullable|string|max:255',
             'summary' => 'nullable|string|max:500',
             'description' => 'nullable|string',
-            'cover_image' => 'required|image|mimes:jpeg,png,jpg,webp|max:3072',
             'is_featured' => 'nullable|boolean',
             'is_active' => 'nullable|boolean',
-            'order' => 'nullable|integer',
             'album_images' => 'nullable|array',
-            'album_images.*' => 'image|mimes:jpeg,png,jpg,webp|max:3072',
+            'album_images.*' => 'image|mimes:jpeg,png,jpg,webp|max:5120',
         ]);
 
-        if ($request->hasFile('cover_image')) {
-            $path = $request->file('cover_image')->store('uploads/events', 'public');
-            $validated['cover_image'] = 'storage/' . $path;
-        }
-
         if (empty($validated['slug'])) {
-            $baseSlug = Str::slug($validated['title']);
+            $baseSlug = !empty($validated['title']) ? Str::slug($validated['title']) : 'album-' . time();
+            if (empty($baseSlug)) {
+                $baseSlug = 'album-' . time();
+            }
             $slug = $baseSlug;
             $counter = 1;
             while (Event::where('slug', $slug)->exists()) {
@@ -56,7 +50,6 @@ class EventController extends Controller
 
         $validated['is_featured'] = $request->has('is_featured');
         $validated['is_active'] = $request->has('is_active');
-        $validated['order'] = $validated['order'] ?? 0;
 
         $event = Event::create($validated);
 
@@ -86,37 +79,22 @@ class EventController extends Controller
     public function update(Request $request, Event $event)
     {
         $validated = $request->validate([
-            'title' => 'required|string|max:255',
+            'title' => 'nullable|string|max:255',
             'slug' => 'nullable|string|max:255|unique:events,slug,' . $event->id,
-            'event_date' => 'nullable|date',
-            'location' => 'nullable|string|max:255',
             'summary' => 'nullable|string|max:500',
             'description' => 'nullable|string',
-            'cover_image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:3072',
             'is_featured' => 'nullable|boolean',
             'is_active' => 'nullable|boolean',
-            'order' => 'nullable|integer',
             'album_images' => 'nullable|array',
-            'album_images.*' => 'image|mimes:jpeg,png,jpg,webp|max:3072',
+            'album_images.*' => 'image|mimes:jpeg,png,jpg,webp|max:5120',
         ]);
 
-        if ($request->hasFile('cover_image')) {
-            // Delete old cover if stored in storage/uploads/events
-            if ($event->cover_image && str_starts_with($event->cover_image, 'storage/')) {
-                $oldPath = str_replace('storage/', '', $event->cover_image);
-                Storage::disk('public')->delete($oldPath);
-            }
-            $path = $request->file('cover_image')->store('uploads/events', 'public');
-            $validated['cover_image'] = 'storage/' . $path;
-        }
-
         if (empty($validated['slug'])) {
-            $validated['slug'] = Str::slug($validated['title']);
+            $validated['slug'] = !empty($validated['title']) ? Str::slug($validated['title']) : 'album-' . $event->id;
         }
 
         $validated['is_featured'] = $request->has('is_featured');
         $validated['is_active'] = $request->has('is_active');
-        $validated['order'] = $validated['order'] ?? 0;
 
         $event->update($validated);
 
@@ -139,7 +117,7 @@ class EventController extends Controller
 
     public function destroy(Event $event)
     {
-        // Delete cover image
+        // Delete legacy cover image if any
         if ($event->cover_image && str_starts_with($event->cover_image, 'storage/')) {
             $oldPath = str_replace('storage/', '', $event->cover_image);
             Storage::disk('public')->delete($oldPath);
@@ -176,23 +154,5 @@ class EventController extends Controller
         }
 
         return back()->with('success', 'Photo removed from album successfully!');
-    }
-
-    public function reorder(Request $request)
-    {
-        $validated = $request->validate([
-            'orders' => 'required|array',
-            'orders.*.id' => 'required|integer|exists:events,id',
-            'orders.*.order' => 'required|integer|min:0',
-        ]);
-
-        foreach ($validated['orders'] as $item) {
-            Event::where('id', $item['id'])->update(['order' => $item['order']]);
-        }
-
-        return response()->json([
-            'success' => true,
-            'message' => 'Events sequence updated successfully!',
-        ]);
     }
 }
