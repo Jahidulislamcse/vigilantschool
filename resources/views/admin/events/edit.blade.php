@@ -77,14 +77,6 @@
                             @enderror
                         </div>
 
-                        <!-- Detailed Description -->
-                        <div class="col-12">
-                            <label class="form-label fw-bold">Detailed Description & Story <small class="text-muted fw-normal">(Optional)</small></label>
-                            <textarea name="description" class="form-control @error('description') is-invalid @enderror" rows="4">{{ old('description', $event->description) }}</textarea>
-                            @error('description')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
 
                         <!-- Status Checkboxes -->
                         <div class="col-12">
