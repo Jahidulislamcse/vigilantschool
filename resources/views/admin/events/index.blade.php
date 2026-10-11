@@ -43,7 +43,7 @@
                                 </td>
                                 <td>
                                     <div class="position-relative d-inline-block rounded overflow-hidden shadow-sm border" style="width: 70px; height: 52px;">
-                                        <img src="{{ $event->cover_photo }}" alt="{{ $event->display_title }}" style="width: 100%; height: 100%; object-fit: cover;">
+                                        <img src="{{ $event->cover_photo }}" alt="{{ $event->title ?: 'Album Preview' }}" style="width: 100%; height: 100%; object-fit: cover;">
                                         @if($event->images->count() > 0)
                                         <span class="badge bg-dark bg-opacity-75 text-white position-absolute bottom-0 end-0 m-1" style="font-size: 0.6rem;">
                                             {{ $event->images->count() }}
@@ -53,8 +53,10 @@
                                 </td>
                                 <td>
                                     <div class="fw-bold text-dark">
-                                        {{ $event->display_title }}
-                                        @if(!$event->title)
+                                        @if(!empty($event->title))
+                                            {{ $event->title }}
+                                        @else
+                                            <span class="text-muted fst-italic">Untitled Album</span>
                                             <span class="badge bg-light text-muted border ms-1" style="font-size: 0.68rem;">No Title</span>
                                         @endif
                                         @if($event->is_featured)

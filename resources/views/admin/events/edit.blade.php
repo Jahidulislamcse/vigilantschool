@@ -9,7 +9,7 @@
         <div class="card shadow-sm border-0 mb-4 w-100">
             <div class="card-header bg-white py-3 d-flex align-items-center justify-content-between">
                 <div>
-                    <h6 class="mb-0 fw-bold">Edit Event: {{ $event->display_title }}</h6>
+                    <h6 class="mb-0 fw-bold">Edit Event{{ $event->title ? ': ' . $event->title : ' (Untitled Album #' . $event->id . ')' }}</h6>
                     <small class="text-muted">Update event information and add photos to this album</small>
                 </div>
                 <div class="d-flex gap-2">

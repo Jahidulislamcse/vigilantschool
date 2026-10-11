@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 
-@section('title', $event->display_title . ' - Event Album - ' . ($settings['site_title'] ?? 'Vigilant International School'))
+@section('title', ($event->title ? $event->title . ' - ' : '') . 'Event Album - ' . ($settings['site_title'] ?? 'Vigilant International School'))
 
 @section('content')
     @include('frontend.partials.page-header', ['pageTitle' => 'Event Album', 'breadcrumb' => 'Events'])
@@ -17,7 +17,9 @@
                                 <i class="fa fa-images me-1"></i> {{ $event->images->count() }} Album Photos
                             </span>
                         </div>
-                        <h1 class="display-6 fw-bold text-brand-dark mb-3">{{ $event->display_title }}</h1>
+                        @if(!empty($event->title))
+                        <h1 class="display-6 fw-bold text-brand-dark mb-3">{{ $event->title }}</h1>
+                        @endif
                         @if($event->summary)
                             <p class="lead text-muted fs-6 mb-4">{{ $event->summary }}</p>
                         @endif
@@ -54,8 +56,8 @@
                                 <div class="album-photo-card position-relative rounded-3 overflow-hidden shadow-sm border cursor-pointer" 
                                      onclick="openLightbox({{ $index }})"
                                      data-src="{{ asset($img->image) }}"
-                                     data-caption="{{ $img->caption ?: $event->display_title . ' - Photo #' . ($index + 1) }}">
-                                    <img src="{{ asset($img->image) }}" alt="{{ $img->caption ?? $event->display_title }}" class="img-fluid w-100 album-thumbnail" style="height: 190px; object-fit: cover;">
+                                     data-caption="{{ $img->caption ?: ($event->title ? $event->title . ' - Photo #' . ($index + 1) : 'Photo #' . ($index + 1)) }}">
+                                    <img src="{{ asset($img->image) }}" alt="{{ $img->caption ?? ($event->title ?: 'Album Photo') }}" class="img-fluid w-100 album-thumbnail" style="height: 190px; object-fit: cover;">
                                     <div class="album-photo-overlay d-flex flex-column align-items-center justify-content-center text-white p-2">
                                         <i class="fa fa-magnifying-glass-plus fs-3 mb-1"></i>
                                         <small class="text-center px-1" style="font-size: 0.72rem;">{{ Str::limit($img->caption, 40) ?: 'View Photo' }}</small>
@@ -88,10 +90,10 @@
                         <div class="card-body p-3">
                             @forelse($recentEvents as $re)
                             <div class="d-flex align-items-center gap-3 p-2 rounded hover-bg-light transition-all mb-2">
-                                <img src="{{ $re->cover_photo }}" alt="{{ $re->display_title }}" class="rounded shadow-sm" style="width: 70px; height: 60px; object-fit: cover;">
+                                <img src="{{ $re->cover_photo }}" alt="{{ $re->title ?: 'Album Photo' }}" class="rounded shadow-sm" style="width: 70px; height: 60px; object-fit: cover;">
                                 <div class="flex-grow-1 overflow-hidden">
                                     <a href="{{ route('events.show', $re->slug) }}" class="text-dark text-decoration-none fw-bold small text-truncate d-block hover-primary mb-1">
-                                        {{ $re->display_title }}
+                                        {{ $re->title ?: 'Photo Album' }}
                                     </a>
                                     <small class="text-muted" style="font-size: 0.75rem;">
                                         <i class="fa fa-images me-1 text-primary"></i> {{ $re->images->count() }} Photos
@@ -196,7 +198,7 @@
         @foreach($event->images as $img)
         {
             src: "{{ asset($img->image) }}",
-            caption: "{{ addslashes($img->caption ?: $event->display_title . ' - Photo #' . ($loop->iteration)) }}"
+            caption: "{{ addslashes($img->caption ?: ($event->title ? $event->title . ' - Photo #' . ($loop->iteration) : 'Photo #' . ($loop->iteration))) }}"
         },
         @endforeach
     ];

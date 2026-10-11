@@ -59,10 +59,7 @@ class Event extends Model
 
     public function getDisplayTitleAttribute(): string
     {
-        if (!empty($this->title)) {
-            return $this->title;
-        }
-        return 'School Event Album #' . $this->id;
+        return $this->title ?? '';
     }
 
     protected static function boot()

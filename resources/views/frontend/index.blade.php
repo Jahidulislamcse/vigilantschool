@@ -386,7 +386,7 @@
                     <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden event-album-card bg-white">
                         <div class="position-relative overflow-hidden">
                             <a href="{{ route('events.show', $event->slug) }}">
-                                <img class="img-fluid w-100 event-cover-img" src="{{ $event->cover_photo }}" alt="{{ $event->display_title }}" style="height: 220px; object-fit: cover;">
+                                <img class="img-fluid w-100 event-cover-img" src="{{ $event->cover_photo }}" alt="{{ $event->title ?: ($settings['site_title'] ?? 'School Event') }}" style="height: 220px; object-fit: cover;">
                             </a>
                             <div class="position-absolute top-0 end-0 m-3">
                                 <span class="badge bg-primary text-white px-3 py-2 rounded-pill small shadow-sm">
@@ -395,22 +395,22 @@
                             </div>
                         </div>
 
-                        <div class="card-body p-4 d-flex flex-column">
+                        <div class="card-body p-3 p-md-4 d-flex flex-column">
+                            @if(!empty($event->title))
                             <h5 class="card-title fw-bold mb-2">
                                 <a href="{{ route('events.show', $event->slug) }}" class="text-dark text-decoration-none hover-primary">
-                                    {{ $event->display_title }}
+                                    {{ $event->title }}
                                 </a>
                             </h5>
+                            @endif
 
-                            @if($event->summary || $event->description)
+                            @if(!empty($event->summary) || !empty($event->description))
                             <p class="card-text text-muted small flex-grow-1 mb-3" style="line-height: 1.5;">
                                 {{ Str::limit($event->summary ?: $event->description, 95) }}
                             </p>
-                            @else
-                            <div class="flex-grow-1 mb-3"></div>
                             @endif
 
-                            <div class="mt-auto pt-2 border-top d-flex align-items-center justify-content-between">
+                            <div class="mt-auto @if(!empty($event->title) || !empty($event->summary) || !empty($event->description)) pt-2 border-top @endif d-flex align-items-center justify-content-between">
                                 <span class="small fw-semibold text-primary">
                                     <i class="fa fa-photo-film me-1"></i> View Album
                                 </span>
