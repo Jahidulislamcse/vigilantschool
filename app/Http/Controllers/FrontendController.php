@@ -60,7 +60,7 @@ class FrontendController extends Controller
 
     public function teachers()
     {
-        $teachers = Teacher::where('is_active', true)->inRandomOrder()->get();
+        $teachers = Teacher::where('is_active', true)->orderBy('order', 'asc')->orderBy('id', 'asc')->get();
 
         return view('frontend.team', compact('teachers'));
     }

@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>@yield('title', 'Admin Panel') - {{ $settings['site_title'] ?? 'Vigilant International School' }}</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     
     <!-- Favicon -->
     <link href="{{ asset($settings['site_favicon'] ?? 'kider/img/favicon.ico') }}" rel="icon">

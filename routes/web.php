@@ -88,6 +88,8 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::post('/about', [AboutController::class, 'update'])->name('about.update');
 
     // Teachers & Faculty
+    Route::post('/teachers/reorder', [TeacherController::class, 'reorder'])->name('teachers.reorder');
+    Route::post('/teachers/{teacher}/update-order', [TeacherController::class, 'updateOrder'])->name('teachers.update-order');
     Route::resource('teachers', TeacherController::class)->except(['show']);
 
     // Classes & Programs

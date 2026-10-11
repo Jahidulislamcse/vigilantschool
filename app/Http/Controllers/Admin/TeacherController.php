@@ -10,7 +10,7 @@ class TeacherController extends Controller
 {
     public function index()
     {
-        $teachers = Teacher::orderBy('order', 'asc')->get();
+        $teachers = Teacher::orderBy('order', 'asc')->orderBy('id', 'asc')->get();
         return view('admin.teachers.index', compact('teachers'));
     }
 
@@ -86,5 +86,42 @@ class TeacherController extends Controller
 
         return redirect()->route('admin.teachers.index')
             ->with('success', 'Teacher profile deleted successfully!');
+    }
+
+    public function reorder(Request $request)
+    {
+        $validated = $request->validate([
+            'orders' => 'required|array',
+            'orders.*.id' => 'required|integer|exists:teachers,id',
+            'orders.*.order' => 'required|integer|min:0',
+        ]);
+
+        foreach ($validated['orders'] as $item) {
+            Teacher::where('id', $item['id'])->update(['order' => $item['order']]);
+        }
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Teachers index sequence updated successfully!',
+        ]);
+    }
+
+    public function updateOrder(Request $request, Teacher $teacher)
+    {
+        $validated = $request->validate([
+            'order' => 'required|integer|min:0',
+        ]);
+
+        $teacher->update(['order' => $validated['order']]);
+
+        if ($request->wantsJson() || $request->ajax()) {
+            return response()->json([
+                'success' => true,
+                'message' => "Index for {$teacher->name} updated to #{$teacher->order} successfully!",
+            ]);
+        }
+
+        return redirect()->route('admin.teachers.index')
+            ->with('success', "Index for {$teacher->name} updated successfully!");
     }
 }
