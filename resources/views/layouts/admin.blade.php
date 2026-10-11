@@ -133,9 +133,17 @@
             color: #718898 !important;
         }
 
-        /* Page Content */
+        /* Page Content & Full Width Layout */
+        #wrapper {
+            width: 100%;
+            min-height: 100vh;
+        }
+
         #page-content-wrapper {
             margin-left: 260px;
+            width: calc(100% - 260px);
+            min-width: 0;
+            flex: 1 1 auto;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -150,11 +158,13 @@
             position: sticky;
             top: 0;
             z-index: 900;
+            width: 100%;
         }
 
         .content-body {
             padding: 1.75rem 1.5rem;
             flex-grow: 1;
+            width: 100%;
         }
 
         .card {
@@ -248,6 +258,7 @@
             }
             #page-content-wrapper {
                 margin-left: 0;
+                width: 100%;
             }
         }
     </style>
