@@ -97,9 +97,9 @@
     // Team / Teachers Carousel
     $(".team-carousel").owlCarousel({
         autoplay: true,
-        autoplayTimeout: 3500,
+        autoplayTimeout: 2000,
         autoplayHoverPause: true,
-        smartSpeed: 800,
+        smartSpeed: 500,
         margin: 24,
         dots: true,
         loop: true,

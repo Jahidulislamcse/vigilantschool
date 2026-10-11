@@ -21,7 +21,7 @@ class FrontendController extends Controller
         $facilities = Facility::where('is_active', true)->orderBy('order', 'asc')->get();
         $about = AboutSection::first();
         $classes = SchoolClass::with('teacher')->where('is_active', true)->orderBy('order', 'asc')->take(6)->get();
-        $teachers = Teacher::where('is_active', true)->orderBy('order', 'asc')->take(3)->get();
+        $teachers = Teacher::where('is_active', true)->inRandomOrder()->get();
         $testimonials = Testimonial::where('is_active', true)->orderBy('order', 'asc')->get();
 
         return view('frontend.index', compact(
@@ -37,7 +37,7 @@ class FrontendController extends Controller
     public function about()
     {
         $about = AboutSection::first();
-        $teachers = Teacher::where('is_active', true)->orderBy('order', 'asc')->take(3)->get();
+        $teachers = Teacher::where('is_active', true)->inRandomOrder()->get();
 
         return view('frontend.about', compact('about', 'teachers'));
     }
@@ -60,7 +60,7 @@ class FrontendController extends Controller
 
     public function teachers()
     {
-        $teachers = Teacher::where('is_active', true)->orderBy('order', 'asc')->get();
+        $teachers = Teacher::where('is_active', true)->inRandomOrder()->get();
 
         return view('frontend.team', compact('teachers'));
     }
