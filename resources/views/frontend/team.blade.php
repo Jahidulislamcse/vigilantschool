@@ -22,6 +22,9 @@
                         <div class="team-text">
                             <h3>{{ $teacher->name }}</h3>
                             <p class="team-designation">{{ $teacher->designation }}</p>
+                            @if(!empty($teacher->bio))
+                                <p class="team-bio">{{ $teacher->bio }}</p>
+                            @endif
                             <div class="d-flex align-items-center justify-content-center">
                                 @if($teacher->facebook_url)
                                     <a class="btn btn-square btn-primary mx-1" href="{{ $teacher->facebook_url }}" target="_blank"><i class="fab fa-facebook-f"></i></a>

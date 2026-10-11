@@ -328,6 +328,9 @@
                     <div class="team-text">
                         <h3>{{ $teacher->name }}</h3>
                         <p class="team-designation">{{ $teacher->designation }}</p>
+                        @if(!empty($teacher->bio))
+                            <p class="team-bio">{{ $teacher->bio }}</p>
+                        @endif
                         @if($teacher->facebook_url || $teacher->twitter_url || $teacher->instagram_url)
                         <div class="d-flex align-items-center justify-content-center">
                             @if($teacher->facebook_url)
