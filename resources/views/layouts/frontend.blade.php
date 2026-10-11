@@ -128,7 +128,7 @@
     <script src="{{ asset('kider/lib/owlcarousel/owl.carousel.min.js') }}"></script>
 
     <!-- Template Javascript -->
-    <script src="{{ asset('kider/js/main.js') }}"></script>
+    <script src="{{ asset('kider/js/main.js') }}?v={{ time() }}"></script>
 
     @stack('scripts')
 </body>

@@ -1296,6 +1296,107 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* ==========================================================================
+   7.2.1 Team / Teachers Auto-Sliding Carousel
+   ========================================================================== */
+.team-carousel {
+    position: relative;
+    padding: 0 0.5rem;
+}
+
+.team-carousel .owl-stage-outer {
+    padding-top: 12px;
+    padding-bottom: 20px;
+    margin-top: -12px;
+    margin-bottom: -20px;
+}
+
+.team-carousel .team-item {
+    margin: 4px;
+    min-height: 270px;
+    background: #ffffff !important;
+    border: 1px solid rgba(12, 69, 152, 0.08) !important;
+    border-radius: 18px !important;
+    box-shadow: 0 4px 16px rgba(10, 34, 64, 0.05) !important;
+}
+
+.team-carousel .owl-nav {
+    position: absolute;
+    width: 100%;
+    height: 44px;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+    z-index: 5;
+    transition: all 0.3s ease;
+}
+
+.team-carousel .owl-nav .owl-prev,
+.team-carousel .owl-nav .owl-next {
+    pointer-events: auto;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    background: #0c4598;
+    border-radius: 50%;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px rgba(12, 69, 152, 0.28);
+    opacity: 0.85;
+}
+
+.team-carousel .owl-nav .owl-prev:hover,
+.team-carousel .owl-nav .owl-next:hover {
+    background: #e31b23;
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.team-carousel .owl-nav .owl-prev {
+    margin-left: -22px;
+}
+
+.team-carousel .owl-nav .owl-next {
+    margin-right: -22px;
+}
+
+.team-carousel .owl-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 1.75rem;
+}
+
+.team-carousel .owl-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #cbd5e1 !important;
+    transition: all 0.3s ease;
+    display: inline-block;
+    border: none;
+    padding: 0;
+}
+
+.team-carousel .owl-dot.active {
+    width: 28px;
+    border-radius: 10px;
+    background: #0c4598 !important;
+}
+
+@media (max-width: 991.98px) {
+    .team-carousel .owl-nav {
+        display: none !important;
+    }
+}
+
+/* ==========================================================================
    7.3 Testimonials & Parent Reviews (Desktop & Mobile-Optimized)
    ========================================================================== */
 .testimonial-carousel {

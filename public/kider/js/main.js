@@ -92,6 +92,37 @@
             }
         }
     });
-    
+
+
+    // Team / Teachers Carousel
+    $(".team-carousel").owlCarousel({
+        autoplay: true,
+        autoplayTimeout: 3500,
+        autoplayHoverPause: true,
+        smartSpeed: 800,
+        margin: 24,
+        dots: true,
+        loop: true,
+        nav: true,
+        navText: [
+            '<i class="bi bi-arrow-left"></i>',
+            '<i class="bi bi-arrow-right"></i>'
+        ],
+        responsive: {
+            0: {
+                items: 1,
+                margin: 15
+            },
+            576: {
+                items: 2,
+                margin: 20
+            },
+            992: {
+                items: 3,
+                margin: 24
+            }
+        }
+    });
+
 })(jQuery);
 
