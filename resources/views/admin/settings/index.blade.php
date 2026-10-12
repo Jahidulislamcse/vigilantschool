@@ -56,7 +56,7 @@
                                 <div class="col-md-6">
                                     <label class="form-label fw-bold small text-secondary">Official School Name *</label>
                                     <input type="text" name="site_title" class="form-control" value="{{ old('site_title', $settings['site_title'] ?? 'Vigilant International School') }}" required>
-                                    <small class="text-muted">Displayed in header branding, page titles, and browser tabs.</small>
+                                    <small class="text-muted">Displayed in navbar logo branding, page titles, and browser tabs. (Tip: Use a pipe "|" if you wish to set a custom line break, e.g. "Vigilant | International School").</small>
                                 </div>
 
                                 <div class="col-md-6">

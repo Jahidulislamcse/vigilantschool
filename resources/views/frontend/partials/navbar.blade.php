@@ -6,9 +6,23 @@
         @else
             <i class="fa fa-graduation-cap text-primary fs-1 me-2 me-sm-3"></i>
         @endif
+        @php
+            $schoolFullName = trim($settings['site_title'] ?? 'Vigilant International School');
+            if (str_contains($schoolFullName, '|')) {
+                $nameParts = array_map('trim', explode('|', $schoolFullName, 2));
+                $mainBrandName = $nameParts[0];
+                $subBrandName = $nameParts[1] ?? '';
+            } else {
+                $nameParts = preg_split('/\s+/', $schoolFullName, 2);
+                $mainBrandName = $nameParts[0] ?? $schoolFullName;
+                $subBrandName = $nameParts[1] ?? '';
+            }
+        @endphp
         <div class="brand-title-wrap text-start">
-            <span class="brand-title-main">Vigilant</span>
-            <span class="brand-title-sub">International School</span>
+            <span class="brand-title-main">{{ $mainBrandName }}</span>
+            @if(!empty($subBrandName))
+                <span class="brand-title-sub">{{ $subBrandName }}</span>
+            @endif
         </div>
     </a>
     <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-label="Toggle navigation">
