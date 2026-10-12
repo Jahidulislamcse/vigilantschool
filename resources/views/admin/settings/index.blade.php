@@ -71,7 +71,7 @@
                                 <div class="col-md-6">
                                     <label class="form-label fw-bold small text-secondary">Official School Name (2nd Name / Subtitle)</label>
                                     <input type="text" name="brand_name_second" class="form-control" value="{{ old('brand_name_second', $defaultSecond ?? 'International School') }}" placeholder="e.g. International School">
-                                    <small class="text-muted">Bottom descriptor in navbar (displayed in bold red uppercase).</small>
+                                    <small class="text-muted">Bottom descriptor in navbar (bold red). Tip: For long names, you can optionally use a pipe "|" to set a custom line break (e.g. "International School | South Banasree").</small>
                                 </div>
 
                                 <div class="col-md-6">

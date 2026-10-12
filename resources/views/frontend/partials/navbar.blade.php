@@ -2,9 +2,9 @@
 <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-3 px-lg-5 py-2 py-lg-0 shadow-sm">
     <a href="{{ route('home') }}" class="navbar-brand d-flex align-items-center py-1 py-lg-2">
         @if(!empty($settings['site_logo']))
-            <img src="{{ asset($settings['site_logo']) }}" alt="{{ $settings['site_title'] ?? 'Vigilant International School' }}" class="navbar-logo-img me-2 me-sm-3">
+            <img src="{{ asset($settings['site_logo']) }}" alt="{{ $settings['site_title'] ?? 'Vigilant International School' }}" class="navbar-logo-img me-2 me-sm-3 flex-shrink-0">
         @else
-            <i class="fa fa-graduation-cap text-primary fs-1 me-2 me-sm-3"></i>
+            <i class="fa fa-graduation-cap text-primary fs-1 me-2 me-sm-3 flex-shrink-0"></i>
         @endif
         @php
             $mainBrandName = $settings['brand_name_first'] ?? null;
@@ -24,13 +24,13 @@
             }
         @endphp
         <div class="brand-title-wrap text-start">
-            <span class="brand-title-main">{{ $mainBrandName }}</span>
+            <span class="brand-title-main">{!! nl2br(e(str_replace('|', "\n", $mainBrandName))) !!}</span>
             @if(!empty($subBrandName))
-                <span class="brand-title-sub">{{ $subBrandName }}</span>
+                <span class="brand-title-sub">{!! nl2br(e(str_replace('|', "\n", $subBrandName))) !!}</span>
             @endif
         </div>
     </a>
-    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-label="Toggle navigation">
+    <button type="button" class="navbar-toggler ms-auto flex-shrink-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">

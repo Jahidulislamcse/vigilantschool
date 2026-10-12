@@ -35,9 +35,10 @@ class SettingController extends Controller
 
         // Synchronize full school name when brand_name_first is provided
         if ($request->filled('brand_name_first')) {
-            $firstName = trim($request->input('brand_name_first'));
-            $secondName = trim($request->input('brand_name_second', ''));
+            $firstName = trim(str_replace('|', ' ', $request->input('brand_name_first')));
+            $secondName = trim(str_replace('|', ' ', $request->input('brand_name_second', '')));
             $fullTitle = $secondName ? ($firstName . ' ' . $secondName) : $firstName;
+            $fullTitle = trim(preg_replace('/\s+/', ' ', $fullTitle));
             Setting::set('site_title', $fullTitle, 'general');
             Setting::set('school_name', $fullTitle, 'general');
         }

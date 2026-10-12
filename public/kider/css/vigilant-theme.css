@@ -232,16 +232,18 @@ h1, h2, h3, h4, h5, h6,
     text-decoration: none;
     padding-top: 0.25rem;
     padding-bottom: 0.25rem;
+    min-width: 0;
 }
 
 .navbar-brand img,
 .navbar-logo-img {
-    height: 70px !important;
+    height: 66px !important;
     width: auto;
-    max-width: 120px;
+    max-width: 110px;
     object-fit: contain;
     filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.1));
     transition: transform 0.2s ease;
+    flex-shrink: 0;
 }
 
 .navbar-brand:hover .navbar-logo-img {
@@ -253,26 +255,33 @@ h1, h2, h3, h4, h5, h6,
     flex-direction: column;
     line-height: 1.1;
     justify-content: center;
+    min-width: 0;
+    flex: 1 1 auto;
 }
 
 .brand-title-main {
     font-family: 'Lobster Two', cursive;
-    font-size: 2.15rem;
+    font-size: 2.1rem;
     font-weight: 700;
     color: #0c4598;
     letter-spacing: 0.5px;
     line-height: 1.05;
+    white-space: normal;
 }
 
 .brand-title-sub {
     font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-    font-size: 0.92rem;
+    font-size: 0.88rem;
     font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 2.2px;
+    letter-spacing: 1.2px;
     color: #e31b23;
-    line-height: 1.2;
+    line-height: 1.18;
     display: block;
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: break-word;
+    max-width: 100%;
 }
 
 .navbar .navbar-nav .nav-link {
@@ -319,35 +328,81 @@ h1, h2, h3, h4, h5, h6,
     transform: scale(1.15);
 }
 
+/* Desktop Intermediate Adjustments (992px - 1199.98px) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .navbar-brand {
+        max-width: 330px;
+    }
+
+    .brand-title-main {
+        font-size: 1.85rem;
+    }
+
+    .brand-title-sub {
+        font-size: 0.78rem;
+        letter-spacing: 0.8px;
+    }
+
+    .navbar .navbar-nav .nav-link {
+        padding: 0.5rem 0.55rem !important;
+        font-size: 0.92rem;
+    }
+}
+
 /* Mobile Navbar Adjustments (< 992px) */
 @media (max-width: 991.98px) {
     .navbar {
         padding-top: 0.5rem !important;
         padding-bottom: 0.5rem !important;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    /* Keep navbar brand and toggler on the same row: toggler never drops to line 2 */
+    .navbar-brand {
+        flex: 1 1 auto;
+        max-width: calc(100% - 56px);
+        min-width: 0;
+        margin-right: 0.35rem;
+        overflow: hidden;
     }
 
     .navbar-brand img,
     .navbar-logo-img {
-        height: 68px !important;
-        max-width: 95px;
+        height: 56px !important;
+        max-width: 76px;
+        flex-shrink: 0;
+    }
+
+    .brand-title-wrap {
+        flex: 1 1 auto;
+        min-width: 0;
     }
 
     .brand-title-main {
-        font-size: 1.7rem;
+        font-size: 1.55rem;
         line-height: 1.05;
+        white-space: normal;
     }
 
     .brand-title-sub {
-        font-size: 0.84rem;
+        font-size: 0.74rem;
         font-weight: 800;
-        letter-spacing: 1.3px;
+        letter-spacing: 0.8px;
         color: #e31b23;
-        line-height: 1.2;
+        line-height: 1.15;
         display: block;
+        white-space: normal;
+        word-break: normal;
+        overflow-wrap: break-word;
     }
 
     .navbar-toggler {
-        padding: 0.45rem 0.65rem;
+        flex-shrink: 0;
+        margin-left: auto;
+        padding: 0.42rem 0.6rem;
         font-size: 1.15rem;
         border: 1px solid rgba(12, 69, 152, 0.2);
         border-radius: 8px;
@@ -358,6 +413,8 @@ h1, h2, h3, h4, h5, h6,
     }
 
     .navbar-collapse {
+        flex-basis: 100%;
+        width: 100%;
         background: #ffffff;
         border-radius: 12px;
         padding: 1rem 1.25rem;
@@ -389,36 +446,48 @@ h1, h2, h3, h4, h5, h6,
 }
 
 @media (max-width: 480px) {
+    .navbar-brand {
+        max-width: calc(100% - 50px);
+        margin-right: 0.25rem;
+    }
+
     .navbar-brand img,
     .navbar-logo-img {
-        height: 62px !important;
-        max-width: 86px;
+        height: 50px !important;
+        max-width: 66px;
     }
 
     .brand-title-main {
-        font-size: 1.55rem;
+        font-size: 1.35rem;
     }
 
     .brand-title-sub {
-        font-size: 0.78rem;
-        letter-spacing: 1px;
+        font-size: 0.66rem;
+        letter-spacing: 0.5px;
+        line-height: 1.12;
     }
 }
 
 @media (max-width: 375px) {
+    .navbar-brand {
+        max-width: calc(100% - 46px);
+        margin-right: 0.2rem;
+    }
+
     .navbar-brand img,
     .navbar-logo-img {
-        height: 56px !important;
-        max-width: 76px;
+        height: 44px !important;
+        max-width: 58px;
     }
 
     .brand-title-main {
-        font-size: 1.38rem;
+        font-size: 1.2rem;
     }
 
     .brand-title-sub {
-        font-size: 0.7rem;
-        letter-spacing: 0.5px;
+        font-size: 0.58rem;
+        letter-spacing: 0.3px;
+        line-height: 1.1;
     }
 }
 
