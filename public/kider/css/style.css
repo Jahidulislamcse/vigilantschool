@@ -198,24 +198,24 @@ h6,
 @media (max-width: 768px) {
     .header-carousel .owl-carousel-item {
         position: relative;
-        min-height: 500px;
+        min-height: auto;
     }
     
     .header-carousel .owl-carousel-item img {
-        position: absolute;
+        position: relative;
         width: 100%;
-        height: 100%;
-        object-fit: cover;
+        height: auto;
+        object-fit: contain;
     }
 
     .header-carousel .owl-carousel-item p {
-        font-size: 16px !important;
+        font-size: 14px !important;
         font-weight: 400 !important;
     }
 
     .header-carousel .owl-carousel-item h1 {
-        font-size: 30px;
-        font-weight: 600;
+        font-size: 20px;
+        font-weight: 700;
     }
 }
 
