@@ -589,11 +589,8 @@ h1, h2, h3, h4, h5, h6,
    6. Attractive & Space-Efficient Facility Cards (Desktop & Mobile-Optimized)
    ========================================================================== */
 .facility-item {
-    background: #ffffff !important;
     border-radius: 18px !important;
     padding: 1.75rem 1.25rem 1.5rem !important;
-    box-shadow: 0 6px 20px rgba(10, 34, 64, 0.05) !important;
-    border: 1px solid rgba(12, 69, 152, 0.08) !important;
     text-align: center !important;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
     height: 100% !important;
@@ -607,9 +604,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .facility-item:hover {
-    transform: translateY(-6px) !important;
-    box-shadow: 0 16px 32px rgba(10, 34, 64, 0.1) !important;
-    border-color: rgba(12, 69, 152, 0.2) !important;
+    transform: translateY(-5px) !important;
 }
 
 /* Top Accent Highlight Bar (Soft Muted Accent) */
@@ -620,7 +615,6 @@ h1, h2, h3, h4, h5, h6,
     left: 0 !important;
     width: 100% !important;
     height: 3px !important;
-    background: #bfdbfe !important;
     z-index: 2 !important;
     transition: height 0.3s ease !important;
 }
@@ -629,23 +623,26 @@ h1, h2, h3, h4, h5, h6,
     height: 4px !important;
 }
 
-/* Soft Squircle Icon */
+/* Elevated White Icon Badge on Tinted Card */
 .facility-item .facility-icon {
     width: 58px !important;
     height: 58px !important;
     min-width: 58px !important;
     border-radius: 16px !important;
+    background: #ffffff !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     margin: 0 auto 1rem !important;
     position: relative !important;
     transition: all 0.3s ease !important;
-    border: 1px solid transparent !important;
+    border: 1px solid rgba(255, 255, 255, 0.9) !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05) !important;
 }
 
 .facility-item:hover .facility-icon {
-    transform: scale(1.05) rotate(-1deg) !important;
+    transform: scale(1.06) rotate(-1deg) !important;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08) !important;
 }
 
 .facility-item .facility-icon::before,
@@ -687,12 +684,18 @@ h1, h2, h3, h4, h5, h6,
 .facility-item .facility-text p {
     font-size: 0.84rem !important;
     line-height: 1.5 !important;
-    color: #64748b !important;
+    color: #475569 !important;
     margin-bottom: 0 !important;
 }
 
-/* Low Contrast Themes */
-/* Primary - Soft Pastel Blue */
+/* Low Contrast Pastel Card Background Themes */
+/* 1. Primary - Soft Pastel Blue Card */
+.facility-card-primary,
+.facility-item.facility-card-primary {
+    background: #f0f6ff !important;
+    border: 1px solid #dbeafe !important;
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.05) !important;
+}
 .facility-card-primary::before,
 .facility-item.facility-card-primary::before {
     background: linear-gradient(90deg, #93c5fd, #bfdbfe) !important;
@@ -700,9 +703,9 @@ h1, h2, h3, h4, h5, h6,
 .facility-card-primary .facility-icon,
 .facility-item.facility-card-primary .facility-icon,
 .facility-icon.bg-primary {
-    background: #eff6ff !important;
-    border-color: #bfdbfe !important;
-    box-shadow: 0 3px 8px rgba(37, 99, 235, 0.05) !important;
+    background: #ffffff !important;
+    border-color: rgba(191, 219, 254, 0.6) !important;
+    box-shadow: 0 3px 10px rgba(37, 99, 235, 0.08) !important;
 }
 .facility-card-primary .facility-icon i,
 .facility-item.facility-card-primary .facility-icon i,
@@ -710,16 +713,21 @@ h1, h2, h3, h4, h5, h6,
     color: #2563eb !important;
 }
 .facility-item.facility-card-primary:hover {
+    background: #e6f0fe !important;
     border-color: #bfdbfe !important;
+    box-shadow: 0 12px 28px rgba(37, 99, 235, 0.12) !important;
 }
 .facility-item.facility-card-primary:hover .facility-text h3 {
     color: #1d4ed8 !important;
 }
-.facility-item.facility-card-primary:hover .facility-icon {
-    background: #dbeafe !important;
-}
 
-/* Success - Soft Pastel Mint */
+/* 2. Success - Soft Pastel Mint Card */
+.facility-card-success,
+.facility-item.facility-card-success {
+    background: #f0fdf4 !important;
+    border: 1px solid #dcfce7 !important;
+    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.05) !important;
+}
 .facility-card-success::before,
 .facility-item.facility-card-success::before {
     background: linear-gradient(90deg, #86efac, #bbf7d0) !important;
@@ -727,9 +735,9 @@ h1, h2, h3, h4, h5, h6,
 .facility-card-success .facility-icon,
 .facility-item.facility-card-success .facility-icon,
 .facility-icon.bg-success {
-    background: #f0fdf4 !important;
-    border-color: #bbf7d0 !important;
-    box-shadow: 0 3px 8px rgba(16, 185, 129, 0.05) !important;
+    background: #ffffff !important;
+    border-color: rgba(187, 247, 208, 0.6) !important;
+    box-shadow: 0 3px 10px rgba(16, 185, 129, 0.08) !important;
 }
 .facility-card-success .facility-icon i,
 .facility-item.facility-card-success .facility-icon i,
@@ -737,16 +745,21 @@ h1, h2, h3, h4, h5, h6,
     color: #059669 !important;
 }
 .facility-item.facility-card-success:hover {
+    background: #e4f8ec !important;
     border-color: #bbf7d0 !important;
+    box-shadow: 0 12px 28px rgba(16, 185, 129, 0.12) !important;
 }
 .facility-item.facility-card-success:hover .facility-text h3 {
     color: #047857 !important;
 }
-.facility-item.facility-card-success:hover .facility-icon {
-    background: #dcfce7 !important;
-}
 
-/* Warning - Soft Pastel Amber */
+/* 3. Warning - Soft Pastel Amber Card */
+.facility-card-warning,
+.facility-item.facility-card-warning {
+    background: #fffbeb !important;
+    border: 1px solid #fef3c7 !important;
+    box-shadow: 0 4px 16px rgba(217, 119, 6, 0.05) !important;
+}
 .facility-card-warning::before,
 .facility-item.facility-card-warning::before {
     background: linear-gradient(90deg, #fcd34d, #fde68a) !important;
@@ -754,9 +767,9 @@ h1, h2, h3, h4, h5, h6,
 .facility-card-warning .facility-icon,
 .facility-item.facility-card-warning .facility-icon,
 .facility-icon.bg-warning {
-    background: #fffbeb !important;
-    border-color: #fde68a !important;
-    box-shadow: 0 3px 8px rgba(217, 119, 6, 0.05) !important;
+    background: #ffffff !important;
+    border-color: rgba(253, 230, 138, 0.6) !important;
+    box-shadow: 0 3px 10px rgba(217, 119, 6, 0.08) !important;
 }
 .facility-card-warning .facility-icon i,
 .facility-item.facility-card-warning .facility-icon i,
@@ -764,16 +777,21 @@ h1, h2, h3, h4, h5, h6,
     color: #d97706 !important;
 }
 .facility-item.facility-card-warning:hover {
+    background: #fef5d6 !important;
     border-color: #fde68a !important;
+    box-shadow: 0 12px 28px rgba(217, 119, 6, 0.12) !important;
 }
 .facility-item.facility-card-warning:hover .facility-text h3 {
     color: #b45309 !important;
 }
-.facility-item.facility-card-warning:hover .facility-icon {
-    background: #fef3c7 !important;
-}
 
-/* Info - Soft Pastel Sky Blue */
+/* 4. Info - Soft Pastel Sky Blue Card */
+.facility-card-info,
+.facility-item.facility-card-info {
+    background: #f0f9ff !important;
+    border: 1px solid #e0f2fe !important;
+    box-shadow: 0 4px 16px rgba(2, 132, 199, 0.05) !important;
+}
 .facility-card-info::before,
 .facility-item.facility-card-info::before {
     background: linear-gradient(90deg, #7dd3fc, #bae6fd) !important;
@@ -781,9 +799,9 @@ h1, h2, h3, h4, h5, h6,
 .facility-card-info .facility-icon,
 .facility-item.facility-card-info .facility-icon,
 .facility-icon.bg-info {
-    background: #f0f9ff !important;
-    border-color: #bae6fd !important;
-    box-shadow: 0 3px 8px rgba(2, 132, 199, 0.05) !important;
+    background: #ffffff !important;
+    border-color: rgba(186, 230, 253, 0.6) !important;
+    box-shadow: 0 3px 10px rgba(2, 132, 199, 0.08) !important;
 }
 .facility-card-info .facility-icon i,
 .facility-item.facility-card-info .facility-icon i,
@@ -791,16 +809,21 @@ h1, h2, h3, h4, h5, h6,
     color: #0284c7 !important;
 }
 .facility-item.facility-card-info:hover {
+    background: #e3f3fe !important;
     border-color: #bae6fd !important;
+    box-shadow: 0 12px 28px rgba(2, 132, 199, 0.12) !important;
 }
 .facility-item.facility-card-info:hover .facility-text h3 {
     color: #0369a1 !important;
 }
-.facility-item.facility-card-info:hover .facility-icon {
-    background: #e0f2fe !important;
-}
 
-/* Danger - Soft Pastel Rose */
+/* 5. Danger - Soft Pastel Rose Card */
+.facility-card-danger,
+.facility-item.facility-card-danger {
+    background: #fef2f2 !important;
+    border: 1px solid #fee2e2 !important;
+    box-shadow: 0 4px 16px rgba(220, 38, 38, 0.05) !important;
+}
 .facility-card-danger::before,
 .facility-item.facility-card-danger::before {
     background: linear-gradient(90deg, #fca5a5, #fecaca) !important;
@@ -808,9 +831,9 @@ h1, h2, h3, h4, h5, h6,
 .facility-card-danger .facility-icon,
 .facility-item.facility-card-danger .facility-icon,
 .facility-icon.bg-danger {
-    background: #fef2f2 !important;
-    border-color: #fecaca !important;
-    box-shadow: 0 3px 8px rgba(220, 38, 38, 0.05) !important;
+    background: #ffffff !important;
+    border-color: rgba(254, 202, 202, 0.6) !important;
+    box-shadow: 0 3px 10px rgba(220, 38, 38, 0.08) !important;
 }
 .facility-card-danger .facility-icon i,
 .facility-item.facility-card-danger .facility-icon i,
@@ -818,16 +841,21 @@ h1, h2, h3, h4, h5, h6,
     color: #dc2626 !important;
 }
 .facility-item.facility-card-danger:hover {
+    background: #fee4e4 !important;
     border-color: #fecaca !important;
+    box-shadow: 0 12px 28px rgba(220, 38, 38, 0.12) !important;
 }
 .facility-item.facility-card-danger:hover .facility-text h3 {
     color: #b91c1c !important;
 }
-.facility-item.facility-card-danger:hover .facility-icon {
-    background: #fee2e2 !important;
-}
 
-/* Secondary - Soft Pastel Lavender/Violet */
+/* 6. Secondary - Soft Pastel Lavender Card */
+.facility-card-secondary,
+.facility-item.facility-card-secondary {
+    background: #faf5ff !important;
+    border: 1px solid #f3e8ff !important;
+    box-shadow: 0 4px 16px rgba(124, 58, 237, 0.05) !important;
+}
 .facility-card-secondary::before,
 .facility-item.facility-card-secondary::before {
     background: linear-gradient(90deg, #d8b4fe, #e9d5ff) !important;
@@ -835,9 +863,9 @@ h1, h2, h3, h4, h5, h6,
 .facility-card-secondary .facility-icon,
 .facility-item.facility-card-secondary .facility-icon,
 .facility-icon.bg-secondary {
-    background: #faf5ff !important;
-    border-color: #e9d5ff !important;
-    box-shadow: 0 3px 8px rgba(124, 58, 237, 0.05) !important;
+    background: #ffffff !important;
+    border-color: rgba(233, 213, 255, 0.6) !important;
+    box-shadow: 0 3px 10px rgba(124, 58, 237, 0.08) !important;
 }
 .facility-card-secondary .facility-icon i,
 .facility-item.facility-card-secondary .facility-icon i,
@@ -845,13 +873,12 @@ h1, h2, h3, h4, h5, h6,
     color: #7c3aed !important;
 }
 .facility-item.facility-card-secondary:hover {
+    background: #f3e8fe !important;
     border-color: #e9d5ff !important;
+    box-shadow: 0 12px 28px rgba(124, 58, 237, 0.12) !important;
 }
 .facility-item.facility-card-secondary:hover .facility-text h3 {
     color: #6d28d9 !important;
-}
-.facility-item.facility-card-secondary:hover .facility-icon {
-    background: #f3e8ff !important;
 }
 
 .facility-tap-badge {
@@ -861,23 +888,25 @@ h1, h2, h3, h4, h5, h6,
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    background: rgba(100, 116, 139, 0.07);
-    color: #94a3b8;
+    background: rgba(255, 255, 255, 0.85);
+    color: #64748b;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 0.68rem;
-    opacity: 0.8;
+    opacity: 0.85;
     transition: all 0.25s ease;
     z-index: 5;
-    border: 1px solid rgba(100, 116, 139, 0.12);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
 }
 
 .facility-item:hover .facility-tap-badge {
     opacity: 1;
     transform: scale(1.1);
-    background: #f1f5f9;
-    color: #475569;
+    background: #ffffff;
+    color: #1e293b;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
 }
 
 /* Mobile Minimal 2-Column Grid (< 768px) */
