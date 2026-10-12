@@ -266,12 +266,13 @@ h1, h2, h3, h4, h5, h6,
 
 .brand-title-sub {
     font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-    font-size: 0.82rem;
+    font-size: 0.92rem;
     font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 2.2px;
     color: #e31b23;
     line-height: 1.2;
+    display: block;
 }
 
 .navbar .navbar-nav .nav-link {
@@ -321,23 +322,28 @@ h1, h2, h3, h4, h5, h6,
 /* Mobile Navbar Adjustments (< 992px) */
 @media (max-width: 991.98px) {
     .navbar {
-        padding-top: 0.6rem !important;
-        padding-bottom: 0.6rem !important;
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
     }
 
     .navbar-brand img,
     .navbar-logo-img {
-        height: 52px !important;
-        max-width: 80px;
+        height: 68px !important;
+        max-width: 95px;
     }
 
     .brand-title-main {
-        font-size: 1.55rem;
+        font-size: 1.7rem;
+        line-height: 1.05;
     }
 
     .brand-title-sub {
-        font-size: 0.65rem;
-        letter-spacing: 1.2px;
+        font-size: 0.84rem;
+        font-weight: 800;
+        letter-spacing: 1.3px;
+        color: #e31b23;
+        line-height: 1.2;
+        display: block;
     }
 
     .navbar-toggler {
@@ -379,6 +385,40 @@ h1, h2, h3, h4, h5, h6,
         box-shadow: none;
         padding: 0.5rem;
         margin-top: 0.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-brand img,
+    .navbar-logo-img {
+        height: 62px !important;
+        max-width: 86px;
+    }
+
+    .brand-title-main {
+        font-size: 1.55rem;
+    }
+
+    .brand-title-sub {
+        font-size: 0.78rem;
+        letter-spacing: 1px;
+    }
+}
+
+@media (max-width: 375px) {
+    .navbar-brand img,
+    .navbar-logo-img {
+        height: 56px !important;
+        max-width: 76px;
+    }
+
+    .brand-title-main {
+        font-size: 1.38rem;
+    }
+
+    .brand-title-sub {
+        font-size: 0.7rem;
+        letter-spacing: 0.5px;
     }
 }
 
