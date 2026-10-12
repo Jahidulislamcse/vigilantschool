@@ -33,6 +33,15 @@ class SettingController extends Controller
             Setting::set($key, $value, $group);
         }
 
+        // Synchronize full school name when brand_name_first is provided
+        if ($request->filled('brand_name_first')) {
+            $firstName = trim($request->input('brand_name_first'));
+            $secondName = trim($request->input('brand_name_second', ''));
+            $fullTitle = $secondName ? ($firstName . ' ' . $secondName) : $firstName;
+            Setting::set('site_title', $fullTitle, 'general');
+            Setting::set('school_name', $fullTitle, 'general');
+        }
+
         // Handle Site Logo Upload
         if ($request->hasFile('site_logo')) {
             $request->validate(['site_logo' => 'file|mimes:jpeg,png,jpg,gif,svg,webp|max:3072']);

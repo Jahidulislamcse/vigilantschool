@@ -53,10 +53,25 @@
                         <!-- Branding & Identity Tab -->
                         <div class="tab-pane fade show active" id="general" role="tabpanel">
                             <div class="row g-4">
+                                @php
+                                    $defaultFirst = $settings['brand_name_first'] ?? null;
+                                    $defaultSecond = $settings['brand_name_second'] ?? null;
+                                    if (empty($defaultFirst) && !empty($settings['site_title'])) {
+                                        $parts = preg_split('/\s+/', trim($settings['site_title']), 2);
+                                        $defaultFirst = $parts[0] ?? 'Vigilant';
+                                        $defaultSecond = $parts[1] ?? 'International School';
+                                    }
+                                @endphp
                                 <div class="col-md-6">
-                                    <label class="form-label fw-bold small text-secondary">Official School Name *</label>
-                                    <input type="text" name="site_title" class="form-control" value="{{ old('site_title', $settings['site_title'] ?? 'Vigilant International School') }}" required>
-                                    <small class="text-muted">Displayed in navbar logo branding, page titles, and browser tabs. (Tip: Use a pipe "|" if you wish to set a custom line break, e.g. "Vigilant | International School").</small>
+                                    <label class="form-label fw-bold small text-secondary">Official School Name (1st / Main Name) *</label>
+                                    <input type="text" name="brand_name_first" class="form-control" value="{{ old('brand_name_first', $defaultFirst ?? 'Vigilant') }}" placeholder="e.g. Vigilant" required>
+                                    <small class="text-muted">Top brand name in navbar (displayed in cursive script font).</small>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold small text-secondary">Official School Name (2nd Name / Subtitle)</label>
+                                    <input type="text" name="brand_name_second" class="form-control" value="{{ old('brand_name_second', $defaultSecond ?? 'International School') }}" placeholder="e.g. International School">
+                                    <small class="text-muted">Bottom descriptor in navbar (displayed in bold red uppercase).</small>
                                 </div>
 
                                 <div class="col-md-6">

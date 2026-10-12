@@ -47,6 +47,8 @@ class DatabaseSeeder extends Seeder
         $settings = [
             ['key' => 'school_name', 'value' => 'Vigilant International School', 'group' => 'general', 'type' => 'text'],
             ['key' => 'site_title', 'value' => 'Vigilant International School', 'group' => 'general', 'type' => 'text'],
+            ['key' => 'brand_name_first', 'value' => 'Vigilant', 'group' => 'general', 'type' => 'text'],
+            ['key' => 'brand_name_second', 'value' => 'International School', 'group' => 'general', 'type' => 'text'],
             ['key' => 'site_tagline', 'value' => 'Constant effort in acquiring quality and quantity', 'group' => 'general', 'type' => 'text'],
             ['key' => 'motto', 'value' => 'Visit first then decide', 'group' => 'general', 'type' => 'text'],
             ['key' => 'medium_version', 'value' => 'English Medium & English Version (Play Group to Class 8 / Std-VIII)', 'group' => 'general', 'type' => 'text'],
