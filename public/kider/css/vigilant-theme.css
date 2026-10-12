@@ -612,24 +612,24 @@ h1, h2, h3, h4, h5, h6,
     border-color: rgba(12, 69, 152, 0.2) !important;
 }
 
-/* Top Accent Highlight Bar */
+/* Top Accent Highlight Bar (Soft Muted Accent) */
 .facility-item::before {
     content: "" !important;
     position: absolute !important;
     top: 0 !important;
     left: 0 !important;
     width: 100% !important;
-    height: 4px !important;
-    background: var(--bs-primary) !important;
+    height: 3px !important;
+    background: #bfdbfe !important;
     z-index: 2 !important;
     transition: height 0.3s ease !important;
 }
 
 .facility-item:hover::before {
-    height: 6px !important;
+    height: 4px !important;
 }
 
-/* 3D Gradient Squircle Icon */
+/* Soft Squircle Icon */
 .facility-item .facility-icon {
     width: 58px !important;
     height: 58px !important;
@@ -641,11 +641,11 @@ h1, h2, h3, h4, h5, h6,
     margin: 0 auto 1rem !important;
     position: relative !important;
     transition: all 0.3s ease !important;
-    border: none !important;
+    border: 1px solid transparent !important;
 }
 
 .facility-item:hover .facility-icon {
-    transform: scale(1.08) rotate(-2deg) !important;
+    transform: scale(1.05) rotate(-1deg) !important;
 }
 
 .facility-item .facility-icon::before,
@@ -655,10 +655,9 @@ h1, h2, h3, h4, h5, h6,
 
 .facility-item .facility-icon i {
     font-size: 1.55rem !important;
-    color: #ffffff !important;
     position: relative !important;
     z-index: 3 !important;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2)) !important;
+    filter: none !important;
 }
 
 /* Facility Text Content */
@@ -679,7 +678,7 @@ h1, h2, h3, h4, h5, h6,
     font-family: 'Plus Jakarta Sans', sans-serif !important;
     font-size: 1.05rem !important;
     font-weight: 700 !important;
-    color: #0a2240 !important;
+    color: #0f172a !important;
     margin-bottom: 0.45rem !important;
     line-height: 1.35 !important;
     transition: color 0.25s ease !important;
@@ -688,73 +687,171 @@ h1, h2, h3, h4, h5, h6,
 .facility-item .facility-text p {
     font-size: 0.84rem !important;
     line-height: 1.5 !important;
-    color: #5a6a80 !important;
+    color: #64748b !important;
     margin-bottom: 0 !important;
 }
 
-.facility-item:hover .facility-text h3 {
-    color: #0c4598 !important;
-}
-
-/* Theme Gradients */
+/* Low Contrast Themes */
+/* Primary - Soft Pastel Blue */
 .facility-card-primary::before,
 .facility-item.facility-card-primary::before {
-    background: linear-gradient(90deg, #0c4598, #2563eb) !important;
+    background: linear-gradient(90deg, #93c5fd, #bfdbfe) !important;
 }
 .facility-card-primary .facility-icon,
 .facility-item.facility-card-primary .facility-icon,
 .facility-icon.bg-primary {
-    background: linear-gradient(135deg, #0c4598 0%, #2563eb 100%) !important;
-    box-shadow: 0 6px 14px rgba(12, 69, 152, 0.3) !important;
+    background: #eff6ff !important;
+    border-color: #bfdbfe !important;
+    box-shadow: 0 3px 8px rgba(37, 99, 235, 0.05) !important;
+}
+.facility-card-primary .facility-icon i,
+.facility-item.facility-card-primary .facility-icon i,
+.facility-icon.bg-primary i {
+    color: #2563eb !important;
+}
+.facility-item.facility-card-primary:hover {
+    border-color: #bfdbfe !important;
+}
+.facility-item.facility-card-primary:hover .facility-text h3 {
+    color: #1d4ed8 !important;
+}
+.facility-item.facility-card-primary:hover .facility-icon {
+    background: #dbeafe !important;
 }
 
+/* Success - Soft Pastel Mint */
 .facility-card-success::before,
 .facility-item.facility-card-success::before {
-    background: linear-gradient(90deg, #0e9f4b, #10b981) !important;
+    background: linear-gradient(90deg, #86efac, #bbf7d0) !important;
 }
 .facility-card-success .facility-icon,
 .facility-item.facility-card-success .facility-icon,
 .facility-icon.bg-success {
-    background: linear-gradient(135deg, #0e9f4b 0%, #10b981 100%) !important;
-    box-shadow: 0 6px 14px rgba(14, 159, 75, 0.3) !important;
+    background: #f0fdf4 !important;
+    border-color: #bbf7d0 !important;
+    box-shadow: 0 3px 8px rgba(16, 185, 129, 0.05) !important;
+}
+.facility-card-success .facility-icon i,
+.facility-item.facility-card-success .facility-icon i,
+.facility-icon.bg-success i {
+    color: #059669 !important;
+}
+.facility-item.facility-card-success:hover {
+    border-color: #bbf7d0 !important;
+}
+.facility-item.facility-card-success:hover .facility-text h3 {
+    color: #047857 !important;
+}
+.facility-item.facility-card-success:hover .facility-icon {
+    background: #dcfce7 !important;
 }
 
+/* Warning - Soft Pastel Amber */
 .facility-card-warning::before,
 .facility-item.facility-card-warning::before {
-    background: linear-gradient(90deg, #d97706, #f59e0b) !important;
+    background: linear-gradient(90deg, #fcd34d, #fde68a) !important;
 }
 .facility-card-warning .facility-icon,
 .facility-item.facility-card-warning .facility-icon,
 .facility-icon.bg-warning {
-    background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%) !important;
-    box-shadow: 0 6px 14px rgba(245, 158, 11, 0.3) !important;
+    background: #fffbeb !important;
+    border-color: #fde68a !important;
+    box-shadow: 0 3px 8px rgba(217, 119, 6, 0.05) !important;
+}
+.facility-card-warning .facility-icon i,
+.facility-item.facility-card-warning .facility-icon i,
+.facility-icon.bg-warning i {
+    color: #d97706 !important;
+}
+.facility-item.facility-card-warning:hover {
+    border-color: #fde68a !important;
+}
+.facility-item.facility-card-warning:hover .facility-text h3 {
+    color: #b45309 !important;
+}
+.facility-item.facility-card-warning:hover .facility-icon {
+    background: #fef3c7 !important;
 }
 
+/* Info - Soft Pastel Sky Blue */
 .facility-card-info::before,
 .facility-item.facility-card-info::before {
-    background: linear-gradient(90deg, #0284c7, #38bdf8) !important;
+    background: linear-gradient(90deg, #7dd3fc, #bae6fd) !important;
 }
 .facility-card-info .facility-icon,
 .facility-item.facility-card-info .facility-icon,
 .facility-icon.bg-info {
-    background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%) !important;
-    box-shadow: 0 6px 14px rgba(2, 132, 199, 0.3) !important;
+    background: #f0f9ff !important;
+    border-color: #bae6fd !important;
+    box-shadow: 0 3px 8px rgba(2, 132, 199, 0.05) !important;
+}
+.facility-card-info .facility-icon i,
+.facility-item.facility-card-info .facility-icon i,
+.facility-icon.bg-info i {
+    color: #0284c7 !important;
+}
+.facility-item.facility-card-info:hover {
+    border-color: #bae6fd !important;
+}
+.facility-item.facility-card-info:hover .facility-text h3 {
+    color: #0369a1 !important;
+}
+.facility-item.facility-card-info:hover .facility-icon {
+    background: #e0f2fe !important;
 }
 
-.facility-card-secondary::before,
+/* Danger - Soft Pastel Rose */
 .facility-card-danger::before,
-.facility-item.facility-card-secondary::before,
 .facility-item.facility-card-danger::before {
-    background: linear-gradient(90deg, #be1218, #e31b23) !important;
+    background: linear-gradient(90deg, #fca5a5, #fecaca) !important;
+}
+.facility-card-danger .facility-icon,
+.facility-item.facility-card-danger .facility-icon,
+.facility-icon.bg-danger {
+    background: #fef2f2 !important;
+    border-color: #fecaca !important;
+    box-shadow: 0 3px 8px rgba(220, 38, 38, 0.05) !important;
+}
+.facility-card-danger .facility-icon i,
+.facility-item.facility-card-danger .facility-icon i,
+.facility-icon.bg-danger i {
+    color: #dc2626 !important;
+}
+.facility-item.facility-card-danger:hover {
+    border-color: #fecaca !important;
+}
+.facility-item.facility-card-danger:hover .facility-text h3 {
+    color: #b91c1c !important;
+}
+.facility-item.facility-card-danger:hover .facility-icon {
+    background: #fee2e2 !important;
+}
+
+/* Secondary - Soft Pastel Lavender/Violet */
+.facility-card-secondary::before,
+.facility-item.facility-card-secondary::before {
+    background: linear-gradient(90deg, #d8b4fe, #e9d5ff) !important;
 }
 .facility-card-secondary .facility-icon,
-.facility-card-danger .facility-icon,
 .facility-item.facility-card-secondary .facility-icon,
-.facility-item.facility-card-danger .facility-icon,
-.facility-icon.bg-secondary,
-.facility-icon.bg-danger {
-    background: linear-gradient(135deg, #be1218 0%, #e31b23 100%) !important;
-    box-shadow: 0 6px 14px rgba(227, 27, 35, 0.3) !important;
+.facility-icon.bg-secondary {
+    background: #faf5ff !important;
+    border-color: #e9d5ff !important;
+    box-shadow: 0 3px 8px rgba(124, 58, 237, 0.05) !important;
+}
+.facility-card-secondary .facility-icon i,
+.facility-item.facility-card-secondary .facility-icon i,
+.facility-icon.bg-secondary i {
+    color: #7c3aed !important;
+}
+.facility-item.facility-card-secondary:hover {
+    border-color: #e9d5ff !important;
+}
+.facility-item.facility-card-secondary:hover .facility-text h3 {
+    color: #6d28d9 !important;
+}
+.facility-item.facility-card-secondary:hover .facility-icon {
+    background: #f3e8ff !important;
 }
 
 .facility-tap-badge {
@@ -764,22 +861,23 @@ h1, h2, h3, h4, h5, h6,
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    background: rgba(12, 69, 152, 0.08);
-    color: #0c4598;
+    background: rgba(100, 116, 139, 0.07);
+    color: #94a3b8;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 0.68rem;
-    opacity: 0.6;
+    opacity: 0.8;
     transition: all 0.25s ease;
     z-index: 5;
+    border: 1px solid rgba(100, 116, 139, 0.12);
 }
 
 .facility-item:hover .facility-tap-badge {
     opacity: 1;
-    transform: scale(1.15);
-    background: #0c4598;
-    color: #ffffff;
+    transform: scale(1.1);
+    background: #f1f5f9;
+    color: #475569;
 }
 
 /* Mobile Minimal 2-Column Grid (< 768px) */
@@ -843,15 +941,15 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .facility-modal-bar {
-    height: 5px;
+    height: 4px;
     width: 100%;
 }
-.facility-modal-bar-primary { background: linear-gradient(90deg, #0c4598, #2563eb); }
-.facility-modal-bar-success { background: linear-gradient(90deg, #0e9f4b, #10b981); }
-.facility-modal-bar-warning { background: linear-gradient(90deg, #d97706, #f59e0b); }
-.facility-modal-bar-info { background: linear-gradient(90deg, #0284c7, #38bdf8); }
-.facility-modal-bar-secondary,
-.facility-modal-bar-danger { background: linear-gradient(90deg, #be1218, #e31b23); }
+.facility-modal-bar-primary { background: linear-gradient(90deg, #93c5fd, #bfdbfe); }
+.facility-modal-bar-success { background: linear-gradient(90deg, #86efac, #bbf7d0); }
+.facility-modal-bar-warning { background: linear-gradient(90deg, #fcd34d, #fde68a); }
+.facility-modal-bar-info { background: linear-gradient(90deg, #7dd3fc, #bae6fd); }
+.facility-modal-bar-danger { background: linear-gradient(90deg, #fca5a5, #fecaca); }
+.facility-modal-bar-secondary { background: linear-gradient(90deg, #d8b4fe, #e9d5ff); }
 
 .facility-modal-icon {
     width: 68px;
@@ -860,29 +958,43 @@ h1, h2, h3, h4, h5, h6,
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #ffffff;
     font-size: 1.85rem;
 }
 .facility-modal-icon-primary {
-    background: linear-gradient(135deg, #0c4598 0%, #2563eb 100%);
-    box-shadow: 0 8px 20px rgba(12, 69, 152, 0.35);
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    color: #2563eb;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.08);
 }
 .facility-modal-icon-success {
-    background: linear-gradient(135deg, #0e9f4b 0%, #10b981 100%);
-    box-shadow: 0 8px 20px rgba(14, 159, 75, 0.35);
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    color: #059669;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.08);
 }
 .facility-modal-icon-warning {
-    background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
-    box-shadow: 0 8px 20px rgba(245, 158, 11, 0.35);
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    color: #d97706;
+    box-shadow: 0 4px 12px rgba(217, 119, 6, 0.08);
 }
 .facility-modal-icon-info {
-    background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);
-    box-shadow: 0 8px 20px rgba(2, 132, 199, 0.35);
+    background: #f0f9ff;
+    border: 1px solid #bae6fd;
+    color: #0284c7;
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.08);
 }
-.facility-modal-icon-secondary,
 .facility-modal-icon-danger {
-    background: linear-gradient(135deg, #be1218 0%, #e31b23 100%);
-    box-shadow: 0 8px 20px rgba(227, 27, 35, 0.35);
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #dc2626;
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.08);
+}
+.facility-modal-icon-secondary {
+    background: #faf5ff;
+    border: 1px solid #e9d5ff;
+    color: #7c3aed;
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.08);
 }
 
 .facility-modal-highlights {
