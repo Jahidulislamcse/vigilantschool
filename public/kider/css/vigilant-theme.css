@@ -438,6 +438,9 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .header-carousel .owl-carousel-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -527,33 +530,33 @@ h1, h2, h3, h4, h5, h6,
 /* Carousel on Mobile Devices (< 768px) */
 @media (max-width: 767.98px) {
     .header-carousel .owl-carousel-item {
-        min-height: 420px;
-        max-height: 480px;
+        min-height: 560px !important;
+        max-height: 620px !important;
     }
 
     .slider-overlay {
-        padding: 1.5rem 0.5rem;
-        background: linear-gradient(135deg, rgba(10, 34, 64, 0.88) 0%, rgba(10, 34, 64, 0.68) 100%);
+        padding: 3rem 1.25rem 4rem;
+        background: linear-gradient(135deg, rgba(10, 34, 64, 0.88) 0%, rgba(10, 34, 64, 0.65) 100%);
     }
 
     .slider-badge {
-        font-size: 0.72rem;
-        letter-spacing: 1px;
-        padding: 4px 10px;
-        margin-bottom: 0.65rem;
+        font-size: 0.78rem;
+        letter-spacing: 1.2px;
+        padding: 5px 12px;
+        margin-bottom: 0.85rem;
     }
 
     .slider-title {
-        font-size: 1.45rem !important;
+        font-size: 1.65rem !important;
         line-height: 1.25 !important;
-        margin-bottom: 0.65rem !important;
+        margin-bottom: 0.85rem !important;
     }
 
     .slider-desc {
-        font-size: 0.85rem;
-        line-height: 1.45;
+        font-size: 0.92rem;
+        line-height: 1.55;
         display: -webkit-box;
-        -webkit-line-clamp: 3;
+        -webkit-line-clamp: 4;
         -webkit-box-orient: vertical;
         overflow: hidden;
     }
@@ -561,8 +564,8 @@ h1, h2, h3, h4, h5, h6,
     /* Move carousel arrows to bottom right on mobile so they NEVER block text */
     .header-carousel .owl-nav {
         top: auto;
-        bottom: 18px;
-        right: 18px;
+        bottom: 22px;
+        right: 20px;
         transform: none;
         flex-direction: row;
         gap: 8px;
@@ -570,9 +573,9 @@ h1, h2, h3, h4, h5, h6,
 
     .header-carousel .owl-nav .owl-prev,
     .header-carousel .owl-nav .owl-next {
-        width: 34px;
-        height: 34px;
-        font-size: 13px;
+        width: 38px;
+        height: 38px;
+        font-size: 14px;
         margin: 0;
     }
 
@@ -582,6 +585,21 @@ h1, h2, h3, h4, h5, h6,
     .page-header::before,
     .page-header::after {
         height: 6px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-carousel .owl-carousel-item {
+        min-height: 550px !important;
+        max-height: 600px !important;
+    }
+
+    .slider-title {
+        font-size: 1.5rem !important;
+    }
+
+    .slider-desc {
+        font-size: 0.88rem;
     }
 }
 
