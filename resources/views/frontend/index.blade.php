@@ -10,28 +10,22 @@
         <div class="owl-carousel header-carousel position-relative">
             @foreach($sliders as $slider)
             <div class="owl-carousel-item position-relative">
-                <img class="img-fluid w-100" src="{{ asset($slider->image) }}" alt="{{ $slider->title ?: ($settings['site_title'] ?? 'School Slider') }}">
-                @if(!empty($slider->title) || !empty($slider->subtitle) || !empty($slider->description))
+                <img class="img-fluid" src="{{ asset($slider->image) }}" alt="{{ $slider->title }}">
                 <div class="slider-overlay">
                     <div class="container">
                         <div class="row justify-content-start">
                             <div class="col-12 col-md-10 col-lg-8 px-3 px-md-4">
-                                @if(!empty($slider->subtitle))
+                                @if($slider->subtitle)
                                     <div>
                                         <span class="slider-badge animated slideInDown">{{ $slider->subtitle }}</span>
                                     </div>
                                 @endif
-                                @if(!empty($slider->title))
-                                    <h1 class="slider-title animated slideInDown">{{ $slider->title }}</h1>
-                                @endif
-                                @if(!empty($slider->description))
-                                    <p class="slider-desc animated slideInDown mb-0">{{ $slider->description }}</p>
-                                @endif
+                                <h1 class="slider-title animated slideInDown">{{ $slider->title }}</h1>
+                                <p class="slider-desc animated slideInDown mb-0">{{ $slider->description }}</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                @endif
             </div>
             @endforeach
         </div>

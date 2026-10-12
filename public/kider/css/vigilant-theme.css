@@ -527,79 +527,52 @@ h1, h2, h3, h4, h5, h6,
 /* Carousel on Mobile Devices (< 768px) */
 @media (max-width: 767.98px) {
     .header-carousel .owl-carousel-item {
-        position: relative !important;
-        min-height: unset !important;
-        max-height: none !important;
-        height: auto !important;
-        overflow: hidden !important;
-    }
-
-    .header-carousel .owl-carousel-item img {
-        position: relative !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        height: auto !important;
-        object-fit: contain !important;
-        display: block !important;
+        min-height: 420px;
+        max-height: 480px;
     }
 
     .slider-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        padding: 0.85rem 0.5rem;
-        background: linear-gradient(135deg, rgba(10, 34, 64, 0.72) 0%, rgba(10, 34, 64, 0.45) 100%);
+        padding: 1.5rem 0.5rem;
+        background: linear-gradient(135deg, rgba(10, 34, 64, 0.88) 0%, rgba(10, 34, 64, 0.68) 100%);
     }
 
     .slider-badge {
-        font-size: 0.65rem;
-        letter-spacing: 0.8px;
-        padding: 3px 8px;
-        margin-bottom: 0.3rem;
+        font-size: 0.72rem;
+        letter-spacing: 1px;
+        padding: 4px 10px;
+        margin-bottom: 0.65rem;
     }
 
     .slider-title {
-        font-size: clamp(1rem, 3.8vw, 1.35rem) !important;
-        line-height: 1.2 !important;
-        margin-bottom: 0.3rem !important;
+        font-size: 1.45rem !important;
+        line-height: 1.25 !important;
+        margin-bottom: 0.65rem !important;
     }
 
     .slider-desc {
-        font-size: clamp(0.72rem, 2.5vw, 0.82rem);
-        line-height: 1.35;
+        font-size: 0.85rem;
+        line-height: 1.45;
         display: -webkit-box;
-        -webkit-line-clamp: 2;
+        -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
         overflow: hidden;
     }
 
-    /* Carousel arrows on mobile */
+    /* Move carousel arrows to bottom right on mobile so they NEVER block text */
     .header-carousel .owl-nav {
-        top: 50%;
-        bottom: auto;
-        left: 0;
-        right: 0;
-        width: 100%;
-        transform: translateY(-50%);
-        display: flex;
-        justify-content: space-between;
-        padding: 0 6px;
-        pointer-events: none;
-        z-index: 5;
+        top: auto;
+        bottom: 18px;
+        right: 18px;
+        transform: none;
+        flex-direction: row;
+        gap: 8px;
     }
 
     .header-carousel .owl-nav .owl-prev,
     .header-carousel .owl-nav .owl-next {
-        pointer-events: auto;
-        width: 28px;
-        height: 28px;
-        font-size: 11px;
-        background: rgba(10, 34, 64, 0.6) !important;
-        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        width: 34px;
+        height: 34px;
+        font-size: 13px;
         margin: 0;
     }
 
@@ -608,7 +581,7 @@ h1, h2, h3, h4, h5, h6,
     .header-carousel::after,
     .page-header::before,
     .page-header::after {
-        height: 5px !important;
+        height: 6px !important;
     }
 }
 
